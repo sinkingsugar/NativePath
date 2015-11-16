@@ -18,7 +18,7 @@ extern double npAsin(double x);
 //Returns the arc tangent of x in radians.
 extern double npAtan(double x);
 //Returns the arc tangent in radians of y/x based on the signs of both values to determine the correct quadrant.
-extern double npAtan2(doubly y, double x);
+extern double npAtan2(double y, double x);
 //Returns the cosine of a radian angle x.
 extern double npCos(double x);
 //Returns the hyperbolic cosine of x.
