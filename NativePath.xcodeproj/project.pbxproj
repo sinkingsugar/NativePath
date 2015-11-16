@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		75EC72741BF9B5AF00A988D5 /* NativePath.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75EC72731BF9B5AF00A988D5 /* NativePath.h */; };
-		75EC72761BF9B5AF00A988D5 /* NativePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 75EC72751BF9B5AF00A988D5 /* NativePath.m */; };
+		75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 75EC727D1BF9B92100A988D5 /* NativeMath.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +17,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				75EC72741BF9B5AF00A988D5 /* NativePath.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -26,8 +24,9 @@
 
 /* Begin PBXFileReference section */
 		75EC72701BF9B5AE00A988D5 /* libNativePath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNativePath.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		75EC72731BF9B5AF00A988D5 /* NativePath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativePath.h; sourceTree = "<group>"; };
-		75EC72751BF9B5AF00A988D5 /* NativePath.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NativePath.m; sourceTree = "<group>"; };
+		75EC727C1BF9B63D00A988D5 /* NativeMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeMath.h; sourceTree = "<group>"; };
+		75EC727D1BF9B92100A988D5 /* NativeMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NativeMath.c; sourceTree = "<group>"; };
+		75EC727F1BF9BC2700A988D5 /* ShaderFastMathLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderFastMathLib.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +59,9 @@
 		75EC72721BF9B5AE00A988D5 /* NativePath */ = {
 			isa = PBXGroup;
 			children = (
-				75EC72731BF9B5AF00A988D5 /* NativePath.h */,
-				75EC72751BF9B5AF00A988D5 /* NativePath.m */,
+				75EC727C1BF9B63D00A988D5 /* NativeMath.h */,
+				75EC727D1BF9B92100A988D5 /* NativeMath.c */,
+				75EC727F1BF9BC2700A988D5 /* ShaderFastMathLib.h */,
 			);
 			path = NativePath;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75EC72761BF9B5AF00A988D5 /* NativePath.m in Sources */,
+				75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,18 +212,24 @@
 		75EC727A1BF9B5AF00A988D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
 		75EC727B1BF9B5AF00A988D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
