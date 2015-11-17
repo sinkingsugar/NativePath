@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 75EC727D1BF9B92100A988D5 /* NativeMath.c */; };
+		75FC37A41BFB3E29006825D6 /* lol_trig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75FC37A31BFB3E29006825D6 /* lol_trig.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,6 +28,8 @@
 		75EC727C1BF9B63D00A988D5 /* NativeMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeMath.h; sourceTree = "<group>"; };
 		75EC727D1BF9B92100A988D5 /* NativeMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NativeMath.c; sourceTree = "<group>"; };
 		75EC727F1BF9BC2700A988D5 /* ShaderFastMathLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderFastMathLib.h; sourceTree = "<group>"; };
+		75FC37A31BFB3E29006825D6 /* lol_trig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lol_trig.cpp; sourceTree = "<group>"; };
+		75FC37A51BFB3FAA006825D6 /* lol_trig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lol_trig.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,8 @@
 				75EC727C1BF9B63D00A988D5 /* NativeMath.h */,
 				75EC727D1BF9B92100A988D5 /* NativeMath.c */,
 				75EC727F1BF9BC2700A988D5 /* ShaderFastMathLib.h */,
+				75FC37A31BFB3E29006825D6 /* lol_trig.cpp */,
+				75FC37A51BFB3FAA006825D6 /* lol_trig.h */,
 			);
 			path = NativePath;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75FC37A41BFB3E29006825D6 /* lol_trig.cpp in Sources */,
 				75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +259,7 @@
 				75EC727B1BF9B5AF00A988D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

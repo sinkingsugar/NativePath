@@ -147,6 +147,17 @@ extern float npAsinFast4(float inX);
 // Reference : Efficient approximations for the arctangent function, Rajan, S. Sichun Wang Inkol, R. Joyal, A., May 2006
 extern float npAtanFast4(float inX);
 
+//LoL engine fast math
+
+extern double npLolFabs(double x);
+extern double npLolRound(double x);
+extern double npLolTrunc(double x);
+extern double npLolSin(double x);
+extern double npLolCos(double x);
+extern void npLolSincos(double x, double *sinx, double *cosx);
+extern void npLolSincosf(float x, float *sinx, float *cosx);
+extern double npLolTan(double x);
+
 //Vectors
 
 /*

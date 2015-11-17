@@ -8,6 +8,7 @@
 
 #include <math.h>
 #include "ShaderFastMathLib.h"
+#include "lol_trig.h"
 
 //Returns the arc cosine of x in radians.
 double npAcos(double x)
@@ -262,5 +263,45 @@ float npAsinFast4(float inX)
 float npAtanFast4(float inX)
 {
     return atanFast4(inX);
+}
+
+double npLolFabs(double x)
+{
+    return _lol_fabs(x);
+}
+
+double npLolRound(double x)
+{
+    return _lol_round(x);
+}
+
+double npLolTrunc(double x)
+{
+    return _lol_trunc(x);
+}
+
+double npLolSin(double x)
+{
+    return _lol_sin(x);
+}
+
+double npLolCos(double x)
+{
+    return _lol_cos(x);
+}
+
+void npLolSincos(double x, double *sinx, double *cosx)
+{
+    _lol_sincos(x, sinx, cosx);
+}
+
+void npLolSincosf(float x, float *sinx, float *cosx)
+{
+    _lol_sincosf(x, sinx, cosx);
+}
+
+double npLolTan(double x)
+{
+    return _lol_tan(x);
 }
 
