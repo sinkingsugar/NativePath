@@ -257,8 +257,8 @@ float fastRcpNR2(float inX)
 //
 // Trigonometric functions
 //
-static  const  float fsl_PI = 3.1415926535897932384626433f;
-static  const  float fsl_HALF_PI = 0.5f * fsl_PI;
+static const float fsl_PI = 3.1415926535897932384626433f;
+static const float fsl_HALF_PI = 0.5f * 3.1415926535897932384626433f;
 
 // 4th order polynomial approximation
 // 4 VGRP, 16 ALU Full Rate

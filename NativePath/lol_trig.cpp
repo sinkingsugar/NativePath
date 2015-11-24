@@ -10,6 +10,8 @@
 
 //#include <lol/engine-internal.h>
 
+#include <cmath>
+
 static const double D_PI = 3.1415926535897932384626433f;
 
 #if defined HAVE_FASTMATH_H
@@ -393,16 +395,6 @@ extern "C"
     double _lol_fabs(double x)
     {
         return lol::lol_fabs(x);
-    }
-    
-    double _lol_round(double x)
-    {
-        return lol::lol_round(x);
-    }
-    
-    double _lol_trunc(double x)
-    {
-        return lol::lol_trunc(x);
     }
     
     double _lol_sin(double x)

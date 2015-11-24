@@ -150,8 +150,6 @@ extern float npAtanFast4(float inX);
 //LoL engine fast math
 
 extern double npLolFabs(double x);
-extern double npLolRound(double x);
-extern double npLolTrunc(double x);
 extern double npLolSin(double x);
 extern double npLolCos(double x);
 extern void npLolSincos(double x, double *sinx, double *cosx);

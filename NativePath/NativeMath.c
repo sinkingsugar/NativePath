@@ -270,16 +270,6 @@ double npLolFabs(double x)
     return _lol_fabs(x);
 }
 
-double npLolRound(double x)
-{
-    return _lol_round(x);
-}
-
-double npLolTrunc(double x)
-{
-    return _lol_trunc(x);
-}
-
 double npLolSin(double x)
 {
     return _lol_sin(x);

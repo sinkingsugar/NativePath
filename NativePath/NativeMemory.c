@@ -15,5 +15,5 @@ void* npMalloc(unsigned int size)
 
 void npFree(void* block)
 {
-    return free(block);
+    free(block);
 }
