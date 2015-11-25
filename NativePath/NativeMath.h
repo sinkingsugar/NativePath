@@ -9,6 +9,14 @@
 #ifndef nativemath_h
 #define nativemath_h
 
+//type safeguard, if type sizes are not what we expect it the compiler will throw error
+static union
+{
+	char int_incorrect[sizeof(int) == 4 ? 1 : -1];
+	char float_incorrect[sizeof(float) == 4 ? 1 : -1];
+	char double_incorrect[sizeof(double) == 8 ? 1 : -1];
+} __types_safeguard;
+
 //Totally header free and macro free math.h wrapper
 
 //Returns the arc cosine of x in radians.
