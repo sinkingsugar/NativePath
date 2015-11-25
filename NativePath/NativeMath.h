@@ -54,6 +54,9 @@ extern double npFloor(double x);
 //Returns the remainder of x divided by y.
 extern double npFmod(double x, double y);
 
+extern double npFmax(double x, double y);
+extern double npFmin(double x, double y);
+
 //ShaderFastMathLib
 
 //

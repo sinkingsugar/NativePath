@@ -136,6 +136,16 @@ double npFmod(double x, double y)
     return fmod(x, y);
 }
 
+double npFmax(double x, double y)
+{
+	return fmax(x, y);
+}
+
+double npFmin(double x, double y)
+{
+	return fmin(x, y);
+}
+
 //ShaderFastMathLib
 
 //
