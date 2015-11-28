@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75B804CE1C09C575002CFF20 /* NativeTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75B804CC1C09C575002CFF20 /* NativeTime.cpp */; };
 		75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 75EC727D1BF9B92100A988D5 /* NativeMath.c */; };
 		75FC37A41BFB3E29006825D6 /* lol_trig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75FC37A31BFB3E29006825D6 /* lol_trig.cpp */; };
 		75FC37A81BFC8FF4006825D6 /* NativeMemory.c in Sources */ = {isa = PBXBuildFile; fileRef = 75FC37A61BFC8FF4006825D6 /* NativeMemory.c */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		75B804CC1C09C575002CFF20 /* NativeTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NativeTime.cpp; sourceTree = "<group>"; };
+		75B804CD1C09C575002CFF20 /* NativeTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeTime.h; sourceTree = "<group>"; };
 		75EC72701BF9B5AE00A988D5 /* libNativePath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNativePath.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		75EC727C1BF9B63D00A988D5 /* NativeMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeMath.h; sourceTree = "<group>"; };
 		75EC727D1BF9B92100A988D5 /* NativeMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NativeMath.c; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 		75EC72721BF9B5AE00A988D5 /* NativePath */ = {
 			isa = PBXGroup;
 			children = (
+				75B804CC1C09C575002CFF20 /* NativeTime.cpp */,
+				75B804CD1C09C575002CFF20 /* NativeTime.h */,
 				75EC727C1BF9B63D00A988D5 /* NativeMath.h */,
 				75EC727D1BF9B92100A988D5 /* NativeMath.c */,
 				75EC727F1BF9BC2700A988D5 /* ShaderFastMathLib.h */,
@@ -133,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75FC37A41BFB3E29006825D6 /* lol_trig.cpp in Sources */,
+				75B804CE1C09C575002CFF20 /* NativeTime.cpp in Sources */,
 				75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */,
 				75FC37A81BFC8FF4006825D6 /* NativeMemory.c in Sources */,
 			);
