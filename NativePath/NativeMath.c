@@ -168,6 +168,16 @@ double npFmin(double x, double y)
 	return fmin(x, y);
 }
 
+double npFma(double x, double y, double z)
+{
+	return fma(x, y, z);
+}
+
+double npFdim(double x, double y)
+{
+	return fdim(x, y);
+}
+
 //ShaderFastMathLib
 
 //

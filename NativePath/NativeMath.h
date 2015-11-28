@@ -43,49 +43,128 @@ static union
 
 //Returns the arc cosine of x in radians.
 extern double npAcos(double x);
+#define acos npAcos
+#define acosf npAcos
+
 //Returns the arc sine of x in radians.
 extern double npAsin(double x);
+#define asin npAsin
+#define asinf npAsin
+
 //Returns the arc tangent of x in radians.
 extern double npAtan(double x);
+#define atan npAtan
+#define atanf npAtan
+
 //Returns the arc tangent in radians of y/x based on the signs of both values to determine the correct quadrant.
 extern double npAtan2(double y, double x);
+#define atan2 npAtan2
+#define atan2f npAtan2
+
 //Returns the cosine of a radian angle x.
 extern double npCos(double x);
+#define cos npCos
+#define cosf npCos
+
 //Returns the hyperbolic cosine of x.
 extern double npCosh(double x);
+#define cosh npCosh
+#define coshf npCosh
+
 //Returns the sine of a radian angle x.
 extern double npSin(double x);
+#define sin npSin
+#define sinf npSin
+
 //Returns the hyperbolic sine of x.
 extern double npSinh(double x);
+#define sinh npSinh
+#define sinhf npSinh
+
 //Returns the hyperbolic tangent of x.
 extern double npTanh(double x);
+#define tanh npTanh
+#define tanhf npTanh
+
 //Returns the value of e raised to the xth power.
 extern double npExp(double x);
+#define exp npExp
+#define expf npExp
+
 //The returned value is the mantissa and the integer pointed to by exponent is the exponent. The resultant value is x = mantissa * 2 ^ exponent.
 extern double npFrexp(double x, int *exponent);
+#define frexp npFrexp
+#define frexpf npFrexp
+
 //Returns x multiplied by 2 raised to the power of exponent.
 extern double npLdexp(double x, int exponent);
+#define ldexp npLdexp
+#define ldexpf npLdexp
+
 //Returns the natural logarithm (base-e logarithm) of x.
 extern double npLog(double x);
+#define log npLog
+#define logf npLog
+
 //Returns the common logarithm (base-10 logarithm) of x.
 extern double npLog10(double x);
+#define log10 npLog10
+#define log10f npLog10
+
 //The returned value is the fraction component (part after the decimal), and sets integer to the integer component.
 extern double npModf(double x, double *integer);
+#define modf npModf
+#define modff npModf
+
 //Returns x raised to the power of y.
 extern double npPow(double x, double y);
+#define pow npPow
+#define powf npPow
+
 //Returns the square root of x.
 extern double npSqrt(double x);
+#define sqrt npSqrt
+#define sqrtf npSqrt
+
 //Returns the smallest integer value greater than or equal to x.
 extern double npCeil(double x);
+#define ceil npCeil
+#define ceilf npCeil
+
 //Returns the absolute value of x.
 extern double npFabs(double x);
+#define fabs npFabs
+#define fabsf npFabs
+
 //Returns the largest integer value less than or equal to x.
 extern double npFloor(double x);
+#define floor npFloor
+#define floorf npFloor
+
 //Returns the remainder of x divided by y.
 extern double npFmod(double x, double y);
+#define fmod npFmod
+#define fmodf npFmod
 
+//Returns the larger of two floating point arguments.
 extern double npFmax(double x, double y);
+#define fmax npFmax
+#define fmaxf npFmax
+
+//Returns the smaller of two floating point arguments.
 extern double npFmin(double x, double y);
+#define fmin npFmin
+#define fminf npFmin
+
+//Computes (x*y) + z as if to infinite precision and rounded only once to fit the result type.
+extern double npFma(double x, double y, double z);
+#define fma npFma
+#define fmaf npFma
+
+//Returns the positive difference between x and y, that is, if x>y, returns x-y, otherwise (if x≤y), returns +0.
+extern double npFdim(double x, double y);
+#define fdim npFdim
+#define fdimf npFdim
 
 //ShaderFastMathLib
 
