@@ -13,6 +13,7 @@ LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O3 -DANDROID_NDK
 LOCAL_SRC_FILES := \
    ../../NativePath/NativeMath.c \
    ../../NativePath/NativeMemory.c \
-   ../../NativePath/lol_trig.cpp 
+   ../../NativePath/lol_trig.cpp \
+   ../../NativePath/NativeTime.cpp
 
 include $(BUILD_STATIC_LIBRARY)
