@@ -31,27 +31,12 @@ THE SOFTWARE.
 #ifndef NativeMemory_h
 #define NativeMemory_h
 
-#define size_t unsigned int
+#define size_t uint32_t
 
 extern void* npMalloc(size_t size);
 #define malloc npMalloc
 
 extern void npFree(void* block);
 #define free npFree
-
-extern void* npMemmove(void* dest, const void* src, size_t count);
-#define memmove npMemmove
-
-extern void* npMemcpy(void *dest, const void *src, size_t count);
-#define memcpy npMemcpy
-
-extern void* npMemset(void *dest, int ch, size_t count);
-#define memset npMemset
-
-extern int npMemcmp(const void* lhs,const void* rhs, size_t count);
-#define memcmp npMemcmp
-
-extern void* npMemchr(const void* ptr, int ch, size_t count);
-#define memchr npMemchr
 
 #endif /* NativeMemory_h */

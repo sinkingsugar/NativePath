@@ -29,7 +29,6 @@ THE SOFTWARE.
 //
 
 #include <stdlib.h>
-#include <string.h>
 
 void* npMalloc(unsigned int size)
 {
@@ -41,17 +40,3 @@ void npFree(void* block)
     free(block);
 }
 
-void* npMemmove(void* dest, const void* src, unsigned int count)
-{
-	return memmove(dest, src, count);
-}
-
-void* npMemcpy(void *dest, const void *src, unsigned int count)
-{
-	return memcpy(dest, src, count);
-}
-
-void* npMemset(void *dest, int ch, unsigned int count)
-{
-	return memset(dest, ch, count);
-}
