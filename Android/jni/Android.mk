@@ -6,9 +6,7 @@ LOCAL_MODULE := NativePath
 LOCAL_C_INCLUDES := \
    $(LOCAL_PATH)/../../NativePath
 
-
-LOCAL_ARM_MODE := arm
-LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O3 -DANDROID_NDK
+LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O3 -DANDROID_NDK -Wall
 
 LOCAL_SRC_FILES := \
    ../../NativePath/NativeMath.c \

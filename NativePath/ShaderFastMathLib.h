@@ -56,8 +56,12 @@
 #ifndef SHADER_FAST_MATH_INC_FX
 #define SHADER_FAST_MATH_INC_FX
 
-#define asint(_x)   *((int*)&_x)
-#define asfloat(_x) *((float*)&_x)
+union _float_int
+{
+	int i;
+	float f;
+};
+
 #include <math.h>
 
 // Derived from batch testing
@@ -98,9 +102,10 @@
 // Approximate guess using integer float arithmetics based on IEEE floating point standard
 float rcpSqrtIEEEIntApproximation(float inX, const int inRcpSqrtConst)
 {
-    int x = asint(inX);
-    x = inRcpSqrtConst - (x >> 1);
-    return asfloat(x);
+	union _float_int x;
+	x.f = inX;
+    x.i = inRcpSqrtConst - (x.i >> 1);
+	return x.f;
 }
 
 float rcpSqrtNewtonRaphson(float inXHalf, float inRcpX)
@@ -155,9 +160,10 @@ float fastRcpSqrtNR2(float inX)
 //
 float sqrtIEEEIntApproximation(float inX, const int inSqrtConst)
 {
-    int x = asint(inX);
-    x = inSqrtConst + (x >> 1);
-    return asfloat(x);
+	union _float_int x;
+	x.f = inX;
+    x.i = inSqrtConst + (x.i >> 1);
+    return x.f;
 }
 
 //
@@ -204,9 +210,10 @@ float fastSqrtNR2(float inX)
 
 float rcpIEEEIntApproximation(float inX, const int inRcpConst)
 {
-    int x = asint(inX);
-    x = inRcpConst - x;
-    return asfloat(x);
+	union _float_int x;
+	x.f = inX;
+    x.i = inRcpConst - x.i;
+    return x.f;
 }
 
 float rcpNewtonRaphson(float inX, float inRcpX)
@@ -266,7 +273,7 @@ static const float fsl_HALF_PI = 0.5f * 3.1415926535897932384626433f;
 // Reference : Handbook of Mathematical Functions (chapter : Elementary Transcendental Functions), M. Abramowitz and I.A. Stegun, Ed.
 float acosFast4(float inX)
 {
-    float x1 = abs(inX);
+    float x1 = fabsf(inX);
     float x2 = x1 * x1;
     float x3 = x2 * x1;
     float s;
@@ -299,6 +306,6 @@ float asinFast4(float inX)
 float atanFast4(float inX)
 {
     float  x = inX;
-    return x*(-0.1784f * abs(x) - 0.0663f * x * x + 1.0301f);
+    return x*(-0.1784f * fabsf(x) - 0.0663f * x * x + 1.0301f);
 }
 #endif //SHADER_FAST_MATH_INC_FX
