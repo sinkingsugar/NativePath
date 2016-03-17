@@ -59,15 +59,20 @@ THE SOFTWARE.
     #   error "Unknown Apple platform"
     #endif
 #elif __linux__
-#define NATIVE_PATH_LINUX
-#include <stdlib.h>
-#include <stdio.h>
-#include <dlfcn.h>
+	#define NATIVE_PATH_LINUX
     // linux
+	#include <stdlib.h>
+	#include <stdio.h>
+	#include <dlfcn.h>	
 #elif __unix__ // all unices not caught above
     // Unix
 #elif defined(_POSIX_VERSION)
     // POSIX
+#elif defined(__ANDROID__)
+	#define NATIVE_PATH_ANDROID
+	#include <stdlib.h>
+	#include <stdio.h>
+	#include <dlfcn.h>
 #else
 #   error "Unknown compiler"
 #endif
@@ -76,7 +81,7 @@ void* LoadDynamicLibrary(const char* libraryPath)
 {
 	char nameBuffer[2048];
 		
-#ifdef NATIVE_PATH_LINUX
+#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID)
 	sprintf(nameBuffer, "%s.so", libraryPath);
 	return dlopen(nameBuffer, RTLD_NOW);
 #endif
@@ -96,7 +101,7 @@ void* LoadDynamicLibrary(const char* libraryPath)
 
 void FreeDynamicLibrary(void* handle)
 {
-#ifdef NATIVE_PATH_LINUX
+#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID)
 	dlclose(handle);
 #endif
 	
@@ -107,7 +112,7 @@ void FreeDynamicLibrary(void* handle)
 
 void* GetSymbolAddress(void* handle, const char* symbolName)
 {
-#ifdef NATIVE_PATH_LINUX
+#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID)
  return dlsym(handle, symbolName);
 #endif
 	

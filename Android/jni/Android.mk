@@ -12,6 +12,7 @@ LOCAL_SRC_FILES := \
    ../../NativePath/NativeMath.c \
    ../../NativePath/NativeMemory.c \
    ../../NativePath/lol_trig.cpp \
-   ../../NativePath/NativeTime.cpp
+   ../../NativePath/NativeTime.cpp \
+   ../../NativePath/NativeDynamicLinking.c
 
 include $(BUILD_STATIC_LIBRARY)
