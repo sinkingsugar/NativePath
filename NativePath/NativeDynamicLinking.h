@@ -33,6 +33,6 @@ THE SOFTWARE.
 
 extern void* LoadDynamicLibrary(const char* libraryPath);
 extern void FreeDynamicLibrary(void* handle);
-extern void* GetSymbolAddress(void* handle, const* char* symbolName);
+extern void* GetSymbolAddress(void* handle, const char* symbolName);
 
 #endif /* NativeDynamicLinking_h */
