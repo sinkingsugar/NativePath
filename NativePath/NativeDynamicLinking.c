@@ -100,7 +100,7 @@ void* LoadDynamicLibrary(const char* libraryPath)
 	return LoadPackagedLibrary(wString, 0);
 #endif
 	
-	return NULL;
+	return 0;
 }
 
 void FreeDynamicLibrary(void* handle)
@@ -124,5 +124,5 @@ void* GetSymbolAddress(void* handle, const char* symbolName)
 	return GetProcAddress(handle, symbolName);
 #endif
 	
-	return NULL;
+	return 0;
 }
