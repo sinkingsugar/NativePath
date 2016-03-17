@@ -64,12 +64,16 @@ THE SOFTWARE.
 
 void* LoadLibrary(const char* libraryPath)
 {
+	char nameBuffer[2048];
+		
 #ifdef NATIVE_PATH_LINUX
-	return dlopen(libraryPath, RTLD_NOW);
+	sprintf(nameBuffer, "%s.so", libraryPath);
+	return dlopen(nameBuffer, RTLD_NOW);
 #endif
 
 #ifdef NATIVE_PATH_WIN
-	return LoadLibraryA(libraryPath);
+	sprintf(nameBuffer, "%s.dll", libraryPath);
+	return LoadLibraryA(nameBuffer);
 #endif
 }
 
