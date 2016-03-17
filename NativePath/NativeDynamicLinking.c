@@ -28,37 +28,69 @@ THE SOFTWARE.
 //  Copyright © 2016 Giovanni Petrantoni. All rights reserved.
 //
 
-#ifndef WIN32
+#ifdef _WIN32
+	 #define NATIVE_PATH_WIN
+   //define something for Windows (32-bit and 64-bit, this part is common)
+   #include <windows.h>
+   #ifdef _WIN64
+      //define something for Windows (64-bit only)
+   #endif
+#elif __APPLE__
+    #include "TargetConditionals.h"
+    #if TARGET_IPHONE_SIMULATOR
+    #define NATIVE_PATH_IOS
+         // iOS Simulator
+    #elif TARGET_OS_IPHONE
+    #define NATIVE_PATH_IOS
+        // iOS device
+    #elif TARGET_OS_MAC
+        // Other kinds of Mac OS
+    #else
+    #   error "Unknown Apple platform"
+    #endif
+#elif __linux__
+#define NATIVE_PATH_LINUX
 #include <stdlib.h>
 #include <stdio.h>
 #include <dlfcn.h>
+    // linux
+#elif __unix__ // all unices not caught above
+    // Unix
+#elif defined(_POSIX_VERSION)
+    // POSIX
 #else
-#include <windows.h>
+#   error "Unknown compiler"
 #endif
 
 void* LoadLibrary(const char* libraryPath)
 {
-#ifndef WIN32
+#ifdef NATIVE_PATH_LINUX
 	return dlopen(libraryPath, RTLD_NOW);
-#else
+#endif
+
+#ifdef NATIVE_PATH_WIN
 	return LoadLibraryA(libraryPath);
 #endif
 }
 
 void FreeLibrary(void* handle)
 {
-#ifndef WIN32
+#ifdef NATIVE_PATH_LINUX
 	dlclose(handle);
-#else
+#endif
+	
+#ifdef NATIVE_PATH_WIN
 	FreeLibrary(handle);
 #endif
 }
 
 void* GetSymbolAddress(void* handle, const char* symbolName)
 {
-#ifndef WIN32
+#ifdef NATIVE_PATH_LINUX
  return dlsym(handle, symbolName);
-#else
+#endif
+	
+#ifdef NATIVE_PATH_WIN
 	return GetProcAddressA(handle, symbolName);
 #endif
 }
