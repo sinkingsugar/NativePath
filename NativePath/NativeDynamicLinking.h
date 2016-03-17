@@ -31,8 +31,8 @@ THE SOFTWARE.
 #ifndef NativeDynamicLinking_h
 #define NativeDynamicLinking_h
 
-extern void* LoadLibrary(const char* libraryPath);
-extern void FreeLibrary(void* handle);
+extern void* LoadDynamicLibrary(const char* libraryPath);
+extern void FreeDynamicLibrary(void* handle);
 extern void* GetSymbolAddress(void* handle, const* char* symbolName);
 
 #endif /* NativeDynamicLinking_h */

@@ -62,7 +62,7 @@ THE SOFTWARE.
 #   error "Unknown compiler"
 #endif
 
-void* LoadLibrary(const char* libraryPath)
+void* LoadDynamicLibrary(const char* libraryPath)
 {
 	char nameBuffer[2048];
 		
@@ -77,7 +77,7 @@ void* LoadLibrary(const char* libraryPath)
 #endif
 }
 
-void FreeLibrary(void* handle)
+void FreeDynamicLibrary(void* handle)
 {
 #ifdef NATIVE_PATH_LINUX
 	dlclose(handle);
