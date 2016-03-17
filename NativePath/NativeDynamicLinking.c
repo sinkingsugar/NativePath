@@ -29,10 +29,18 @@ THE SOFTWARE.
 //
 
 #ifdef _WIN32
-	 #define NATIVE_PATH_WIN
+   #define NATIVE_PATH_WIN
    //define something for Windows (32-bit and 64-bit, this part is common)
    #include <windows.h>
    #include <stdio.h>
+   
+   #if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+   // This code is for Win32 desktop apps
+   #define NATIVE_PATH_WIN_DESKTOP
+   #else
+   // This code is for WinRT Windows Store apps
+   #define NATIVE_PATH_WIN_APP
+   #endif
 
    #ifdef _WIN64
       //define something for Windows (64-bit only)
@@ -73,9 +81,16 @@ void* LoadDynamicLibrary(const char* libraryPath)
 	return dlopen(nameBuffer, RTLD_NOW);
 #endif
 
-#ifdef NATIVE_PATH_WIN
-	sprintf(nameBuffer, "%s.dll", libraryPath);
+#ifdef NATIVE_PATH_WIN_DESKTOP
+	sprintf_s(nameBuffer, 2048, "%s.dll", libraryPath);
 	return LoadLibraryA(nameBuffer);
+#endif
+
+#ifdef NATIVE_PATH_WIN_APP
+	sprintf_s(nameBuffer, 2048, "%s.dll", libraryPath);
+	wchar_t wString[2048];
+	MultiByteToWideChar(CP_ACP, 0, nameBuffer, -1, wString, 2048);
+	return LoadPackagedLibrary(wString, 0);
 #endif
 }
 
