@@ -79,7 +79,9 @@ THE SOFTWARE.
 
 void* LoadDynamicLibrary(const char* libraryPath)
 {
+#ifndef NATIVE_PATH_IOS
 	char nameBuffer[2048];
+#endif
 		
 #if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID)
 	sprintf(nameBuffer, "%s.so", libraryPath);
@@ -97,6 +99,8 @@ void* LoadDynamicLibrary(const char* libraryPath)
 	MultiByteToWideChar(CP_ACP, 0, nameBuffer, -1, wString, 2048);
 	return LoadPackagedLibrary(wString, 0);
 #endif
+	
+	return NULL;
 }
 
 void FreeDynamicLibrary(void* handle)
@@ -119,4 +123,6 @@ void* GetSymbolAddress(void* handle, const char* symbolName)
 #ifdef NATIVE_PATH_WIN
 	return GetProcAddress(handle, symbolName);
 #endif
+	
+	return NULL;
 }
