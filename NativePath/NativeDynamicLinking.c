@@ -32,6 +32,8 @@ THE SOFTWARE.
 	 #define NATIVE_PATH_WIN
    //define something for Windows (32-bit and 64-bit, this part is common)
    #include <windows.h>
+   #include <stdio.h>
+
    #ifdef _WIN64
       //define something for Windows (64-bit only)
    #endif
@@ -95,6 +97,6 @@ void* GetSymbolAddress(void* handle, const char* symbolName)
 #endif
 	
 #ifdef NATIVE_PATH_WIN
-	return GetProcAddressA(handle, symbolName);
+	return GetProcAddress(handle, symbolName);
 #endif
 }
