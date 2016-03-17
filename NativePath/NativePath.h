@@ -3024,4 +3024,9 @@ typedef uint32_t uint4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_
 	#define __get_unsafe_stack_ptr __builtin___get_unsafe_stack_ptr
 #endif
 
+#include <NativeMath.h>
+#include <NativeMemory.h>
+#include <NativeTime.h>
+#include <NativeDynamicLinking.h>
+
 #endif /* nativepath_h */
