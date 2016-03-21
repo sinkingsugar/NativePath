@@ -47,6 +47,7 @@ THE SOFTWARE.
    #endif
 #elif __APPLE__
     #include "TargetConditionals.h"
+    #include <dlfcn.h>
     #if TARGET_IPHONE_SIMULATOR
     #define NATIVE_PATH_IOS
          // iOS Simulator
@@ -99,13 +100,18 @@ void* LoadDynamicLibrary(const char* libraryPath)
 	MultiByteToWideChar(CP_ACP, 0, nameBuffer, -1, wString, 2048);
 	return LoadPackagedLibrary(wString, 0);
 #endif
+
+#ifdef NATIVE_PATH_IOS
+    //under ios we try open the executable itself
+    return dlopen(0, RTLD_NOW);
+#endif
 	
 	return 0;
 }
 
 void FreeDynamicLibrary(void* handle)
 {
-#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID)
+#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID) || defined(NATIVE_PATH_IOS)
 	dlclose(handle);
 #endif
 	
@@ -116,8 +122,8 @@ void FreeDynamicLibrary(void* handle)
 
 void* GetSymbolAddress(void* handle, const char* symbolName)
 {
-#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID)
- return dlsym(handle, symbolName);
+#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID) || defined(NATIVE_PATH_IOS)
+    return dlsym(handle, symbolName);
 #endif
 	
 #ifdef NATIVE_PATH_WIN
