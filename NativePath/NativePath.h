@@ -53,7 +53,7 @@ typedef __INT8_TYPE__ int8_t;
 typedef __UINT8_TYPE__ uint8_t;
 #endif /* __INT8_TYPE__ */
 
-//type safeguard, if type sizes are not what we expect it the compiler will throw error
+//type safeguard, if type sizes are not what we expect, the compiler will throw error
 static union
 {
 	char int_incorrect[sizeof(int) == 4 ? 1 : -1];
