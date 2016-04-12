@@ -31,6 +31,11 @@ THE SOFTWARE.
 #ifndef nativepath_h
 #define nativepath_h
 
+//avoid MS stuff
+#ifdef _MSC_VER
+#undef _MSC_VER
+#endif
+
 //from clang lib/Headers/stdint.h
 
 #ifdef __INT64_TYPE__
@@ -52,6 +57,71 @@ typedef __UINT16_TYPE__ uint16_t;
 typedef __INT8_TYPE__ int8_t;
 typedef __UINT8_TYPE__ uint8_t;
 #endif /* __INT8_TYPE__ */
+
+#ifdef __PTRDIFF_TYPE__
+typedef __PTRDIFF_TYPE__ ptrdiff_t;
+#endif
+
+#define CHAR_BIT  __CHAR_BIT__
+#define INT_MAX   __INT_MAX__
+#define INT_MIN   (-__INT_MAX__  -1)
+
+#define LONG_MAX  __LONG_MAX__
+#define LONG_MIN  (-__LONG_MAX__ -1L)
+
+/* Characteristics of floating point types, C99 5.2.4.2.2 */
+
+#define FLT_EVAL_METHOD __FLT_EVAL_METHOD__
+#define FLT_ROUNDS (__builtin_flt_rounds())
+#define FLT_RADIX __FLT_RADIX__
+
+#define FLT_MANT_DIG __FLT_MANT_DIG__
+#define DBL_MANT_DIG __DBL_MANT_DIG__
+#define LDBL_MANT_DIG __LDBL_MANT_DIG__
+
+#define DECIMAL_DIG __DECIMAL_DIG__
+
+#define FLT_DIG __FLT_DIG__
+#define DBL_DIG __DBL_DIG__
+#define LDBL_DIG __LDBL_DIG__
+
+#define FLT_MIN_EXP __FLT_MIN_EXP__
+#define DBL_MIN_EXP __DBL_MIN_EXP__
+#define LDBL_MIN_EXP __LDBL_MIN_EXP__
+
+#define FLT_MIN_10_EXP __FLT_MIN_10_EXP__
+#define DBL_MIN_10_EXP __DBL_MIN_10_EXP__
+#define LDBL_MIN_10_EXP __LDBL_MIN_10_EXP__
+
+#define FLT_MAX_EXP __FLT_MAX_EXP__
+#define DBL_MAX_EXP __DBL_MAX_EXP__
+#define LDBL_MAX_EXP __LDBL_MAX_EXP__
+
+#define FLT_MAX_10_EXP __FLT_MAX_10_EXP__
+#define DBL_MAX_10_EXP __DBL_MAX_10_EXP__
+#define LDBL_MAX_10_EXP __LDBL_MAX_10_EXP__
+
+#define FLT_MAX __FLT_MAX__
+#define DBL_MAX __DBL_MAX__
+#define LDBL_MAX __LDBL_MAX__
+
+#define FLT_EPSILON __FLT_EPSILON__
+#define DBL_EPSILON __DBL_EPSILON__
+#define LDBL_EPSILON __LDBL_EPSILON__
+
+#define FLT_MIN __FLT_MIN__
+#define DBL_MIN __DBL_MIN__
+#define LDBL_MIN __LDBL_MIN__
+
+#define __stdint_join3(a,b,c) a ## b ## c
+
+#define  __intn_t(n) __stdint_join3( int, n, _t)
+#define __uintn_t(n) __stdint_join3(uint, n, _t)
+
+typedef  __intn_t(__INTPTR_WIDTH__)  intptr_t;
+typedef __uintn_t(__INTPTR_WIDTH__) uintptr_t;
+
+#define NULL 0
 
 //type safeguard, if type sizes are not what we expect, the compiler will throw error
 static union
