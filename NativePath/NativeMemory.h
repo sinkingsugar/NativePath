@@ -31,7 +31,7 @@ THE SOFTWARE.
 #ifndef NativeMemory_h
 #define NativeMemory_h
 
-#define size_t uint32_t
+typedef __SIZE_TYPE__ size_t;
 
 extern void* npMalloc(size_t size);
 #define malloc npMalloc

@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2015 Giovanni Petrantoni
+Copyright (c) 2015-2016 Giovanni Petrantoni
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -38,29 +38,23 @@ THE SOFTWARE.
 
 //from clang lib/Headers/stdint.h
 
-#ifdef __INT64_TYPE__
 typedef __INT64_TYPE__ int64_t;
 typedef __UINT64_TYPE__ uint64_t;
-#endif /* __INT64_TYPE__ */
 
-#ifdef __INT32_TYPE__
 typedef __INT32_TYPE__ int32_t;
 typedef __UINT32_TYPE__ uint32_t;
-#endif /* __INT32_TYPE__ */
 
-#ifdef __INT16_TYPE__
 typedef __INT16_TYPE__ int16_t;
 typedef __UINT16_TYPE__ uint16_t;
-#endif /* __INT16_TYPE__ */
 
-#ifdef __INT8_TYPE__
 typedef __INT8_TYPE__ int8_t;
 typedef __UINT8_TYPE__ uint8_t;
-#endif /* __INT8_TYPE__ */
 
-#ifdef __PTRDIFF_TYPE__
 typedef __PTRDIFF_TYPE__ ptrdiff_t;
-#endif
+
+typedef __SIZE_TYPE__ size_t;
+
+typedef char char8_t;
 
 #define CHAR_BIT  __CHAR_BIT__
 #define INT_MAX   __INT_MAX__
@@ -123,17 +117,48 @@ typedef __uintn_t(__INTPTR_WIDTH__) uintptr_t;
 
 #define NULL 0
 
+#ifdef __cplusplus
+//C++ utility
+
+//standard placement form of new
+inline void* operator new(size_t _Size, void* _Where) throw()
+{
+	(void)_Size;
+	return _Where;
+}
+
+inline void operator delete(void*, void*) throw()
+{
+	return;
+}
+
+inline void* operator new[](size_t _Size, void* _Where) throw()
+{
+	(void)_Size;
+	return _Where;
+}
+
+inline void operator delete[](void*, void*) throw()
+{
+}
+#endif
+
 //type safeguard, if type sizes are not what we expect, the compiler will throw error
 static union
 {
 	char int_incorrect[sizeof(int) == 4 ? 1 : -1];
 	char int64_incorrect[sizeof(int64_t) == 8 ? 1 : -1];
 	char int32_incorrect[sizeof(int32_t) == 4 ? 1 : -1];
+	char short_incorrect[sizeof(short) == 2 ? 1 : -1];
 	char int16_incorrect[sizeof(int16_t) == 2 ? 1 : -1];
 	char int8_incorrect[sizeof(int8_t) == 1 ? 1 : -1];
 	char float_incorrect[sizeof(float) == 4 ? 1 : -1];
 	char double_incorrect[sizeof(double) == 8 ? 1 : -1];
 } __types_safeguard;
+
+//utility
+#define tolower(__x__) __x__ //TODO
+#define toupper(__x__) __x__ //TODO
 
 //Vectors
 
@@ -181,6 +206,8 @@ typedef int32_t int4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_AL
 typedef uint32_t uint4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_ALIGN)));
 
 //CLANG usable builtins
+
+typedef char* va_list;
 
 #if !__has_builtin(__builtin_atan2)
 	#error "atan2 clang built-in not available"
