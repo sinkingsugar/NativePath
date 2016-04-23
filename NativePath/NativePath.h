@@ -115,8 +115,6 @@ typedef char char8_t;
 typedef  __intn_t(__INTPTR_WIDTH__)  intptr_t;
 typedef __uintn_t(__INTPTR_WIDTH__) uintptr_t;
 
-#define NULL 0
-
 #ifdef __cplusplus
 //C++ utility
 
@@ -142,6 +140,9 @@ inline void operator delete[](void*, void*) throw()
 {
 }
 #endif
+
+//we oversize our jmp_buf for safety
+typedef void* jmp_buf[64];
 
 //type safeguard, if type sizes are not what we expect, the compiler will throw error
 static union
