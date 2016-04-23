@@ -23,4 +23,6 @@ ADD_LIBRARY(${NP_LIB} STATIC
     NativePath/lol_trig.cpp
 	NativePath/NativeTime.cpp
 	NativePath/NativeDynamicLinking.c
+	NativePath/stdlib.c
+	NativePath/stdio.c
 )
