@@ -115,35 +115,6 @@ typedef char char8_t;
 typedef  __intn_t(__INTPTR_WIDTH__)  intptr_t;
 typedef __uintn_t(__INTPTR_WIDTH__) uintptr_t;
 
-#ifdef __cplusplus
-//C++ utility
-
-//standard placement form of new
-inline void* operator new(size_t _Size, void* _Where) throw()
-{
-	(void)_Size;
-	return _Where;
-}
-
-inline void operator delete(void*, void*) throw()
-{
-	return;
-}
-
-inline void* operator new[](size_t _Size, void* _Where) throw()
-{
-	(void)_Size;
-	return _Where;
-}
-
-inline void operator delete[](void*, void*) throw()
-{
-}
-#endif
-
-//we oversize our jmp_buf for safety
-typedef void* jmp_buf[64];
-
 //type safeguard, if type sizes are not what we expect, the compiler will throw error
 static union
 {
@@ -156,6 +127,8 @@ static union
 	char float_incorrect[sizeof(float) == 4 ? 1 : -1];
 	char double_incorrect[sizeof(double) == 8 ? 1 : -1];
 } __types_safeguard;
+
+#define NULL 0
 
 //utility
 #define tolower(__x__) __x__ //TODO
@@ -207,8 +180,6 @@ typedef int32_t int4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_AL
 typedef uint32_t uint4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_ALIGN)));
 
 //CLANG usable builtins
-
-typedef char* va_list;
 
 #if !__has_builtin(__builtin_atan2)
 	#error "atan2 clang built-in not available"
