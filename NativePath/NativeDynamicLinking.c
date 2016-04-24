@@ -80,30 +80,41 @@ THE SOFTWARE.
 
 void* LoadDynamicLibrary(const char* libraryPath)
 {
-#ifndef NATIVE_PATH_IOS
 	char nameBuffer[2048];
-#endif
 		
 #if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID)
-	sprintf(nameBuffer, "%s.so", libraryPath);
-	return dlopen(nameBuffer, RTLD_NOW);
+	if(libraryPath) 
+    {
+        sprintf(nameBuffer, "%s.so", libraryPath);
+    }
+	return dlopen(libraryPath ? nameBuffer : NULL, RTLD_NOW);
 #endif
 
 #ifdef NATIVE_PATH_WIN_DESKTOP
-	sprintf_s(nameBuffer, 2048, "%s.dll", libraryPath);
-	return LoadLibraryA(nameBuffer);
+    if(libraryPath) 
+    {
+        sprintf_s(nameBuffer, 2048, "%s.dll", libraryPath);
+    }
+	return LoadLibraryA(libraryPath ? nameBuffer : NULL);
 #endif
 
 #ifdef NATIVE_PATH_WIN_APP
-	sprintf_s(nameBuffer, 2048, "%s.dll", libraryPath);
-	wchar_t wString[2048];
-	MultiByteToWideChar(CP_ACP, 0, nameBuffer, -1, wString, 2048);
-	return LoadPackagedLibrary(wString, 0);
+    if(libraryPath) 
+    {
+        sprintf_s(nameBuffer, 2048, "%s.dll", libraryPath);
+        wchar_t wString[2048];
+        MultiByteToWideChar(CP_ACP, 0, nameBuffer, -1, wString, 2048);
+        return LoadPackagedLibrary(wString, 0);
+    }
+	return NULL;
 #endif
 
 #ifdef NATIVE_PATH_IOS
-    //under ios we try open the executable itself
-    return dlopen(0, RTLD_NOW);
+    if(libraryPath)
+    {
+        sprintf(nameBuffer, 2048, "%s.dylib", libraryPath);
+    }   
+    return dlopen(libraryPath ? nameBuffer : NULL, RTLD_NOW);   
 #endif
 	
 	return 0;
