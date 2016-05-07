@@ -6,8 +6,7 @@ FIND_PATH(NP_INCLUDE_DIR NAMES NativeMath.h
   ${PROJECT_SOURCE_DIR}/NativePath/
 )
 
-INCLUDE_DIRECTORIES(${NP_INCLUDE_DIR})
-
+INCLUDE_DIRECTORIES(${NP_INCLUDE_DIR} ${NP_INCLUDE_DIR}/../source)
 
 IF(${CMAKE_GENERATOR} MATCHES "Unix Makefiles")
 	SET(NP_LIB_DIR ${NP_INCLUDE_DIR}/..)
@@ -18,11 +17,11 @@ ELSE()
 ENDIF()
 
 ADD_LIBRARY(${NP_LIB} STATIC
-    NativePath/NativeMath.c
-    NativePath/NativeMemory.c
-    NativePath/lol_trig.cpp
-	NativePath/NativeTime.cpp
-	NativePath/NativeDynamicLinking.c
-	NativePath/stdlib.c
-	NativePath/stdio.c
+    source/NativeMath.c
+    source/NativeMemory.c
+    source/lol_trig.cpp
+	source/NativeTime.cpp
+	source/NativeDynamicLinking.c
+	source/stdlib.c
+	source/stdio.c
 )
