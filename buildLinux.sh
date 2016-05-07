@@ -3,13 +3,13 @@
 mkdir -p build/Linux/x86
 mkdir -p build/Linux/x86_64
 
-sources="NativePath/NativeMath.c NativePath/NativeMemory.c NativePath/lol_trig.cpp NativePath/NativeTime.cpp NativePath/NativeDynamicLinking.c"
+sources="source/NativeMath.c source/NativeMemory.c source/lol_trig.cpp source/NativeTime.cpp source/NativeDynamicLinking.c source/stdio.c source/stdlib.c"
 
 if [ "$CC" = "" ]; then
     CC=clang-3.6
 fi
 
-CFLAGS="-Wall -Wno-unused-const-variable -Wno-unused-function"
+CFLAGS="-Wall -Wno-unused-const-variable -Wno-unused-function -Isource"
 
 #Linux 64
 $CC -fPIC -m64 $CFLAGS -c $sources
