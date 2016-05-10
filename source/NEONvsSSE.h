@@ -90,6 +90,8 @@
 #endif
 #endif
 
+#define _NEON2SSE_PERFORMANCE_WARNING(function, explanation)  function
+
 #if defined  (_NEON2SSE_64BIT) && defined (USE_SSE4)
     #define _NEON2SSE_64BIT_SSE4
 #endif

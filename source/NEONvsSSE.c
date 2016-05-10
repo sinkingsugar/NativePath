@@ -1,4 +1,49 @@
-#include <NEONvsSSE.h>
+#ifdef _WIN32
+	#define NATIVE_PATH_WIN
+	//define something for Windows (32-bit and 64-bit, this part is common)
+	#ifdef _M_ARM
+		#include <arm_neon.h>
+	#else
+		#include <NEONvsSSE.h>
+	#endif
+
+	#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+	// This code is for Win32 desktop apps
+	#define NATIVE_PATH_WIN_DESKTOP
+	#else
+	// This code is for WinRT Windows Store apps
+	#define NATIVE_PATH_WIN_APP
+	#endif
+
+	#ifdef _WIN64
+	  //define something for Windows (64-bit only)
+	#endif
+#elif __APPLE__
+    #if TARGET_IPHONE_SIMULATOR
+    #define NATIVE_PATH_IOS
+         // iOS Simulator
+    #elif TARGET_OS_IPHONE
+    #define NATIVE_PATH_IOS
+        // iOS device
+    #elif TARGET_OS_MAC
+        // Other kinds of Mac OS
+    #else
+    #   error "Unknown Apple platform"
+    #endif
+#elif __linux__
+	#define NATIVE_PATH_LINUX
+    // linux
+#elif __unix__ // all unices not caught above
+    // Unix
+#elif defined(_POSIX_VERSION)
+    // POSIX
+#elif defined(__ANDROID__)
+	#define NATIVE_PATH_ANDROID
+	#include <stdio.h>
+	#include <arm_neon.h>
+#else
+#   error "Unknown compiler"
+#endif
 
 int8x8_t np_vadd_s8(int8x8_t a, int8x8_t b)
 {
@@ -1505,46 +1550,6 @@ uint32x4_t np_vcltq_u32(uint32x4_t a, uint32x4_t b)
 	return vcltq_u32(a, b);
 }
 
-uint32x2_t np_vcage_f32(float32x2_t a, float32x2_t b)
-{
-	return vcage_f32(a, b);
-}
-
-uint32x4_t np_vcageq_f32(float32x4_t a, float32x4_t b)
-{
-	return vcageq_f32(a, b);
-}
-
-uint32x2_t np_vcale_f32(float32x2_t a, float32x2_t b)
-{
-	return vcale_f32(a, b);
-}
-
-uint32x4_t np_vcaleq_f32(float32x4_t a, float32x4_t b)
-{
-	return vcaleq_f32(a, b);
-}
-
-uint32x2_t np_vcagt_f32(float32x2_t a, float32x2_t b)
-{
-	return vcagt_f32(a, b);
-}
-
-uint32x4_t np_vcagtq_f32(float32x4_t a, float32x4_t b)
-{
-	return vcagtq_f32(a, b);
-}
-
-uint32x2_t np_vcalt_f32(float32x2_t a, float32x2_t b)
-{
-	return vcalt_f32(a, b);
-}
-
-uint32x4_t np_vcaltq_f32(float32x4_t a, float32x4_t b)
-{
-	return vcaltq_f32(a, b);
-}
-
 uint8x8_t np_vtst_s8(int8x8_t a, int8x8_t b)
 {
 	return vtst_s8(a, b);
@@ -2550,11 +2555,6 @@ int64x2_t np_vld1q_s64(int64_t const * ptr)
 	return vld1q_s64(ptr);
 }
 
-float16x8_t np_vld1q_f16(__fp16 const * ptr)
-{
-	return vld1q_f16(ptr);
-}
-
 float32x4_t np_vld1q_f32(float32_t const * ptr)
 {
 	return vld1q_f32(ptr);
@@ -2610,11 +2610,6 @@ int64x1_t np_vld1_s64(int64_t const * ptr)
 	return vld1_s64(ptr);
 }
 
-float16x4_t np_vld1_f16(__fp16 const * ptr)
-{
-	return vld1_f16(ptr);
-}
-
 float32x2_t np_vld1_f32(float32_t const * ptr)
 {
 	return vld1_f32(ptr);
@@ -2645,11 +2640,6 @@ uint32x4_t np_vld1q_dup_u32(uint32_t const * ptr)
 	return vld1q_dup_u32(ptr);
 }
 
-uint64x2_t np_vld1q_dup_u64(uint64_t const * ptr)
-{
-	return vld1q_dup_u64(ptr);
-}
-
 int8x16_t np_vld1q_dup_s8(int8_t const * ptr)
 {
 	return vld1q_dup_s8(ptr);
@@ -2663,16 +2653,6 @@ int16x8_t np_vld1q_dup_s16(int16_t const * ptr)
 int32x4_t np_vld1q_dup_s32(int32_t const * ptr)
 {
 	return vld1q_dup_s32(ptr);
-}
-
-int64x2_t np_vld1q_dup_s64(int64_t const * ptr)
-{
-	return vld1q_dup_s64(ptr);
-}
-
-float16x8_t np_vld1q_dup_f16(__fp16 const * ptr)
-{
-	return vld1q_dup_f16(ptr);
 }
 
 float32x4_t np_vld1q_dup_f32(float32_t const * ptr)
@@ -2705,11 +2685,6 @@ uint32x2_t np_vld1_dup_u32(uint32_t const * ptr)
 	return vld1_dup_u32(ptr);
 }
 
-uint64x1_t np_vld1_dup_u64(uint64_t const * ptr)
-{
-	return vld1_dup_u64(ptr);
-}
-
 int8x8_t np_vld1_dup_s8(int8_t const * ptr)
 {
 	return vld1_dup_s8(ptr);
@@ -2723,16 +2698,6 @@ int16x4_t np_vld1_dup_s16(int16_t const * ptr)
 int32x2_t np_vld1_dup_s32(int32_t const * ptr)
 {
 	return vld1_dup_s32(ptr);
-}
-
-int64x1_t np_vld1_dup_s64(int64_t const * ptr)
-{
-	return vld1_dup_s64(ptr);
-}
-
-float16x4_t np_vld1_dup_f16(__fp16 const * ptr)
-{
-	return vld1_dup_f16(ptr);
 }
 
 float32x2_t np_vld1_dup_f32(float32_t const * ptr)
@@ -2778,11 +2743,6 @@ int16x8x2_t np_vld2q_s16(int16_t const * ptr)
 int32x4x2_t np_vld2q_s32(int32_t const * ptr)
 {
 	return vld2q_s32(ptr);
-}
-
-float16x8x2_t np_vld2q_f16(__fp16 const * ptr)
-{
-	return vld2q_f16(ptr);
 }
 
 float32x4x2_t np_vld2q_f32(float32_t const * ptr)
@@ -2885,11 +2845,6 @@ int32x4x3_t np_vld3q_s32(int32_t const * ptr)
 	return vld3q_s32(ptr);
 }
 
-float16x8x3_t np_vld3q_f16(__fp16 const * ptr)
-{
-	return vld3q_f16(ptr);
-}
-
 float32x4x3_t np_vld3q_f32(float32_t const * ptr)
 {
 	return vld3q_f32(ptr);
@@ -2945,11 +2900,6 @@ int64x1x3_t np_vld3_s64(int64_t const * ptr)
 	return vld3_s64(ptr);
 }
 
-float16x4x3_t np_vld3_f16(__fp16 const * ptr)
-{
-	return vld3_f16(ptr);
-}
-
 float32x2x3_t np_vld3_f32(float32_t const * ptr)
 {
 	return vld3_f32(ptr);
@@ -2993,11 +2943,6 @@ int16x8x4_t np_vld4q_s16(int16_t const * ptr)
 int32x4x4_t np_vld4q_s32(int32_t const * ptr)
 {
 	return vld4q_s32(ptr);
-}
-
-float16x8x4_t np_vld4q_f16(__fp16 const * ptr)
-{
-	return vld4q_f16(ptr);
 }
 
 float32x4x4_t np_vld4q_f32(float32_t const * ptr)
@@ -3053,11 +2998,6 @@ int32x2x4_t np_vld4_s32(int32_t const * ptr)
 int64x1x4_t np_vld4_s64(int64_t const * ptr)
 {
 	return vld4_s64(ptr);
-}
-
-float16x4x4_t np_vld4_f16(__fp16 const * ptr)
-{
-	return vld4_f16(ptr);
 }
 
 float32x2x4_t np_vld4_f32(float32_t const * ptr)
@@ -3170,11 +3110,6 @@ int64x1x3_t np_vld3_dup_s64(int64_t const * ptr)
 	return vld3_dup_s64(ptr);
 }
 
-float16x4x3_t np_vld3_dup_f16(__fp16 const * ptr)
-{
-	return vld3_dup_f16(ptr);
-}
-
 float32x2x3_t np_vld3_dup_f32(float32_t const * ptr)
 {
 	return vld3_dup_f32(ptr);
@@ -3230,11 +3165,6 @@ int64x1x4_t np_vld4_dup_s64(int64_t const * ptr)
 	return vld4_dup_s64(ptr);
 }
 
-float16x4x4_t np_vld4_dup_f16(__fp16 const * ptr)
-{
-	return vld4_dup_f16(ptr);
-}
-
 float32x2x4_t np_vld4_dup_f32(float32_t const * ptr)
 {
 	return vld4_dup_f32(ptr);
@@ -3263,11 +3193,6 @@ int16x4_t np_vcreate_s16(uint64_t a)
 int32x2_t np_vcreate_s32(uint64_t a)
 {
 	return vcreate_s32(a);
-}
-
-float16x4_t np_vcreate_f16(uint64_t a)
-{
-	return vcreate_f16(a);
 }
 
 float32x2_t np_vcreate_f32(uint64_t a)
@@ -3550,11 +3475,6 @@ int64x2_t np_vcombine_s64(int64x1_t low, int64x1_t high)
 	return vcombine_s64(low, high);
 }
 
-float16x8_t np_vcombine_f16(float16x4_t low, float16x4_t high)
-{
-	return vcombine_f16(low, high);
-}
-
 float32x4_t np_vcombine_f32(float32x2_t low, float32x2_t high)
 {
 	return vcombine_f32(low, high);
@@ -3610,11 +3530,6 @@ int64x1_t np_vget_high_s64(int64x2_t a)
 	return vget_high_s64(a);
 }
 
-float16x4_t np_vget_high_f16(float16x8_t a)
-{
-	return vget_high_f16(a);
-}
-
 float32x2_t np_vget_high_f32(float32x4_t a)
 {
 	return vget_high_f32(a);
@@ -3668,11 +3583,6 @@ int32x2_t np_vget_low_s32(int32x4_t a)
 int64x1_t np_vget_low_s64(int64x2_t a)
 {
 	return vget_low_s64(a);
-}
-
-float16x4_t np_vget_low_f16(float16x8_t a)
-{
-	return vget_low_f16(a);
 }
 
 float32x2_t np_vget_low_f32(float32x4_t a)
@@ -3748,16 +3658,6 @@ float32x4_t np_vcvtq_f32_s32(int32x4_t a)
 float32x4_t np_vcvtq_f32_u32(uint32x4_t a)
 {
 	return vcvtq_f32_u32(a);
-}
-
-float16x4_t np_vcvt_f16_f32(float32x4_t a)
-{
-	return vcvt_f16_f32(a);
-}
-
-float32x4_t np_vcvt_f32_f16(float16x4_t a)
-{
-	return vcvt_f32_f16(a);
 }
 
 int8x8_t np_vmovn_s16(int16x8_t a)
