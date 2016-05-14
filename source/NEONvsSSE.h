@@ -123,7 +123,9 @@
 #include <limits.h>
 #endif
 
-typedef union   __m64_128 {
+#pragma pack(push)
+#pragma pack(1)
+typedef union __m64_128 {
     uint64_t m64_u64[1];
     float m64_f32[2];
     int8_t m64_i8[8];
@@ -147,6 +149,8 @@ typedef __m64_128 poly8x8_t;
 typedef __m64_128 poly16x4_t;
 
 typedef __m64_128 float32x2_t;
+#pragma pack(pop)
+
 typedef __m128 float32x4_t;
 
 typedef __m128 float16x4_t; //not supported by IA, for compartibility
@@ -172,7 +176,7 @@ typedef __m128i poly16x8_t;
 #endif
 
 typedef   float float32_t;
-//typedef   float __fp16;
+typedef   float __fp16;
 
 typedef  uint8_t poly8_t;
 typedef  uint16_t poly16_t;

@@ -3097,5 +3097,6 @@ typedef uint32_t uint4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_
 #include <NativeMemory.h>
 #include <NativeTime.h>
 #include <NativeDynamicLinking.h>
+#include <NativeSIMD.h>
 
 #endif /* nativepath_h */

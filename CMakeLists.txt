@@ -24,4 +24,5 @@ ADD_LIBRARY(${NP_LIB} STATIC
 	source/NativeDynamicLinking.c
 	source/stdlib.c
 	source/stdio.c
+	source/NEONvsSSE.c
 )

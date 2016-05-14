@@ -1,54 +1,3 @@
-#ifdef _WIN32
-	#define NATIVE_PATH_WIN
-	//define something for Windows (32-bit and 64-bit, this part is common)
-	#ifdef _M_ARM
-		#include <arm_neon.h>
-	#else
-		#include <NEONvsSSE.h>
-	#endif
-
-	#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
-	// This code is for Win32 desktop apps
-	#define NATIVE_PATH_WIN_DESKTOP
-	#else
-	// This code is for WinRT Windows Store apps
-	#define NATIVE_PATH_WIN_APP
-	#endif
-
-	#ifdef _WIN64
-	  //define something for Windows (64-bit only)
-	#endif
-#elif __APPLE__
-    #include "TargetConditionals.h"
-    #if TARGET_IPHONE_SIMULATOR
-        #define NATIVE_PATH_IOS
-         // iOS Simulator
-        #include <NEONvsSSE.h>
-    #elif TARGET_OS_IPHONE
-        #define NATIVE_PATH_IOS
-        #include <stdio.h>
-        #include <arm_neon.h>
-        // iOS device
-    #elif TARGET_OS_MAC
-        // Other kinds of Mac OS
-    #else
-    #   error "Unknown Apple platform"
-    #endif
-#elif __linux__
-	#define NATIVE_PATH_LINUX
-    // linux
-#elif __unix__ // all unices not caught above
-    // Unix
-#elif defined(_POSIX_VERSION)
-    // POSIX
-#elif defined(__ANDROID__)
-	#define NATIVE_PATH_ANDROID
-	#include <stdio.h>
-	#include <arm_neon.h>
-#else
-#   error "Unknown compiler"
-#endif
-
 int8x8_t np_vadd_s8(int8x8_t a, int8x8_t b)
 {
 	return vadd_s8(a, b);
@@ -5408,5 +5357,4 @@ poly16x8x2_t np_vuzpq_p16(poly16x8_t a, poly16x8_t b)
 {
 	return vuzpq_p16(a, b);
 }
-
 

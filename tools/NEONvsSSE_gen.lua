@@ -772,7 +772,6 @@ int8x16_t vld1q_s8(__transfersize(16) int8_t const * ptr); // VLD1.8 {d0, d1}, [
 int16x8_t vld1q_s16(__transfersize(8) int16_t const * ptr); // VLD1.16 {d0, d1}, [r0]
 int32x4_t vld1q_s32(__transfersize(4) int32_t const * ptr); // VLD1.32 {d0, d1}, [r0]
 int64x2_t vld1q_s64(__transfersize(2) int64_t const * ptr); // VLD1.64 {d0, d1}, [r0]
-float16x8_t vld1q_f16(__transfersize(8) __fp16 const * ptr); // VLD1.16 {d0, d1}, [r0]
 float32x4_t vld1q_f32(__transfersize(4) float32_t const * ptr); // VLD1.32 {d0, d1}, [r0]
 poly8x16_t vld1q_p8(__transfersize(16) poly8_t const * ptr); // VLD1.8 {d0, d1}, [r0]
 poly16x8_t vld1q_p16(__transfersize(8) poly16_t const * ptr); // VLD1.16 {d0, d1}, [r0]
@@ -784,7 +783,6 @@ int8x8_t vld1_s8(__transfersize(8) int8_t const * ptr); // VLD1.8 {d0}, [r0]
 int16x4_t vld1_s16(__transfersize(4) int16_t const * ptr); // VLD1.16 {d0}, [r0]
 int32x2_t vld1_s32(__transfersize(2) int32_t const * ptr); // VLD1.32 {d0}, [r0]
 int64x1_t vld1_s64(__transfersize(1) int64_t const * ptr); // VLD1.64 {d0}, [r0]
-float16x4_t vld1_f16(__transfersize(4) __fp16 const * ptr); // VLD1.16 {d0}, [r0]
 float32x2_t vld1_f32(__transfersize(2) float32_t const * ptr); // VLD1.32 {d0}, [r0]
 poly8x8_t vld1_p8(__transfersize(8) poly8_t const * ptr); // VLD1.8 {d0}, [r0]
 poly16x4_t vld1_p16(__transfersize(4) poly16_t const * ptr); // VLD1.16 {d0}, [r0]
@@ -796,7 +794,6 @@ uint64x2_t vld1q_lane_u64(__transfersize(1) uint64_t const * ptr, uint64x2_t vec
 int8x16_t vld1q_lane_s8(__transfersize(1) int8_t const * ptr, int8x16_t vec, __constrange(0,15) int lane); //VLD1.8 {d0[0]}, [r0]
 int16x8_t vld1q_lane_s16(__transfersize(1) int16_t const * ptr, int16x8_t vec, __constrange(0,7) int lane); //VLD1.16 {d0[0]}, [r0]
 int32x4_t vld1q_lane_s32(__transfersize(1) int32_t const * ptr, int32x4_t vec, __constrange(0,3) int lane); //VLD1.32 {d0[0]}, [r0]
-float16x8_t vld1q_lane_f16(__transfersize(1) __fp16 const * ptr, float16x8_t vec, __constrange(0,7) int lane); //VLD1.16 {d0[0]}, [r0]
 float32x4_t vld1q_lane_f32(__transfersize(1) float32_t const * ptr, float32x4_t vec, __constrange(0,3) int lane); // VLD1.32 {d0[0]}, [r0]
 int64x2_t vld1q_lane_s64(__transfersize(1) int64_t const * ptr, int64x2_t vec, __constrange(0,1) int lane); //VLD1.64 {d0}, [r0]
 poly8x16_t vld1q_lane_p8(__transfersize(1) poly8_t const * ptr, poly8x16_t vec, __constrange(0,15) int lane); //VLD1.8 {d0[0]}, [r0]
@@ -808,7 +805,6 @@ uint64x1_t vld1_lane_u64(__transfersize(1) uint64_t const * ptr, uint64x1_t vec,
 int8x8_t vld1_lane_s8(__transfersize(1) int8_t const * ptr, int8x8_t vec, __constrange(0,7) int lane); // VLD1.8{d0[0]}, [r0]
 int16x4_t vld1_lane_s16(__transfersize(1) int16_t const * ptr, int16x4_t vec, __constrange(0,3) int lane); //VLD1.16 {d0[0]}, [r0]
 int32x2_t vld1_lane_s32(__transfersize(1) int32_t const * ptr, int32x2_t vec, __constrange(0,1) int lane); //VLD1.32 {d0[0]}, [r0]
-float16x4_t vld1q_lane_f16(__transfersize(1) __fp16 const * ptr, float16x4_t vec, __constrange(0,3) int lane); //VLD1.16 {d0[0]}, [r0]
 float32x2_t vld1_lane_f32(__transfersize(1) float32_t const * ptr, float32x2_t vec, __constrange(0,1) int lane); // VLD1.32 {d0[0]}, [r0]
 int64x1_t vld1_lane_s64(__transfersize(1) int64_t const * ptr, int64x1_t vec, __constrange(0,0) int lane); //VLD1.64 {d0}, [r0]
 poly8x8_t vld1_lane_p8(__transfersize(1) poly8_t const * ptr, poly8x8_t vec, __constrange(0,7) int lane); //VLD1.8 {d0[0]}, [r0]
@@ -820,7 +816,6 @@ uint32x4_t vld1q_dup_u32(__transfersize(1) uint32_t const * ptr); // VLD1.32 {d0
 int8x16_t vld1q_dup_s8(__transfersize(1) int8_t const * ptr); // VLD1.8 {d0[]}, [r0]
 int16x8_t vld1q_dup_s16(__transfersize(1) int16_t const * ptr); // VLD1.16 {d0[]}, [r0]
 int32x4_t vld1q_dup_s32(__transfersize(1) int32_t const * ptr); // VLD1.32 {d0[]}, [r0]
-float16x8_t vld1q_dup_f16(__transfersize(1) __fp16 const * ptr); // VLD1.16 {d0[]}, [r0]
 float32x4_t vld1q_dup_f32(__transfersize(1) float32_t const * ptr); // VLD1.32 {d0[]}, [r0]
 poly8x16_t vld1q_dup_p8(__transfersize(1) poly8_t const * ptr); // VLD1.8 {d0[]}, [r0]
 poly16x8_t vld1q_dup_p16(__transfersize(1) poly16_t const * ptr); // VLD1.16 {d0[]}, [r0]
@@ -830,7 +825,6 @@ uint32x2_t vld1_dup_u32(__transfersize(1) uint32_t const * ptr); // VLD1.32 {d0[
 int8x8_t vld1_dup_s8(__transfersize(1) int8_t const * ptr); // VLD1.8 {d0[]}, [r0]
 int16x4_t vld1_dup_s16(__transfersize(1) int16_t const * ptr); // VLD1.16 {d0[]}, [r0]
 int32x2_t vld1_dup_s32(__transfersize(1) int32_t const * ptr); // VLD1.32 {d0[]}, [r0]
-float16x4_t vld1_dup_f16(__transfersize(1) __fp16 const * ptr); // VLD1.16 {d0[]}, [r0]
 float32x2_t vld1_dup_f32(__transfersize(1) float32_t const * ptr); // VLD1.32 {d0[]}, [r0]
 poly8x8_t vld1_dup_p8(__transfersize(1) poly8_t const * ptr); // VLD1.8 {d0[]}, [r0]
 poly16x4_t vld1_dup_p16(__transfersize(1) poly16_t const * ptr); // VLD1.16 {d0[]}, [r0]
@@ -844,7 +838,6 @@ void vst1q_s8(__transfersize(16) int8_t * ptr, int8x16_t val); // VST1.8 {d0, d1
 void vst1q_s16(__transfersize(8) int16_t * ptr, int16x8_t val); // VST1.16 {d0, d1}, [r0]
 void vst1q_s32(__transfersize(4) int32_t * ptr, int32x4_t val); // VST1.32 {d0, d1}, [r0]
 void vst1q_s64(__transfersize(2) int64_t * ptr, int64x2_t val); // VST1.64 {d0, d1}, [r0]
-void vst1q_f16(__transfersize(8) __fp16 * ptr, float16x8_t val); // VST1.16 {d0, d1}, [r0]
 void vst1q_f32(__transfersize(4) float32_t * ptr, float32x4_t val); // VST1.32 {d0, d1}, [r0]
 void vst1q_p8(__transfersize(16) poly8_t * ptr, poly8x16_t val); // VST1.8 {d0, d1}, [r0]
 void vst1q_p16(__transfersize(8) poly16_t * ptr, poly16x8_t val); // VST1.16 {d0, d1}, [r0]
@@ -856,7 +849,6 @@ void vst1_s8(__transfersize(8) int8_t * ptr, int8x8_t val); // VST1.8 {d0}, [r0]
 void vst1_s16(__transfersize(4) int16_t * ptr, int16x4_t val); // VST1.16 {d0}, [r0]
 void vst1_s32(__transfersize(2) int32_t * ptr, int32x2_t val); // VST1.32 {d0}, [r0]
 void vst1_s64(__transfersize(1) int64_t * ptr, int64x1_t val); // VST1.64 {d0}, [r0]
-void vst1_f16(__transfersize(4) __fp16 * ptr, float16x4_t val); // VST1.16 {d0}, [r0]
 void vst1_f32(__transfersize(2) float32_t * ptr, float32x2_t val); // VST1.32 {d0}, [r0]
 void vst1_p8(__transfersize(8) poly8_t * ptr, poly8x8_t val); // VST1.8 {d0}, [r0]
 void vst1_p16(__transfersize(4) poly16_t * ptr, poly16x4_t val); // VST1.16 {d0}, [r0]
@@ -869,7 +861,6 @@ uint32x4x2_t vld2q_u32(__transfersize(8) uint32_t const * ptr); // VLD2.32 {d0, 
 int8x16x2_t vld2q_s8(__transfersize(32) int8_t const * ptr); // VLD2.8 {d0, d2}, [r0]
 int16x8x2_t vld2q_s16(__transfersize(16) int16_t const * ptr); // VLD2.16 {d0, d2}, [r0]
 int32x4x2_t vld2q_s32(__transfersize(8) int32_t const * ptr); // VLD2.32 {d0, d2}, [r0]
-float16x8x2_t vld2q_f16(__transfersize(16) __fp16 const * ptr); // VLD2.16 {d0, d2}, [r0]
 float32x4x2_t vld2q_f32(__transfersize(8) float32_t const * ptr); // VLD2.32 {d0, d2}, [r0]
 poly8x16x2_t vld2q_p8(__transfersize(32) poly8_t const * ptr); // VLD2.8 {d0, d2}, [r0]
 poly16x8x2_t vld2q_p16(__transfersize(16) poly16_t const * ptr); // VLD2.16 {d0, d2}, [r0]
@@ -881,7 +872,6 @@ int8x8x2_t vld2_s8(__transfersize(16) int8_t const * ptr); // VLD2.8 {d0, d1}, [
 int16x4x2_t vld2_s16(__transfersize(8) int16_t const * ptr); // VLD2.16 {d0, d1}, [r0]
 int32x2x2_t vld2_s32(__transfersize(4) int32_t const * ptr); // VLD2.32 {d0, d1}, [r0]
 int64x1x2_t vld2_s64(__transfersize(2) int64_t const * ptr); // VLD1.64 {d0, d1}, [r0]
-//float16x4x2_t vld2_f16(__transfersize(8) __fp16 const * ptr); // VLD2.16 {d0, d1}, [r0]
 float32x2x2_t vld2_f32(__transfersize(4) float32_t const * ptr); // VLD2.32 {d0, d1}, [r0]
 poly8x8x2_t vld2_p8(__transfersize(16) poly8_t const * ptr); // VLD2.8 {d0, d1}, [r0]
 poly16x4x2_t vld2_p16(__transfersize(8) poly16_t const * ptr); // VLD2.16 {d0, d1}, [r0]
@@ -891,7 +881,6 @@ uint32x4x3_t vld3q_u32(__transfersize(12) uint32_t const * ptr); // VLD3.32 {d0,
 int8x16x3_t vld3q_s8(__transfersize(48) int8_t const * ptr); // VLD3.8 {d0, d2, d4}, [r0]
 int16x8x3_t vld3q_s16(__transfersize(24) int16_t const * ptr); // VLD3.16 {d0, d2, d4}, [r0]
 int32x4x3_t vld3q_s32(__transfersize(12) int32_t const * ptr); // VLD3.32 {d0, d2, d4}, [r0]
-float16x8x3_t vld3q_f16(__transfersize(24) __fp16 const * ptr); // VLD3.16 {d0, d2, d4}, [r0]
 float32x4x3_t vld3q_f32(__transfersize(12) float32_t const * ptr); // VLD3.32 {d0, d2, d4}, [r0]
 poly8x16x3_t vld3q_p8(__transfersize(48) poly8_t const * ptr); // VLD3.8 {d0, d2, d4}, [r0]
 poly16x8x3_t vld3q_p16(__transfersize(24) poly16_t const * ptr); // VLD3.16 {d0, d2, d4}, [r0]
@@ -903,7 +892,6 @@ int8x8x3_t vld3_s8(__transfersize(24) int8_t const * ptr); // VLD3.8 {d0, d1, d2
 int16x4x3_t vld3_s16(__transfersize(12) int16_t const * ptr); // VLD3.16 {d0, d1, d2}, [r0]
 int32x2x3_t vld3_s32(__transfersize(6) int32_t const * ptr); // VLD3.32 {d0, d1, d2}, [r0]
 int64x1x3_t vld3_s64(__transfersize(3) int64_t const * ptr); // VLD1.64 {d0, d1, d2}, [r0]
-float16x4x3_t vld3_f16(__transfersize(12) __fp16 const * ptr); // VLD3.16 {d0, d1, d2}, [r0]
 float32x2x3_t vld3_f32(__transfersize(6) float32_t const * ptr); // VLD3.32 {d0, d1, d2}, [r0]
 poly8x8x3_t vld3_p8(__transfersize(24) poly8_t const * ptr); // VLD3.8 {d0, d1, d2}, [r0]
 poly16x4x3_t vld3_p16(__transfersize(12) poly16_t const * ptr); // VLD3.16 {d0, d1, d2}, [r0]
@@ -913,7 +901,6 @@ uint32x4x4_t vld4q_u32(__transfersize(16) uint32_t const * ptr); // VLD4.32 {d0,
 int8x16x4_t vld4q_s8(__transfersize(64) int8_t const * ptr); // VLD4.8 {d0, d2, d4, d6}, [r0]
 int16x8x4_t vld4q_s16(__transfersize(32) int16_t const * ptr); // VLD4.16 {d0, d2, d4, d6}, [r0]
 int32x4x4_t vld4q_s32(__transfersize(16) int32_t const * ptr); // VLD4.32 {d0, d2, d4, d6}, [r0]
-float16x8x4_t vld4q_f16(__transfersize(32) __fp16 const * ptr); // VLD4.16 {d0, d2, d4, d6}, [r0]
 float32x4x4_t vld4q_f32(__transfersize(16) float32_t const * ptr); // VLD4.32 {d0, d2, d4, d6}, [r0]
 poly8x16x4_t vld4q_p8(__transfersize(64) poly8_t const * ptr); // VLD4.8 {d0, d2, d4, d6}, [r0]
 poly16x8x4_t vld4q_p16(__transfersize(32) poly16_t const * ptr); // VLD4.16 {d0, d2, d4, d6}, [r0]
@@ -925,7 +912,6 @@ int8x8x4_t vld4_s8(__transfersize(32) int8_t const * ptr); // VLD4.8 {d0, d1, d2
 int16x4x4_t vld4_s16(__transfersize(16) int16_t const * ptr); // VLD4.16 {d0, d1, d2, d3}, [r0]
 int32x2x4_t vld4_s32(__transfersize(8) int32_t const * ptr); // VLD4.32 {d0, d1, d2, d3}, [r0]
 int64x1x4_t vld4_s64(__transfersize(4) int64_t const * ptr); // VLD1.64 {d0, d1, d2, d3}, [r0]
-float16x4x4_t vld4_f16(__transfersize(16) __fp16 const * ptr); // VLD4.16 {d0, d1, d2, d3}, [r0]
 float32x2x4_t vld4_f32(__transfersize(8) float32_t const * ptr); // VLD4.32 {d0, d1, d2, d3}, [r0]
 poly8x8x4_t vld4_p8(__transfersize(32) poly8_t const * ptr); // VLD4.8 {d0, d1, d2, d3}, [r0]
 poly16x4x4_t vld4_p16(__transfersize(16) poly16_t const * ptr); // VLD4.16 {d0, d1, d2, d3}, [r0]
@@ -938,7 +924,6 @@ int8x8x2_t vld2_dup_s8(__transfersize(2) int8_t const * ptr); // VLD2.8 {d0[], d
 int16x4x2_t vld2_dup_s16(__transfersize(2) int16_t const * ptr); // VLD2.16 {d0[], d1[]}, [r0]
 int32x2x2_t vld2_dup_s32(__transfersize(2) int32_t const * ptr); // VLD2.32 {d0[], d1[]}, [r0]
 int64x1x2_t vld2_dup_s64(__transfersize(2) int64_t const * ptr); // VLD1.64 {d0, d1}, [r0]
-//float16x4x2_t vld2_dup_f16(__transfersize(2) __fp16 const * ptr); // VLD2.16 {d0[], d1[]}, [r0]
 float32x2x2_t vld2_dup_f32(__transfersize(2) float32_t const * ptr); // VLD2.32 {d0[], d1[]}, [r0]
 poly8x8x2_t vld2_dup_p8(__transfersize(2) poly8_t const * ptr); // VLD2.8 {d0[], d1[]}, [r0]
 poly16x4x2_t vld2_dup_p16(__transfersize(2) poly16_t const * ptr); // VLD2.16 {d0[], d1[]}, [r0]
@@ -950,7 +935,6 @@ int8x8x3_t vld3_dup_s8(__transfersize(3) int8_t const * ptr); // VLD3.8 {d0[], d
 int16x4x3_t vld3_dup_s16(__transfersize(3) int16_t const * ptr); // VLD3.16 {d0[], d1[], d2[]}, [r0]
 int32x2x3_t vld3_dup_s32(__transfersize(3) int32_t const * ptr); // VLD3.32 {d0[], d1[], d2[]}, [r0]
 int64x1x3_t vld3_dup_s64(__transfersize(3) int64_t const * ptr); // VLD1.64 {d0, d1, d2}, [r0]
-float16x4x3_t vld3_dup_f16(__transfersize(3) __fp16 const * ptr); // VLD3.16 {d0[], d1[], d2[]}, [r0]
 float32x2x3_t vld3_dup_f32(__transfersize(3) float32_t const * ptr); // VLD3.32 {d0[], d1[], d2[]}, [r0]
 poly8x8x3_t vld3_dup_p8(__transfersize(3) poly8_t const * ptr); // VLD3.8 {d0[], d1[], d2[]}, [r0]
 poly16x4x3_t vld3_dup_p16(__transfersize(3) poly16_t const * ptr); // VLD3.16 {d0[], d1[], d2[]}, [r0]
@@ -962,7 +946,6 @@ int8x8x4_t vld4_dup_s8(__transfersize(4) int8_t const * ptr); // VLD4.8 {d0[], d
 int16x4x4_t vld4_dup_s16(__transfersize(4) int16_t const * ptr); // VLD4.16 {d0[], d1[], d2[], d3[]}, [r0]
 int32x2x4_t vld4_dup_s32(__transfersize(4) int32_t const * ptr); // VLD4.32 {d0[], d1[], d2[], d3[]}, [r0]
 int64x1x4_t vld4_dup_s64(__transfersize(4) int64_t const * ptr); // VLD1.64 {d0, d1, d2, d3}, [r0]
-float16x4x4_t vld4_dup_f16(__transfersize(4) __fp16 const * ptr); // VLD4.16 {d0[], d1[], d2[], d3[]}, [r0]
 float32x2x4_t vld4_dup_f32(__transfersize(4) float32_t const * ptr); // VLD4.32 {d0[], d1[], d2[], d3[]}, [r0]
 poly8x8x4_t vld4_dup_p8(__transfersize(4) poly8_t const * ptr); // VLD4.8 {d0[], d1[], d2[], d3[]}, [r0]
 poly16x4x4_t vld4_dup_p16(__transfersize(4) poly16_t const * ptr); // VLD4.16 {d0[], d1[], d2[], d3[]}, [r0]
@@ -972,7 +955,6 @@ uint16x8x2_t vld2q_lane_u16_ptr(__transfersize(2) uint16_t const * ptr, uint16x8
 uint32x4x2_t vld2q_lane_u32_ptr(__transfersize(2) uint32_t const * ptr, uint32x4x2_t * src, __constrange(0,3) int lane); // VLD2.32 {d0[0], d2[0]}, [r0]
 int16x8x2_t vld2q_lane_s16_ptr(__transfersize(2) int16_t const * ptr, int16x8x2_t * src, __constrange(0,7) int lane); // VLD2.16 {d0[0], d2[0]}, [r0]
 int32x4x2_t vld2q_lane_s32_ptr(__transfersize(2) int32_t const * ptr, int32x4x2_t * src, __constrange(0,3) int lane); // VLD2.32 {d0[0], d2[0]}, [r0]
-float16x8x2_t vld2q_lane_f16_ptr(__transfersize(2) __fp16 const * ptr, float16x8x2_t * src, __constrange(0,7) int lane); // VLD2.16 {d0[0], d2[0]}, [r0]
 float32x4x2_t vld2q_lane_f32_ptr(__transfersize(2) float32_t const * ptr, float32x4x2_t * src, __constrange(0,3) int lane); // VLD2.32 {d0[0], d2[0]}, [r0]
 poly16x8x2_t vld2q_lane_p16_ptr(__transfersize(2) poly16_t const * ptr, poly16x8x2_t * src, __constrange(0,7) int lane); // VLD2.16 {d0[0], d2[0]}, [r0]
 uint8x8x2_t vld2_lane_u8_ptr(__transfersize(2) uint8_t const * ptr, uint8x8x2_t * src, __constrange(0,7) int lane); //VLD2.8 {d0[0], d1[0]}, [r0]
@@ -981,7 +963,6 @@ uint32x2x2_t vld2_lane_u32_ptr(__transfersize(2) uint32_t const * ptr, uint32x2x
 int8x8x2_t vld2_lane_s8_ptr(__transfersize(2) int8_t const * ptr, int8x8x2_t * src, __constrange(0,7) int lane); //VLD2.8 {d0[0], d1[0]}, [r0]
 int16x4x2_t vld2_lane_s16_ptr(__transfersize(2) int16_t const * ptr, int16x4x2_t * src, __constrange(0,3) int lane); //VLD2.16 {d0[0], d1[0]}, [r0]
 int32x2x2_t vld2_lane_s32_ptr(__transfersize(2) int32_t const * ptr, int32x2x2_t * src, __constrange(0,1) int lane); //VLD2.32 {d0[0], d1[0]}, [r0]
-//float16x4x2_t vld2_lane_f16_ptr(__transfersize(2) __fp16 const * ptr, float16x4x2_t * src, __constrange(0,3) int lane); // VLD2.16 {d0[0], d1[0]}, [r0]
 float32x2x2_t vld2_lane_f32_ptr(__transfersize(2) float32_t const * ptr, float32x2x2_t * src, __constrange(0,1) int lane); // VLD2.32 {d0[0], d1[0]}, [r0]
 poly8x8x2_t vld2_lane_p8_ptr(__transfersize(2) poly8_t const * ptr, poly8x8x2_t * src, __constrange(0,7) int lane); //VLD2.8 {d0[0], d1[0]}, [r0]
 poly16x4x2_t vld2_lane_p16_ptr(__transfersize(2) poly16_t const * ptr, poly16x4x2_t * src, __constrange(0,3) int lane); // VLD2.16 {d0[0], d1[0]}, [r0]
@@ -989,7 +970,6 @@ uint16x8x3_t vld3q_lane_u16_ptr(__transfersize(3) uint16_t const * ptr, uint16x8
 uint32x4x3_t vld3q_lane_u32_ptr(__transfersize(3) uint32_t const * ptr, uint32x4x3_t * src, __constrange(0,3) int lane); // VLD3.32 {d0[0], d2[0], d4[0]}, [r0]
 int16x8x3_t vld3q_lane_s16_ptr(__transfersize(3) int16_t const * ptr, int16x8x3_t * src, __constrange(0,7) int lane); // VLD3.16 {d0[0], d2[0], d4[0]}, [r0]
 int32x4x3_t vld3q_lane_s32_ptr(__transfersize(3) int32_t const * ptr, int32x4x3_t * src, __constrange(0,3) int lane); // VLD3.32 {d0[0], d2[0], d4[0]}, [r0]
-float16x8x3_t vld3q_lane_f16_ptr(__transfersize(3) __fp16 const * ptr, float16x8x3_t * src, __constrange(0,7) int lane); // VLD3.16 {d0[0], d2[0], d4[0]}, [r0]
 float32x4x3_t vld3q_lane_f32_ptr(__transfersize(3) float32_t const * ptr, float32x4x3_t * src, __constrange(0,3) int lane); // VLD3.32 {d0[0], d2[0], d4[0]}, [r0]
 poly16x8x3_t vld3q_lane_p16_ptr(__transfersize(3) poly16_t const * ptr, poly16x8x3_t * src, __constrange(0,7) int lane); // VLD3.16 {d0[0], d2[0], d4[0]}, [r0]
 uint8x8x3_t vld3_lane_u8_ptr(__transfersize(3) uint8_t const * ptr, uint8x8x3_t * src, __constrange(0,7) int lane); //VLD3.8 {d0[0], d1[0], d2[0]}, [r0]
@@ -998,7 +978,6 @@ uint32x2x3_t vld3_lane_u32_ptr(__transfersize(3) uint32_t const * ptr, uint32x2x
 int8x8x3_t vld3_lane_s8_ptr(__transfersize(3) int8_t const * ptr, int8x8x3_t * src, __constrange(0,7) int lane); //VLD3.8 {d0[0], d1[0], d2[0]}, [r0]
 int16x4x3_t vld3_lane_s16_ptr(__transfersize(3) int16_t const * ptr, int16x4x3_t * src, __constrange(0,3) int lane); //VLD3.16 {d0[0], d1[0], d2[0]}, [r0]
 int32x2x3_t vld3_lane_s32_ptr(__transfersize(3) int32_t const * ptr, int32x2x3_t * src, __constrange(0,1) int lane); //VLD3.32 {d0[0], d1[0], d2[0]}, [r0]
-float16x4x3_t vld3_lane_f16_ptr(__transfersize(3) __fp16 const * ptr, float16x4x3_t * src, __constrange(0,3) int lane); // VLD3.16 {d0[0], d1[0], d2[0]}, [r0]
 float32x2x3_t vld3_lane_f32_ptr(__transfersize(3) float32_t const * ptr, float32x2x3_t * src, __constrange(0,1) int lane); // VLD3.32 {d0[0], d1[0], d2[0]}, [r0]
 poly8x8x3_t vld3_lane_p8_ptr(__transfersize(3) poly8_t const * ptr, poly8x8x3_t * src, __constrange(0,7) int lane); //VLD3.8 {d0[0], d1[0], d2[0]}, [r0]
 poly16x4x3_t vld3_lane_p16_ptr(__transfersize(3) poly16_t const * ptr, poly16x4x3_t * src, __constrange(0,3) int lane); // VLD3.16 {d0[0], d1[0], d2[0]}, [r0]
@@ -1006,7 +985,6 @@ uint16x8x4_t vld4q_lane_u16_ptr(__transfersize(4) uint16_t const * ptr, uint16x8
 uint32x4x4_t vld4q_lane_u32_ptr(__transfersize(4) uint32_t const * ptr, uint32x4x4_t * src, __constrange(0,3) int lane); // VLD4.32 {d0[0], d2[0], d4[0], d6[0]}, [r0]
 int16x8x4_t vld4q_lane_s16_ptr(__transfersize(4) int16_t const * ptr, int16x8x4_t * src, __constrange(0,7) int lane); // VLD4.16 {d0[0], d2[0], d4[0], d6[0]}, [r0]
 int32x4x4_t vld4q_lane_s32_ptr(__transfersize(4) int32_t const * ptr, int32x4x4_t * src, __constrange(0,3) int lane); // VLD4.32 {d0[0], d2[0], d4[0], d6[0]}, [r0]
-float16x8x4_t vld4q_lane_f16_ptr(__transfersize(4) __fp16 const * ptr, float16x8x4_t * src, __constrange(0,7) int lane); // VLD4.16 {d0[0], d2[0], d4[0], d6[0]}, [r0]
 float32x4x4_t vld4q_lane_f32_ptr(__transfersize(4) float32_t const * ptr, float32x4x4_t * src, __constrange(0,3) int lane); // VLD4.32 {d0[0], d2[0], d4[0], d6[0]}, [r0]
 poly16x8x4_t vld4q_lane_p16_ptr(__transfersize(4) poly16_t const * ptr, poly16x8x4_t * src, __constrange(0,7) int lane); // VLD4.16 {d0[0], d2[0], d4[0], d6[0]}, [r0]
 uint8x8x4_t vld4_lane_u8_ptr(__transfersize(4) uint8_t const * ptr, uint8x8x4_t * src, __constrange(0,7) int lane); //VLD4.8 {d0[0], d1[0], d2[0], d3[0]}, [r0]
@@ -1015,7 +993,6 @@ uint32x2x4_t vld4_lane_u32_ptr(__transfersize(4) uint32_t const * ptr, uint32x2x
 int8x8x4_t vld4_lane_s8_ptr(__transfersize(4) int8_t const * ptr, int8x8x4_t * src, __constrange(0,7) int lane); //VLD4.8 {d0[0], d1[0], d2[0], d3[0]}, [r0]
 int16x4x4_t vld4_lane_s16_ptr(__transfersize(4) int16_t const * ptr, int16x4x4_t * src, __constrange(0,3) int lane); //VLD4.16 {d0[0], d1[0], d2[0], d3[0]}, [r0]
 int32x2x4_t vld4_lane_s32_ptr(__transfersize(4) int32_t const * ptr, int32x2x4_t * src, __constrange(0,1) int lane); //VLD4.32 {d0[0], d1[0], d2[0], d3[0]}, [r0]
-float16x4x4_t vld4_lane_f16_ptr(__transfersize(4) __fp16 const * ptr, float16x4x4_t * src, __constrange(0,3) int lane); // VLD4.16 {d0[0], d1[0], d2[0], d3[0]}, [r0]
 float32x2x4_t vld4_lane_f32_ptr(__transfersize(4) float32_t const * ptr, float32x2x4_t * src, __constrange(0,1) int lane); // VLD4.32 {d0[0], d1[0], d2[0], d3[0]}, [r0]
 poly8x8x4_t vld4_lane_p8_ptr(__transfersize(4) poly8_t const * ptr, poly8x8x4_t * src, __constrange(0,7) int lane); //VLD4.8 {d0[0], d1[0], d2[0], d3[0]}, [r0]
 poly16x4x4_t vld4_lane_p16_ptr(__transfersize(4) poly16_t const * ptr, poly16x4x4_t * src, __constrange(0,3) int lane); // VLD4.16 {d0[0], d1[0], d2[0], d3[0]}, [r0]
@@ -1026,7 +1003,6 @@ void vst2q_u32_ptr(__transfersize(8) uint32_t * ptr, uint32x4x2_t * val); // VST
 void vst2q_s8_ptr(__transfersize(32) int8_t * ptr, int8x16x2_t * val); // VST2.8 {d0, d2}, [r0]
 void vst2q_s16_ptr(__transfersize(16) int16_t * ptr, int16x8x2_t * val); // VST2.16 {d0, d2}, [r0]
 void vst2q_s32_ptr(__transfersize(8) int32_t * ptr, int32x4x2_t * val); // VST2.32 {d0, d2}, [r0]
-void vst2q_f16_ptr(__transfersize(16) __fp16 * ptr, float16x8x2_t * val); // VST2.16 {d0, d2}, [r0]
 void vst2q_f32_ptr(__transfersize(8) float32_t * ptr, float32x4x2_t * val); // VST2.32 {d0, d2}, [r0]
 void vst2q_p8_ptr(__transfersize(32) poly8_t * ptr, poly8x16x2_t * val); // VST2.8 {d0, d2}, [r0]
 void vst2q_p16_ptr(__transfersize(16) poly16_t * ptr, poly16x8x2_t * val); // VST2.16 {d0, d2}, [r0]
@@ -1038,7 +1014,6 @@ void vst2_s8_ptr(__transfersize(16) int8_t * ptr, int8x8x2_t * val); // VST2.8 {
 void vst2_s16_ptr(__transfersize(8) int16_t * ptr, int16x4x2_t * val); // VST2.16 {d0, d1}, [r0]
 void vst2_s32_ptr(__transfersize(4) int32_t * ptr, int32x2x2_t * val); // VST2.32 {d0, d1}, [r0]
 void vst2_s64_ptr(__transfersize(2) int64_t * ptr, int64x1x2_t * val); // VST1.64 {d0, d1}, [r0]
-//void vst2_f16_ptr(__transfersize(8) __fp16 * ptr, float16x4x2_t * val); // VST2.16 {d0, d1}, [r0]
 void vst2_f32_ptr(__transfersize(4) float32_t * ptr, float32x2x2_t * val); // VST2.32 {d0, d1}, [r0]
 void vst2_p8_ptr(__transfersize(16) poly8_t * ptr, poly8x8x2_t * val); // VST2.8 {d0, d1}, [r0]
 void vst2_p16_ptr(__transfersize(8) poly16_t * ptr, poly16x4x2_t * val); // VST2.16 {d0, d1}, [r0]
@@ -1048,7 +1023,6 @@ void vst3q_u32_ptr(__transfersize(12) uint32_t * ptr, uint32x4x3_t * val); // VS
 void vst3q_s8_ptr(__transfersize(48) int8_t * ptr, int8x16x3_t * val); // VST3.8 {d0, d2, d4}, [r0]
 void vst3q_s16_ptr(__transfersize(24) int16_t * ptr, int16x8x3_t * val); // VST3.16 {d0, d2, d4}, [r0]
 void vst3q_s32_ptr(__transfersize(12) int32_t * ptr, int32x4x3_t * val); // VST3.32 {d0, d2, d4}, [r0]
-void vst3q_f16_ptr(__transfersize(24) __fp16 * ptr, float16x8x3_t * val); // VST3.16 {d0, d2, d4}, [r0]
 void vst3q_f32_ptr(__transfersize(12) float32_t * ptr, float32x4x3_t * val); // VST3.32 {d0, d2, d4}, [r0]
 void vst3q_p8_ptr(__transfersize(48) poly8_t * ptr, poly8x16x3_t * val); // VST3.8 {d0, d2, d4}, [r0]
 void vst3q_p16_ptr(__transfersize(24) poly16_t * ptr, poly16x8x3_t * val); // VST3.16 {d0, d2, d4}, [r0]
@@ -1060,7 +1034,6 @@ void vst3_s8_ptr(__transfersize(24) int8_t * ptr, int8x8x3_t * val); // VST3.8 {
 void vst3_s16_ptr(__transfersize(12) int16_t * ptr, int16x4x3_t * val); // VST3.16 {d0, d1, d2}, [r0]
 void vst3_s32_ptr(__transfersize(6) int32_t * ptr, int32x2x3_t * val); // VST3.32 {d0, d1, d2}, [r0]
 void vst3_s64_ptr(__transfersize(3) int64_t * ptr, int64x1x3_t * val); // VST1.64 {d0, d1, d2}, [r0]
-void vst3_f16_ptr(__transfersize(12) __fp16 * ptr, float16x4x3_t * val); // VST3.16 {d0, d1, d2}, [r0]
 void vst3_f32_ptr(__transfersize(6) float32_t * ptr, float32x2x3_t * val); // VST3.32 {d0, d1, d2}, [r0]
 void vst3_p8_ptr(__transfersize(24) poly8_t * ptr, poly8x8x3_t * val); // VST3.8 {d0, d1, d2}, [r0]
 void vst3_p16_ptr(__transfersize(12) poly16_t * ptr, poly16x4x3_t * val); // VST3.16 {d0, d1, d2}, [r0]
@@ -1070,7 +1043,6 @@ void vst4q_u32_ptr(__transfersize(16) uint32_t * ptr, uint32x4x4_t * val); // VS
 void vst4q_s8_ptr(__transfersize(64) int8_t * ptr, int8x16x4_t * val); // VST4.8 {d0, d2, d4, d6}, [r0]
 void vst4q_s16_ptr(__transfersize(32) int16_t * ptr, int16x8x4_t * val); // VST4.16 {d0, d2, d4, d6}, [r0]
 void vst4q_s32_ptr(__transfersize(16) int32_t * ptr, int32x4x4_t * val); // VST4.32 {d0, d2, d4, d6}, [r0]
-void vst4q_f16_ptr(__transfersize(32) __fp16 * ptr, float16x8x4_t * val); // VST4.16 {d0, d2, d4, d6}, [r0]
 void vst4q_f32_ptr(__transfersize(16) float32_t * ptr, float32x4x4_t * val); // VST4.32 {d0, d2, d4, d6}, [r0]
 void vst4q_p8_ptr(__transfersize(64) poly8_t * ptr, poly8x16x4_t * val); // VST4.8 {d0, d2, d4, d6}, [r0]
 void vst4q_p16_ptr(__transfersize(32) poly16_t * ptr, poly16x8x4_t * val); // VST4.16 {d0, d2, d4, d6}, [r0]
@@ -1082,7 +1054,6 @@ void vst4_s8_ptr(__transfersize(32) int8_t * ptr, int8x8x4_t * val); // VST4.8 {
 void vst4_s16_ptr(__transfersize(16) int16_t * ptr, int16x4x4_t * val); // VST4.16 {d0, d1, d2, d3}, [r0]
 void vst4_s32_ptr(__transfersize(8) int32_t * ptr, int32x2x4_t * val); // VST4.32 {d0, d1, d2, d3}, [r0]
 void vst4_s64_ptr(__transfersize(4) int64_t * ptr, int64x1x4_t * val); // VST1.64 {d0, d1, d2, d3}, [r0]
-void vst4_f16_ptr(__transfersize(16) __fp16 * ptr, float16x4x4_t * val); // VST4.16 {d0, d1, d2, d3}, [r0]
 void vst4_f32_ptr(__transfersize(8) float32_t * ptr, float32x2x4_t * val); // VST4.32 {d0, d1, d2, d3}, [r0]
 void vst4_p8_ptr(__transfersize(32) poly8_t * ptr, poly8x8x4_t * val); // VST4.8 {d0, d1, d2, d3}, [r0]
 void vst4_p16_ptr(__transfersize(16) poly16_t * ptr, poly16x4x4_t * val); // VST4.16 {d0, d1, d2, d3}, [r0]
@@ -1091,7 +1062,6 @@ void vst2q_lane_u16_ptr(__transfersize(2) uint16_t * ptr, uint16x8x2_t * val, __
 void vst2q_lane_u32_ptr(__transfersize(2) uint32_t * ptr, uint32x4x2_t * val, __constrange(0,3) int lane); // VST2.32{d0[0], d2[0]}, [r0]
 void vst2q_lane_s16_ptr(__transfersize(2) int16_t * ptr, int16x8x2_t * val, __constrange(0,7) int lane); // VST2.16{d0[0], d2[0]}, [r0]
 void vst2q_lane_s32_ptr(__transfersize(2) int32_t * ptr, int32x4x2_t * val, __constrange(0,3) int lane); // VST2.32{d0[0], d2[0]}, [r0]
-void vst2q_lane_f16_ptr(__transfersize(2) __fp16 * ptr, float16x8x2_t * val, __constrange(0,7) int lane); // VST2.16{d0[0], d2[0]}, [r0]
 void vst2q_lane_f32_ptr(__transfersize(2) float32_t * ptr, float32x4x2_t * val, __constrange(0,3) int lane); //VST2.32 {d0[0], d2[0]}, [r0]
 void vst2q_lane_p16_ptr(__transfersize(2) poly16_t * ptr, poly16x8x2_t * val, __constrange(0,7) int lane); // VST2.16{d0[0], d2[0]}, [r0]
 void vst2_lane_u8_ptr(__transfersize(2) uint8_t * ptr, uint8x8x2_t * val, __constrange(0,7) int lane); // VST2.8{d0[0], d1[0]}, [r0]
@@ -1100,7 +1070,6 @@ void vst2_lane_u32_ptr(__transfersize(2) uint32_t * ptr, uint32x2x2_t * val, __c
 void vst2_lane_s8_ptr(__transfersize(2) int8_t * ptr, int8x8x2_t * val, __constrange(0,7) int lane); // VST2.8 {d0[0],d1[0]}, [r0]
 void vst2_lane_s16_ptr(__transfersize(2) int16_t * ptr, int16x4x2_t * val, __constrange(0,3) int lane); // VST2.16{d0[0], d1[0]}, [r0]
 void vst2_lane_s32_ptr(__transfersize(2) int32_t * ptr, int32x2x2_t * val, __constrange(0,1) int lane); // VST2.32{d0[0], d1[0]}, [r0]
-void vst2_lane_f16_ptr(__transfersize(2) __fp16 * ptr, float16x4x2_t * val, __constrange(0,3) int lane); // VST2.16{d0[0], d1[0]}, [r0]
 void vst2_lane_f32_ptr(__transfersize(2) float32_t * ptr, float32x2x2_t * val, __constrange(0,1) int lane); // VST2.32{d0[0], d1[0]}, [r0]
 void vst2_lane_p8_ptr(__transfersize(2) poly8_t * ptr, poly8x8x2_t * val, __constrange(0,7) int lane); // VST2.8{d0[0], d1[0]}, [r0]
 void vst2_lane_p16_ptr(__transfersize(2) poly16_t * ptr, poly16x4x2_t * val, __constrange(0,3) int lane); // VST2.16{d0[0], d1[0]}, [r0]
@@ -1108,7 +1077,6 @@ void vst3q_lane_u16_ptr(__transfersize(3) uint16_t * ptr, uint16x8x3_t * val, __
 void vst3q_lane_u32_ptr(__transfersize(3) uint32_t * ptr, uint32x4x3_t * val, __constrange(0,3) int lane); // VST3.32{d0[0], d2[0], d4[0]}, [r0]
 void vst3q_lane_s16_ptr(__transfersize(3) int16_t * ptr, int16x8x3_t * val, __constrange(0,7) int lane); // VST3.16{d0[0], d2[0], d4[0]}, [r0]
 void vst3q_lane_s32_ptr(__transfersize(3) int32_t * ptr, int32x4x3_t * val, __constrange(0,3) int lane); // VST3.32{d0[0], d2[0], d4[0]}, [r0]
-void vst3q_lane_f16_ptr(__transfersize(3) __fp16 * ptr, float16x8x3_t * val, __constrange(0,7) int lane); // VST3.16{d0[0], d2[0], d4[0]}, [r0]
 void vst3q_lane_f32_ptr(__transfersize(3) float32_t * ptr, float32x4x3_t * val, __constrange(0,3) int lane); //VST3.32 {d0[0], d2[0], d4[0]}, [r0]
 void vst3q_lane_p16_ptr(__transfersize(3) poly16_t * ptr, poly16x8x3_t * val, __constrange(0,7) int lane); // VST3.16{d0[0], d2[0], d4[0]}, [r0]
 void vst3_lane_u8_ptr(__transfersize(3) uint8_t * ptr, uint8x8x3_t * val, __constrange(0,7) int lane); // VST3.8{d0[0], d1[0], d2[0]}, [r0]
@@ -1117,7 +1085,6 @@ void vst3_lane_u32_ptr(__transfersize(3) uint32_t * ptr, uint32x2x3_t * val, __c
 void vst3_lane_s8_ptr(__transfersize(3) int8_t * ptr, int8x8x3_t * val, __constrange(0,7) int lane); // VST3.8 {d0[0],d1[0], d2[0]}, [r0]
 void vst3_lane_s16_ptr(__transfersize(3) int16_t * ptr, int16x4x3_t * val, __constrange(0,3) int lane); // VST3.16{d0[0], d1[0], d2[0]}, [r0]
 void vst3_lane_s32_ptr(__transfersize(3) int32_t * ptr, int32x2x3_t * val, __constrange(0,1) int lane); // VST3.32{d0[0], d1[0], d2[0]}, [r0]
-void vst3_lane_f16_ptr(__transfersize(3) __fp16 * ptr, float16x4x3_t * val, __constrange(0,3) int lane); // VST3.16{d0[0], d1[0], d2[0]}, [r0]
 void vst3_lane_f32_ptr(__transfersize(3) float32_t * ptr, float32x2x3_t * val, __constrange(0,1) int lane); // VST3.32{d0[0], d1[0], d2[0]}, [r0]
 void vst3_lane_p8_ptr(__transfersize(3) poly8_t * ptr, poly8x8x3_t * val, __constrange(0,7) int lane); // VST3.8{d0[0], d1[0], d2[0]}, [r0]
 void vst3_lane_p16_ptr(__transfersize(3) poly16_t * ptr, poly16x4x3_t * val, __constrange(0,3) int lane); // VST3.16{d0[0], d1[0], d2[0]}, [r0]
@@ -1125,7 +1092,6 @@ void vst4q_lane_u16_ptr(__transfersize(4) uint16_t * ptr, uint16x8x4_t * val, __
 void vst4q_lane_u32_ptr(__transfersize(4) uint32_t * ptr, uint32x4x4_t * val, __constrange(0,3) int lane); // VST4.32{d0[0], d2[0], d4[0], d6[0]}, [r0]
 void vst4q_lane_s16_ptr(__transfersize(4) int16_t * ptr, int16x8x4_t * val, __constrange(0,7) int lane); // VST4.16{d0[0], d2[0], d4[0], d6[0]}, [r0]
 void vst4q_lane_s32_ptr(__transfersize(4) int32_t * ptr, int32x4x4_t * val, __constrange(0,3) int lane); // VST4.32{d0[0], d2[0], d4[0], d6[0]}, [r0]
-void vst4q_lane_f16_ptr(__transfersize(4) __fp16 * ptr, float16x8x4_t * val, __constrange(0,7) int lane); // VST4.16{d0[0], d2[0], d4[0], d6[0]}, [r0]
 void vst4q_lane_f32_ptr(__transfersize(4) float32_t * ptr, float32x4x4_t * val, __constrange(0,3) int lane); //VST4.32 {d0[0], d2[0], d4[0], d6[0]}, [r0]
 void vst4q_lane_p16_ptr(__transfersize(4) poly16_t * ptr, poly16x8x4_t * val, __constrange(0,7) int lane); // VST4.16{d0[0], d2[0], d4[0], d6[0]}, [r0]
 void vst4_lane_u8_ptr(__transfersize(4) uint8_t * ptr, uint8x8x4_t * val, __constrange(0,7) int lane); // VST4.8{d0[0], d1[0], d2[0], d3[0]}, [r0]
@@ -1134,7 +1100,6 @@ void vst4_lane_u32_ptr(__transfersize(4) uint32_t * ptr, uint32x2x4_t * val, __c
 void vst4_lane_s8_ptr(__transfersize(4) int8_t * ptr, int8x8x4_t * val, __constrange(0,7) int lane); // VST4.8 {d0[0],d1[0], d2[0], d3[0]}, [r0]
 void vst4_lane_s16_ptr(__transfersize(4) int16_t * ptr, int16x4x4_t * val, __constrange(0,3) int lane); // VST4.16{d0[0], d1[0], d2[0], d3[0]}, [r0]
 void vst4_lane_s32_ptr(__transfersize(4) int32_t * ptr, int32x2x4_t * val, __constrange(0,1) int lane); // VST4.32{d0[0], d1[0], d2[0], d3[0]}, [r0]
-void vst4_lane_f16_ptr(__transfersize(4) __fp16 * ptr, float16x4x4_t * val, __constrange(0,3) int lane); // VST4.16{d0[0], d1[0], d2[0], d3[0]}, [r0]
 void vst4_lane_f32_ptr(__transfersize(4) float32_t * ptr, float32x2x4_t * val, __constrange(0,1) int lane); // VST4.32{d0[0], d1[0], d2[0], d3[0]}, [r0]
 void vst4_lane_p8_ptr(__transfersize(4) poly8_t * ptr, poly8x8x4_t * val, __constrange(0,7) int lane); // VST4.8{d0[0], d1[0], d2[0], d3[0]}, [r0]
 void vst4_lane_p16_ptr(__transfersize(4) poly16_t * ptr, poly16x4x4_t * val, __constrange(0,3) int lane); // VST4.16{d0[0], d1[0], d2[0], d3[0]}, [r0]
@@ -1188,7 +1153,6 @@ uint64x2_t vsetq_lane_u64(uint64_t value, uint64x2_t vec, __constrange(0,1) int 
 int8x8_t vcreate_s8(uint64_t a); // VMOV d0,r0,r0
 int16x4_t vcreate_s16(uint64_t a); // VMOV d0,r0,r0
 int32x2_t vcreate_s32(uint64_t a); // VMOV d0,r0,r0
-float16x4_t vcreate_f16(uint64_t a); // VMOV d0,r0,r0
 float32x2_t vcreate_f32(uint64_t a); // VMOV d0,r0,r0
 uint8x8_t vcreate_u8(uint64_t a); // VMOV d0,r0,r0
 uint16x4_t vcreate_u16(uint64_t a); // VMOV d0,r0,r0
@@ -1271,7 +1235,6 @@ int8x16_t vcombine_s8(int8x8_t low, int8x8_t high); // VMOV d0,d0
 int16x8_t vcombine_s16(int16x4_t low, int16x4_t high); // VMOV d0,d0
 int32x4_t vcombine_s32(int32x2_t low, int32x2_t high); // VMOV d0,d0
 int64x2_t vcombine_s64(int64x1_t low, int64x1_t high); // VMOV d0,d0
-float16x8_t vcombine_f16(float16x4_t low, float16x4_t high); // VMOV d0,d0
 float32x4_t vcombine_f32(float32x2_t low, float32x2_t high); // VMOV d0,d0
 uint8x16_t vcombine_u8(uint8x8_t low, uint8x8_t high); // VMOV d0,d0
 uint16x8_t vcombine_u16(uint16x4_t low, uint16x4_t high); // VMOV d0,d0
@@ -1284,7 +1247,6 @@ int8x8_t vget_high_s8(int8x16_t a); // VMOV d0,d0
 int16x4_t vget_high_s16(int16x8_t a); // VMOV d0,d0
 int32x2_t vget_high_s32(int32x4_t a); // VMOV d0,d0
 int64x1_t vget_high_s64(int64x2_t a); // VMOV d0,d0
-float16x4_t vget_high_f16(float16x8_t a); // VMOV d0,d0
 float32x2_t vget_high_f32(float32x4_t a); // VMOV d0,d0
 uint8x8_t vget_high_u8(uint8x16_t a); // VMOV d0,d0
 uint16x4_t vget_high_u16(uint16x8_t a); // VMOV d0,d0
@@ -1296,7 +1258,6 @@ int8x8_t vget_low_s8(int8x16_t a); // VMOV d0,d0
 int16x4_t vget_low_s16(int16x8_t a); // VMOV d0,d0
 int32x2_t vget_low_s32(int32x4_t a); // VMOV d0,d0
 int64x1_t vget_low_s64(int64x2_t a); // VMOV d0,d0
-float16x4_t vget_low_f16(float16x8_t a); // VMOV d0,d0
 float32x2_t vget_low_f32(float32x4_t a); // VMOV d0,d0
 uint8x8_t vget_low_u8(uint8x16_t a); // VMOV d0,d0
 uint16x4_t vget_low_u16(uint16x8_t a); // VMOV d0,d0
@@ -1323,9 +1284,6 @@ float32x2_t vcvt_n_f32_s32(int32x2_t a, __constrange(1,32) int b); // VCVT.F32.S
 float32x2_t vcvt_n_f32_u32(uint32x2_t a, __constrange(1,32) int b); // VCVT.F32.U32 d0, d0, #32
 float32x4_t vcvtq_n_f32_s32(int32x4_t a, __constrange(1,32) int b); // VCVT.F32.S32 q0, q0, #32
 float32x4_t vcvtq_n_f32_u32(uint32x4_t a, __constrange(1,32) int b); // VCVT.F32.U32 q0, q0, #32
-//Convert between floats
-float16x4_t vcvt_f16_f32(float32x4_t a); // VCVT.F16.F32 d0, q0
-float32x4_t vcvt_f32_f16(float16x4_t a); // VCVT.F32.F16 q0, d0
 //Vector narrow integer
 int8x8_t vmovn_s16(int16x8_t a); // VMOVN.I16 d0,q0
 int16x4_t vmovn_s32(int32x4_t a); // VMOVN.I32 d0,q0
@@ -1788,6 +1746,7 @@ poly16x4x2_t vzip_p16(poly16x4_t a, poly16x4_t b); // VZIP.16 d0,d0
 int8x16x2_t vzipq_s8(int8x16_t a, int8x16_t b); // VZIP.8 q0,q0
 int16x8x2_t vzipq_s16(int16x8_t a, int16x8_t b); // VZIP.16 q0,q0
 int32x4x2_t vzipq_s32(int32x4_t a, int32x4_t b); // VZIP.32 q0,q0
+
 uint8x16x2_t vzipq_u8(uint8x16_t a, uint8x16_t b); // VZIP.8 q0,q0
 uint16x8x2_t vzipq_u16(uint16x8_t a, uint16x8_t b); // VZIP.16 q0,q0
 uint32x4x2_t vzipq_u32(uint32x4_t a, uint32x4_t b); // VZIP.32 q0,q0
@@ -1815,6 +1774,8 @@ poly8x16x2_t vuzpq_p8(poly8x16_t a, poly8x16_t b); // VUZP.8 q0,q0
 poly16x8x2_t vuzpq_p16(poly16x8_t a, poly16x8_t b); // VUZP.16 q0,q0
 ]]
 
+local hfile = ""
+
 function wrapFunction1(line)
     local a,b,c,d = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*([%w_]+)%s+([%w_]+)%s*%)")
     if a ~= nil and b ~= nil and c ~= nil and d ~= nil then
@@ -1823,9 +1784,10 @@ function wrapFunction1(line)
         io.write("\treturn "..b.."("..d..");\n")
         io.write("}\n")
         io.write("\n")
+        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..");\n"
+        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
     end
 end
-
 
 function wrapFunction1b(line)
     local a,b,c,d = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*__transfersize%(%d+%)%s*([%w_]+%s+const%s+%*)%s+([%w_]+)%s*%)")
@@ -1835,6 +1797,8 @@ function wrapFunction1b(line)
         io.write("\treturn "..b.."("..d..");\n")
         io.write("}\n")
         io.write("\n")
+        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..");\n"
+        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
     end
 end
 
@@ -1846,6 +1810,8 @@ function wrapFunction2(line)
         io.write("\treturn "..b.."("..d..", "..f..");\n")
         io.write("}\n")
         io.write("\n")
+        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..");\n"
+        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
     end
 end
 
@@ -1857,6 +1823,8 @@ function wrapFunction2b(line)
         io.write("\treturn "..b.."("..d..", "..f..");\n")
         io.write("}\n")
         io.write("\n")
+        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..");\n"
+        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
     end
 end
 
@@ -1868,6 +1836,8 @@ function wrapFunction3(line)
         io.write("\treturn "..b.."("..d..", "..f..", "..h..");\n")
         io.write("}\n")
         io.write("\n")
+        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..", "..g.." "..h..");\n"
+        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
     end
 end
 
@@ -1881,4 +1851,8 @@ for line in string.gmatch(functions, "[^\r\n]+") do
     wrapFunction3(line)
 end
 
+io.close()
+
+io.output("NEONvsSSE_layer.h")
+io.write(hfile)
 io.close()
