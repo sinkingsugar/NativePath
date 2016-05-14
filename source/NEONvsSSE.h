@@ -32,8 +32,8 @@
 // This file is intended to simplify ARM->IA32 porting
 // It makes the correspondence between ARM NEON intrinsics (as defined in "arm_neon.h")
 // and x86 SSE(up to SSE4.2) intrinsic functions as defined in headers files below
-//MMX instruction set is not used due to non availability on x64 systems,
-//performance overhead and the necessity to use the EMMS instruction (_mm_empty())for mmx-x87 floating point  switching
+// MMX instruction set is not used due to non availability on x64 systems,
+// performance overhead and the necessity to use the EMMS instruction (_mm_empty())for mmx-x87 floating point  switching
 //*****************************************************************************************
 
 //!!!!!!!!!!!!!!  To use this file just include it in your project that uses ARM NEON intinsics instead of "arm_neon.h" and complile it as usual
@@ -62,7 +62,6 @@
 #include <nmmintrin.h> //SSE4.2
 #endif
 
-
 //***************  functions and data attributes, compiler dependent  *********************************
 //***********************************************************************************
 #ifdef __GNUC__
@@ -90,7 +89,7 @@
 #endif
 #endif
 
-#define _NEON2SSE_PERFORMANCE_WARNING(function, explanation)  function
+#define _NEON2SSE_PERFORMANCE_WARNING(function, explanation) function
 
 #if defined  (_NEON2SSE_64BIT) && defined (USE_SSE4)
     #define _NEON2SSE_64BIT_SSE4
@@ -123,8 +122,6 @@
 #include <limits.h>
 #endif
 
-#pragma pack(push)
-#pragma pack(1)
 typedef union __m64_128 {
     uint64_t m64_u64[1];
     float m64_f32[2];
@@ -149,7 +146,6 @@ typedef __m64_128 poly8x8_t;
 typedef __m64_128 poly16x4_t;
 
 typedef __m64_128 float32x2_t;
-#pragma pack(pop)
 
 typedef __m128 float32x4_t;
 
@@ -168,19 +164,20 @@ typedef __m128i poly8x16_t;
 typedef __m128i poly16x8_t;
 
 #if defined(_MSC_VER)
-    #define SINT_MIN     (-2147483647 - 1) /* min signed int value */
-    #define SINT_MAX       2147483647 /* max signed int value */
+    #define SINT_MIN (-2147483647 - 1) /* min signed int value */
+    #define SINT_MAX 2147483647 /* max signed int value */
 #else
-    #define SINT_MIN     INT_MIN /* min signed int value */
-    #define SINT_MAX     INT_MAX /* max signed int value */
+    #define SINT_MIN INT_MIN /* min signed int value */
+    #define SINT_MAX INT_MAX /* max signed int value */
 #endif
 
-typedef   float float32_t;
-typedef   float __fp16;
+typedef float float32_t;
+#if !defined(__clang__)
+typedef float __fp16;
+#endif
 
 typedef  uint8_t poly8_t;
 typedef  uint16_t poly16_t;
-
 
 //MSVC compilers (tested up to 2012 VS version) doesn't allow using structures or arrays of __m128x type  as functions arguments resulting in
 //error C2719: 'src': formal parameter with __declspec(align('16')) won't be aligned.  To avoid it we need the special trick for functions that use these types
@@ -362,12 +359,12 @@ typedef struct int32x4x3_t uint32x4x3_t;
 typedef struct int64x2x3_t uint64x2x3_t;
 typedef struct int8x16x3_t poly8x16x3_t;
 typedef struct int16x8x3_t poly16x8x3_t;
-typedef struct  int8x8x3_t uint8x8x3_t;
-typedef struct  int16x4x3_t uint16x4x3_t;
-typedef struct  int32x2x3_t uint32x2x3_t;
-typedef struct  int64x1x3_t uint64x1x3_t;
-typedef struct  int8x8x3_t poly8x8x3_t;
-typedef struct  int16x4x3_t poly16x4x3_t;
+typedef struct int8x8x3_t uint8x8x3_t;
+typedef struct int16x4x3_t uint16x4x3_t;
+typedef struct int32x2x3_t uint32x2x3_t;
+typedef struct int64x1x3_t uint64x1x3_t;
+typedef struct int8x8x3_t poly8x8x3_t;
+typedef struct int16x4x3_t poly16x4x3_t;
 
 //float
 struct float32x4x3_t {
@@ -385,25 +382,25 @@ typedef struct float16x8x3_t float16x8x3_t; //for C compilers to make them happy
 typedef struct float32x2x3_t float32x2x3_t; //for C compilers to make them happy
 typedef  float16x8x3_t float16x4x3_t;
 
-
 //****************************************************************************
 //****** Porting auxiliary macros ********************************************
 
 //** floating point related macros **
 #define _M128i(a) _mm_castps_si128(a)
 #define _M128(a) _mm_castsi128_ps(a)
+
 //here the most performance effective implementation is compiler and 32/64 bits build dependent
 #if defined (_NEON2SSE_64BIT) || (defined (__INTEL_COMPILER) && (__INTEL_COMPILER  >= 1500) )
-
-        #define _pM128i(a) _mm_cvtsi64_si128(*(int64_t*)(&(a)))
-        #define _M64(out, inp) out.m64_i64[0] = _mm_cvtsi128_si64 (inp);
-        #define _M64f(out, inp) out.m64_i64[0] = _mm_cvtsi128_si64 (_M128i(inp));
-#else  
+    #define _pM128i(a) _mm_cvtsi64_si128(*(int64_t*)(&(a)))
+    #define _M64(out, inp) out.m64_i64[0] = _mm_cvtsi128_si64 (inp);
+    #define _M64f(out, inp) out.m64_i64[0] = _mm_cvtsi128_si64 (_M128i(inp));
+#else 
    //for 32bit gcc and Microsoft compilers builds
     #define _pM128i(a) _mm_loadl_epi64((__m128i*)&(a))
     #define _M64(out, inp)  _mm_storel_epi64 ((__m128i*)&(out), inp)
     #define _M64f(out, inp)  _mm_storel_epi64 ((__m128i*)&(out), _M128i(inp))
 #endif
+
 #define _pM128(a) _mm_castsi128_ps(_pM128i(a))
 
 #define return64(a)  _M64(res64,a); return res64;
@@ -420,10 +417,9 @@ typedef  float16x8x3_t float16x4x3_t;
 #define  _NEON2SSE_REASON_SLOW_UNEFFECTIVE "The function may be slow due to inefficient x86 SIMD implementation, please try to avoid it"
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#define __constrange(min,max)  const
+#define __constrange(min,max) const
 #define __transfersize(size)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 //*************************************************************************
 //*************************************************************************
@@ -3518,7 +3514,7 @@ _NEON2SSE_INLINE float32x2_t vmul_f32(float32x2_t a, float32x2_t b)
 {
     float32x4_t tmp;
     __m64_128 res64;
-    tmp =  _mm_mul_ps(_pM128(a),_pM128(b));
+    tmp = _mm_mul_ps(_pM128(a),_pM128(b));
     _M64f(res64, tmp); //use low 64 bits
     return res64;
 }
