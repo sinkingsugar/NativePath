@@ -1,3 +1,5 @@
+#ifndef NO_INTRINSICS
+
 #ifdef _WIN32
 	#define NATIVE_PATH_WIN
 	//define something for Windows (32-bit and 64-bit, this part is common)
@@ -34,6 +36,14 @@
     #else
     #   error "Unknown Apple platform"
     #endif
+#elif defined(__ANDROID__)
+	#define NATIVE_PATH_ANDROID
+	#include <stdio.h>
+	#ifdef __USE_NEON__
+	#include <arm_neon.h>
+	#else
+	#include <NEONvsSSE.h>
+	#endif
 #elif __linux__
 	#define NATIVE_PATH_LINUX
     // linux
@@ -41,10 +51,6 @@
     // Unix
 #elif defined(_POSIX_VERSION)
     // POSIX
-#elif defined(__ANDROID__)
-	#define NATIVE_PATH_ANDROID
-	#include <stdio.h>
-	#include <arm_neon.h>
 #else
 #   error "Unknown compiler"
 #endif
@@ -2143,3 +2149,5 @@ poly16x8x2_t np_vuzpq_p16(poly16x8_t a, poly16x8_t b)
 {
 	return vuzpq_p16(a, b);
 }
+
+#endif
