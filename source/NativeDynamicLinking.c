@@ -48,6 +48,7 @@ THE SOFTWARE.
 #elif __APPLE__
     #include "TargetConditionals.h"
     #include <dlfcn.h>
+    #include <stdio.h>
     #if TARGET_IPHONE_SIMULATOR
     #define NATIVE_PATH_IOS
          // iOS Simulator
@@ -112,7 +113,7 @@ void* LoadDynamicLibrary(const char* libraryPath)
 #ifdef NATIVE_PATH_IOS
     if(libraryPath)
     {
-        sprintf(nameBuffer, 2048, "%s.dylib", libraryPath);
+        sprintf(nameBuffer, "%s.dylib", libraryPath);
     }   
     return dlopen(libraryPath ? nameBuffer : NULL, RTLD_NOW);   
 #endif

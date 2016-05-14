@@ -19,11 +19,15 @@
 	  //define something for Windows (64-bit only)
 	#endif
 #elif __APPLE__
+    #include "TargetConditionals.h"
     #if TARGET_IPHONE_SIMULATOR
-    #define NATIVE_PATH_IOS
+        #define NATIVE_PATH_IOS
          // iOS Simulator
+        #include <NEONvsSSE.h>
     #elif TARGET_OS_IPHONE
-    #define NATIVE_PATH_IOS
+        #define NATIVE_PATH_IOS
+        #include <stdio.h>
+        #include <arm_neon.h>
         // iOS device
     #elif TARGET_OS_MAC
         // Other kinds of Mac OS

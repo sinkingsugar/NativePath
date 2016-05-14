@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75A46E541CE6BA110080B95B /* NEONvsSSE.c in Sources */ = {isa = PBXBuildFile; fileRef = 75A46E511CE6BA110080B95B /* NEONvsSSE.c */; };
+		75A46E551CE6BA110080B95B /* stdio.c in Sources */ = {isa = PBXBuildFile; fileRef = 75A46E521CE6BA110080B95B /* stdio.c */; };
+		75A46E561CE6BA110080B95B /* stdlib.c in Sources */ = {isa = PBXBuildFile; fileRef = 75A46E531CE6BA110080B95B /* stdlib.c */; };
 		75B804CE1C09C575002CFF20 /* NativeTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75B804CC1C09C575002CFF20 /* NativeTime.cpp */; };
 		75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */ = {isa = PBXBuildFile; fileRef = 75EC727D1BF9B92100A988D5 /* NativeMath.c */; };
 		75FC37A41BFB3E29006825D6 /* lol_trig.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 75FC37A31BFB3E29006825D6 /* lol_trig.cpp */; };
@@ -27,18 +30,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		75B804CC1C09C575002CFF20 /* NativeTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NativeTime.cpp; sourceTree = "<group>"; };
-		75B804CD1C09C575002CFF20 /* NativeTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeTime.h; sourceTree = "<group>"; };
+		75A46E511CE6BA110080B95B /* NEONvsSSE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NEONvsSSE.c; path = source/NEONvsSSE.c; sourceTree = SOURCE_ROOT; };
+		75A46E521CE6BA110080B95B /* stdio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stdio.c; path = source/stdio.c; sourceTree = SOURCE_ROOT; };
+		75A46E531CE6BA110080B95B /* stdlib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stdlib.c; path = source/stdlib.c; sourceTree = SOURCE_ROOT; };
+		75B804CC1C09C575002CFF20 /* NativeTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = NativeTime.cpp; path = ../source/NativeTime.cpp; sourceTree = "<group>"; };
 		75EC72701BF9B5AE00A988D5 /* libNativePath.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libNativePath.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		75EC727C1BF9B63D00A988D5 /* NativeMath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NativeMath.h; sourceTree = "<group>"; };
-		75EC727D1BF9B92100A988D5 /* NativeMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NativeMath.c; sourceTree = "<group>"; };
-		75EC727F1BF9BC2700A988D5 /* ShaderFastMathLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderFastMathLib.h; sourceTree = "<group>"; };
-		75FC37A31BFB3E29006825D6 /* lol_trig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lol_trig.cpp; sourceTree = "<group>"; };
-		75FC37A51BFB3FAA006825D6 /* lol_trig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = lol_trig.h; sourceTree = "<group>"; };
-		75FC37A61BFC8FF4006825D6 /* NativeMemory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NativeMemory.c; sourceTree = "<group>"; };
-		75FC37A71BFC8FF4006825D6 /* NativeMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeMemory.h; sourceTree = "<group>"; };
-		C49CC7FC1C9A7CB500311E6A /* NativeDynamicLinking.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NativeDynamicLinking.c; sourceTree = "<group>"; };
-		C49CC7FD1C9A7CB500311E6A /* NativeDynamicLinking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeDynamicLinking.h; sourceTree = "<group>"; };
+		75EC727D1BF9B92100A988D5 /* NativeMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NativeMath.c; path = ../source/NativeMath.c; sourceTree = "<group>"; };
+		75FC37A31BFB3E29006825D6 /* lol_trig.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lol_trig.cpp; path = ../source/lol_trig.cpp; sourceTree = "<group>"; };
+		75FC37A61BFC8FF4006825D6 /* NativeMemory.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NativeMemory.c; path = ../source/NativeMemory.c; sourceTree = "<group>"; };
+		C49CC7FC1C9A7CB500311E6A /* NativeDynamicLinking.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = NativeDynamicLinking.c; path = ../source/NativeDynamicLinking.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,17 +71,14 @@
 		75EC72721BF9B5AE00A988D5 /* NativePath */ = {
 			isa = PBXGroup;
 			children = (
+				75A46E511CE6BA110080B95B /* NEONvsSSE.c */,
+				75A46E521CE6BA110080B95B /* stdio.c */,
+				75A46E531CE6BA110080B95B /* stdlib.c */,
 				C49CC7FC1C9A7CB500311E6A /* NativeDynamicLinking.c */,
-				C49CC7FD1C9A7CB500311E6A /* NativeDynamicLinking.h */,
 				75B804CC1C09C575002CFF20 /* NativeTime.cpp */,
-				75B804CD1C09C575002CFF20 /* NativeTime.h */,
-				75EC727C1BF9B63D00A988D5 /* NativeMath.h */,
 				75EC727D1BF9B92100A988D5 /* NativeMath.c */,
-				75EC727F1BF9BC2700A988D5 /* ShaderFastMathLib.h */,
 				75FC37A31BFB3E29006825D6 /* lol_trig.cpp */,
-				75FC37A51BFB3FAA006825D6 /* lol_trig.h */,
 				75FC37A61BFC8FF4006825D6 /* NativeMemory.c */,
-				75FC37A71BFC8FF4006825D6 /* NativeMemory.h */,
 			);
 			path = NativePath;
 			sourceTree = "<group>";
@@ -142,8 +139,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A46E541CE6BA110080B95B /* NEONvsSSE.c in Sources */,
 				75FC37A41BFB3E29006825D6 /* lol_trig.cpp in Sources */,
 				75B804CE1C09C575002CFF20 /* NativeTime.cpp in Sources */,
+				75A46E561CE6BA110080B95B /* stdlib.c in Sources */,
+				75A46E551CE6BA110080B95B /* stdio.c in Sources */,
 				75EC727E1BF9B92100A988D5 /* NativeMath.c in Sources */,
 				C49CC7FE1C9A7CB500311E6A /* NativeDynamicLinking.c in Sources */,
 				75FC37A81BFC8FF4006825D6 /* NativeMemory.c in Sources */,
@@ -156,7 +156,7 @@
 		75EC72771BF9B5AF00A988D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -170,6 +170,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_X86_VECTOR_INSTRUCTIONS = ssse3;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -189,6 +190,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../source/;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -199,7 +201,7 @@
 		75EC72781BF9B5AF00A988D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -213,6 +215,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CLANG_X86_VECTOR_INSTRUCTIONS = ssse3;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -226,6 +229,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../source/;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
