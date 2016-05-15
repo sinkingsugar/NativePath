@@ -181,6 +181,8 @@ typedef struct poly16x8x4_t {
   poly16x8_t val[4];
 } poly16x8x4_t;
 
+extern int npCanUseSIMD();
+
 extern int8x16_t np_vaddq_s8(int8x16_t a, int8x16_t b);
 #define vaddq_s8 np_vaddq_s8
 extern int16x8_t np_vaddq_s16(int16x8_t a, int16x8_t b);

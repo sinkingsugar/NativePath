@@ -55,6 +55,11 @@
 #   error "Unknown compiler"
 #endif
 
+int npCanUseSIMD()
+{
+	return 1;
+}
+
 int8x16_t np_vaddq_s8(int8x16_t a, int8x16_t b)
 {
 	return vaddq_s8(a, b);
@@ -2148,6 +2153,13 @@ poly8x16x2_t np_vuzpq_p8(poly8x16_t a, poly8x16_t b)
 poly16x8x2_t np_vuzpq_p16(poly16x8_t a, poly16x8_t b)
 {
 	return vuzpq_p16(a, b);
+}
+
+#else
+
+int npCanUseSIMD()
+{
+	return 0;
 }
 
 #endif
