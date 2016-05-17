@@ -46,6 +46,8 @@
 	#endif
 #elif __linux__
 	#define NATIVE_PATH_LINUX
+	#include <stdio.h>
+	#include <NEONvsSSE.h>
     // linux
 #elif __unix__ // all unices not caught above
     // Unix
