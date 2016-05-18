@@ -1960,7 +1960,7 @@ int32x4_t vextq_s32(int32x4_t a, int32x4_t b, __constrange(0,3) int c); // VEXT.
 uint32x4_t vextq_u32(uint32x4_t a, uint32x4_t b, __constrange(0,3) int c); // VEXT.32 q0,q0,q0,#0
 int64x2_t vextq_s64(int64x2_t a, int64x2_t b, __constrange(0,1) int c); // VEXT.64 q0,q0,q0,#0
 uint64x2_t vextq_u64(uint64x2_t a, uint64x2_t b, __constrange(0,1) int c); // VEXT.64 q0,q0,q0,#0
-float32x4_t vextq_f32(float32x4_t a, float32x4_t b, __constrange(0,3) float c); // VEXT.32 q0,q0,q0,#0
+float32x4_t vextq_f32(float32x4_t a, float32x4_t b, __constrange(0,3) int c); // VEXT.32 q0,q0,q0,#0
 //Reverse vector elements (swap endianness). VREVn.m reverses the order of the m-bit lanes within a set that is n bits wide.
 int8x8_t vrev64_s8(int8x8_t vec); // VREV64.8 d0,d0
 int16x4_t vrev64_s16(int16x4_t vec); // VREV64.16 d0,d0
