@@ -361,12 +361,10 @@ poly16x8_t vld1q_p16(__transfersize(8) poly16_t const * ptr); // VLD1.16 {d0, d1
 uint8x16_t vld1q_lane_u8(__transfersize(1) uint8_t const * ptr, uint8x16_t vec, __constrange(0,15) int lane); //VLD1.8 {d0[0]}, [r0]
 uint16x8_t vld1q_lane_u16(__transfersize(1) uint16_t const * ptr, uint16x8_t vec, __constrange(0,7) int lane); // VLD1.16 {d0[0]}, [r0]
 uint32x4_t vld1q_lane_u32(__transfersize(1) uint32_t const * ptr, uint32x4_t vec, __constrange(0,3) int lane); // VLD1.32 {d0[0]}, [r0]
-uint64x2_t vld1q_lane_u64(__transfersize(1) uint64_t const * ptr, uint64x2_t vec, __constrange(0,1) int lane); // VLD1.64 {d0}, [r0]
 int8x16_t vld1q_lane_s8(__transfersize(1) int8_t const * ptr, int8x16_t vec, __constrange(0,15) int lane); //VLD1.8 {d0[0]}, [r0]
 int16x8_t vld1q_lane_s16(__transfersize(1) int16_t const * ptr, int16x8_t vec, __constrange(0,7) int lane); //VLD1.16 {d0[0]}, [r0]
 int32x4_t vld1q_lane_s32(__transfersize(1) int32_t const * ptr, int32x4_t vec, __constrange(0,3) int lane); //VLD1.32 {d0[0]}, [r0]
 float32x4_t vld1q_lane_f32(__transfersize(1) float32_t const * ptr, float32x4_t vec, __constrange(0,3) int lane); // VLD1.32 {d0[0]}, [r0]
-int64x2_t vld1q_lane_s64(__transfersize(1) int64_t const * ptr, int64x2_t vec, __constrange(0,1) int lane); //VLD1.64 {d0}, [r0]
 poly8x16_t vld1q_lane_p8(__transfersize(1) poly8_t const * ptr, poly8x16_t vec, __constrange(0,15) int lane); //VLD1.8 {d0[0]}, [r0]
 poly16x8_t vld1q_lane_p16(__transfersize(1) poly16_t const * ptr, poly16x8_t vec, __constrange(0,7) int lane); // VLD1.16 {d0[0]}, [r0]
 //Load all lanes of vector with same value from memory
@@ -422,55 +420,6 @@ int32x4x4_t vld4q_s32(__transfersize(16) int32_t const * ptr); // VLD4.32 {d0, d
 float32x4x4_t vld4q_f32(__transfersize(16) float32_t const * ptr); // VLD4.32 {d0, d2, d4, d6}, [r0]
 poly8x16x4_t vld4q_p8(__transfersize(64) poly8_t const * ptr); // VLD4.8 {d0, d2, d4, d6}, [r0]
 poly16x8x4_t vld4q_p16(__transfersize(32) poly16_t const * ptr); // VLD4.16 {d0, d2, d4, d6}, [r0]
-//Load all lanes of N-element structure with same value from memory
-//Load a single lane of N-element structure from memory
-//the functions below are modified to deal with the error C2719: 'src': formal parameter with __declspec(align('16')) won't be aligned
-uint16x8x2_t vld2q_lane_u16_ptr(__transfersize(2) uint16_t const * ptr, uint16x8x2_t * src, __constrange(0,7) int lane); // VLD2.16 {d0[0], d2[0]}, [r0]
-uint32x4x2_t vld2q_lane_u32_ptr(__transfersize(2) uint32_t const * ptr, uint32x4x2_t * src, __constrange(0,3) int lane); // VLD2.32 {d0[0], d2[0]}, [r0]
-int16x8x2_t vld2q_lane_s16_ptr(__transfersize(2) int16_t const * ptr, int16x8x2_t * src, __constrange(0,7) int lane); // VLD2.16 {d0[0], d2[0]}, [r0]
-int32x4x2_t vld2q_lane_s32_ptr(__transfersize(2) int32_t const * ptr, int32x4x2_t * src, __constrange(0,3) int lane); // VLD2.32 {d0[0], d2[0]}, [r0]
-float32x4x2_t vld2q_lane_f32_ptr(__transfersize(2) float32_t const * ptr, float32x4x2_t * src, __constrange(0,3) int lane); // VLD2.32 {d0[0], d2[0]}, [r0]
-poly16x8x2_t vld2q_lane_p16_ptr(__transfersize(2) poly16_t const * ptr, poly16x8x2_t * src, __constrange(0,7) int lane); // VLD2.16 {d0[0], d2[0]}, [r0]
-uint16x8x3_t vld3q_lane_u16_ptr(__transfersize(3) uint16_t const * ptr, uint16x8x3_t * src, __constrange(0,7) int lane); // VLD3.16 {d0[0], d2[0], d4[0]}, [r0]
-uint32x4x3_t vld3q_lane_u32_ptr(__transfersize(3) uint32_t const * ptr, uint32x4x3_t * src, __constrange(0,3) int lane); // VLD3.32 {d0[0], d2[0], d4[0]}, [r0]
-int16x8x3_t vld3q_lane_s16_ptr(__transfersize(3) int16_t const * ptr, int16x8x3_t * src, __constrange(0,7) int lane); // VLD3.16 {d0[0], d2[0], d4[0]}, [r0]
-int32x4x3_t vld3q_lane_s32_ptr(__transfersize(3) int32_t const * ptr, int32x4x3_t * src, __constrange(0,3) int lane); // VLD3.32 {d0[0], d2[0], d4[0]}, [r0]
-float32x4x3_t vld3q_lane_f32_ptr(__transfersize(3) float32_t const * ptr, float32x4x3_t * src, __constrange(0,3) int lane); // VLD3.32 {d0[0], d2[0], d4[0]}, [r0]
-poly16x8x3_t vld3q_lane_p16_ptr(__transfersize(3) poly16_t const * ptr, poly16x8x3_t * src, __constrange(0,7) int lane); // VLD3.16 {d0[0], d2[0], d4[0]}, [r0]
-uint16x8x4_t vld4q_lane_u16_ptr(__transfersize(4) uint16_t const * ptr, uint16x8x4_t * src, __constrange(0,7) int lane); // VLD4.16 {d0[0], d2[0], d4[0], d6[0]}, [r0]
-uint32x4x4_t vld4q_lane_u32_ptr(__transfersize(4) uint32_t const * ptr, uint32x4x4_t * src, __constrange(0,3) int lane); // VLD4.32 {d0[0], d2[0], d4[0], d6[0]}, [r0]
-int16x8x4_t vld4q_lane_s16_ptr(__transfersize(4) int16_t const * ptr, int16x8x4_t * src, __constrange(0,7) int lane); // VLD4.16 {d0[0], d2[0], d4[0], d6[0]}, [r0]
-int32x4x4_t vld4q_lane_s32_ptr(__transfersize(4) int32_t const * ptr, int32x4x4_t * src, __constrange(0,3) int lane); // VLD4.32 {d0[0], d2[0], d4[0], d6[0]}, [r0]
-float32x4x4_t vld4q_lane_f32_ptr(__transfersize(4) float32_t const * ptr, float32x4x4_t * src, __constrange(0,3) int lane); // VLD4.32 {d0[0], d2[0], d4[0], d6[0]}, [r0]
-poly16x8x4_t vld4q_lane_p16_ptr(__transfersize(4) poly16_t const * ptr, poly16x8x4_t * src, __constrange(0,7) int lane); // VLD4.16 {d0[0], d2[0], d4[0], d6[0]}, [r0]
-//Store N-element structure to memory
-void vst2q_u8_ptr(__transfersize(32) uint8_t * ptr, uint8x16x2_t * val); // VST2.8 {d0, d2}, [r0]
-void vst2q_u16_ptr(__transfersize(16) uint16_t * ptr, uint16x8x2_t * val); // VST2.16 {d0, d2}, [r0]
-void vst2q_u32_ptr(__transfersize(8) uint32_t * ptr, uint32x4x2_t * val); // VST2.32 {d0, d2}, [r0]
-void vst2q_s8_ptr(__transfersize(32) int8_t * ptr, int8x16x2_t * val); // VST2.8 {d0, d2}, [r0]
-void vst2q_s16_ptr(__transfersize(16) int16_t * ptr, int16x8x2_t * val); // VST2.16 {d0, d2}, [r0]
-void vst2q_s32_ptr(__transfersize(8) int32_t * ptr, int32x4x2_t * val); // VST2.32 {d0, d2}, [r0]
-void vst2q_f32_ptr(__transfersize(8) float32_t * ptr, float32x4x2_t * val); // VST2.32 {d0, d2}, [r0]
-void vst2q_p8_ptr(__transfersize(32) poly8_t * ptr, poly8x16x2_t * val); // VST2.8 {d0, d2}, [r0]
-void vst2q_p16_ptr(__transfersize(16) poly16_t * ptr, poly16x8x2_t * val); // VST2.16 {d0, d2}, [r0]
-void vst3q_u8_ptr(__transfersize(48) uint8_t * ptr, uint8x16x3_t * val); // VST3.8 {d0, d2, d4}, [r0]
-void vst3q_u16_ptr(__transfersize(24) uint16_t * ptr, uint16x8x3_t * val); // VST3.16 {d0, d2, d4}, [r0]
-void vst3q_u32_ptr(__transfersize(12) uint32_t * ptr, uint32x4x3_t * val); // VST3.32 {d0, d2, d4}, [r0]
-void vst3q_s8_ptr(__transfersize(48) int8_t * ptr, int8x16x3_t * val); // VST3.8 {d0, d2, d4}, [r0]
-void vst3q_s16_ptr(__transfersize(24) int16_t * ptr, int16x8x3_t * val); // VST3.16 {d0, d2, d4}, [r0]
-void vst3q_s32_ptr(__transfersize(12) int32_t * ptr, int32x4x3_t * val); // VST3.32 {d0, d2, d4}, [r0]
-void vst3q_f32_ptr(__transfersize(12) float32_t * ptr, float32x4x3_t * val); // VST3.32 {d0, d2, d4}, [r0]
-void vst3q_p8_ptr(__transfersize(48) poly8_t * ptr, poly8x16x3_t * val); // VST3.8 {d0, d2, d4}, [r0]
-void vst3q_p16_ptr(__transfersize(24) poly16_t * ptr, poly16x8x3_t * val); // VST3.16 {d0, d2, d4}, [r0]
-void vst4q_u8_ptr(__transfersize(64) uint8_t * ptr, uint8x16x4_t * val); // VST4.8 {d0, d2, d4, d6}, [r0]
-void vst4q_u16_ptr(__transfersize(32) uint16_t * ptr, uint16x8x4_t * val); // VST4.16 {d0, d2, d4, d6}, [r0]
-void vst4q_u32_ptr(__transfersize(16) uint32_t * ptr, uint32x4x4_t * val); // VST4.32 {d0, d2, d4, d6}, [r0]
-void vst4q_s8_ptr(__transfersize(64) int8_t * ptr, int8x16x4_t * val); // VST4.8 {d0, d2, d4, d6}, [r0]
-void vst4q_s16_ptr(__transfersize(32) int16_t * ptr, int16x8x4_t * val); // VST4.16 {d0, d2, d4, d6}, [r0]
-void vst4q_s32_ptr(__transfersize(16) int32_t * ptr, int32x4x4_t * val); // VST4.32 {d0, d2, d4, d6}, [r0]
-void vst4q_f32_ptr(__transfersize(16) float32_t * ptr, float32x4x4_t * val); // VST4.32 {d0, d2, d4, d6}, [r0]
-void vst4q_p8_ptr(__transfersize(64) poly8_t * ptr, poly8x16x4_t * val); // VST4.8 {d0, d2, d4, d6}, [r0]
-void vst4q_p16_ptr(__transfersize(32) poly16_t * ptr, poly16x8x4_t * val); // VST4.16 {d0, d2, d4, d6}, [r0]
 //Store a single lane of N-element structure to memory
 void vst2q_lane_u16_ptr(__transfersize(2) uint16_t * ptr, uint16x8x2_t * val, __constrange(0,7) int lane); // VST2.16{d0[0], d2[0]}, [r0]
 void vst2q_lane_u32_ptr(__transfersize(2) uint32_t * ptr, uint32x4x2_t * val, __constrange(0,3) int lane); // VST2.32{d0[0], d2[0]}, [r0]
@@ -611,7 +560,7 @@ int32x4_t vextq_s32(int32x4_t a, int32x4_t b, __constrange(0,3) int c); // VEXT.
 uint32x4_t vextq_u32(uint32x4_t a, uint32x4_t b, __constrange(0,3) int c); // VEXT.32 q0,q0,q0,#0
 int64x2_t vextq_s64(int64x2_t a, int64x2_t b, __constrange(0,1) int c); // VEXT.64 q0,q0,q0,#0
 uint64x2_t vextq_u64(uint64x2_t a, uint64x2_t b, __constrange(0,1) int c); // VEXT.64 q0,q0,q0,#0
-float32x4_t vextq_f32(float32x4_t a, float32x4_t b, __constrange(0,3) float c); // VEXT.32 q0,q0,q0,#0
+float32x4_t vextq_f32(float32x4_t a, float32x4_t b, __constrange(0,3) int c); // VEXT.32 q0,q0,q0,#0
 //Reverse vector elements (swap endianness). VREVn.m reverses the order of the m-bit lanes within a set that is n bits wide.
 int8x16_t vrev64q_s8(int8x16_t vec); // VREV64.8 q0,q0
 int16x8_t vrev64q_s16(int16x8_t vec); // VREV64.16 q0,q0
@@ -773,12 +722,15 @@ poly16x8x2_t vuzpq_p16(poly16x8_t a, poly16x8_t b); // VUZP.16 q0,q0
 
 local hfile = ""
 
-function wrapFunction1(line)
-    local a,b,c,d = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*([%w_]+)%s+([%w_]+)%s*%)")
-    if a ~= nil and b ~= nil and c ~= nil and d ~= nil then
+function wrapFunction1core(a, b, c, d)
+	if a ~= nil and b ~= nil and c ~= nil and d ~= nil then
         io.write(a.." ".."np_"..b.."("..c.." "..d..")\n")
         io.write("{\n")
-        io.write("\treturn "..b.."("..d..");\n")
+		if a == "void" then
+			io.write("\t"..b.."("..d..");\n")
+		else
+			io.write("\treturn "..b.."("..d..");\n")
+		end        
         io.write("}\n")
         io.write("\n")
         hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..");\n"
@@ -786,56 +738,113 @@ function wrapFunction1(line)
     end
 end
 
+function wrapFunction1(line)
+    local a,b,c,d = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*([%w_]+)%s+([%w_]+)%s*%)")
+    wrapFunction1core(a, b, c, d)
+end
+
 function wrapFunction1b(line)
     local a,b,c,d = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*__transfersize%(%d+%)%s*([%w_]+%s+const%s+%*)%s+([%w_]+)%s*%)")
-    if a ~= nil and b ~= nil and c ~= nil and d ~= nil then
-        io.write(a.." ".."np_"..b.."("..c.." "..d..")\n")
+    wrapFunction1core(a, b, c, d)
+end
+
+function wrapFunction2core(a, b, c, d, e, f)
+	if a ~= nil and b ~= nil and c ~= nil and d ~= nil and e ~= nil and f ~= nil then
+        io.write(a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..")\n")
         io.write("{\n")
-        io.write("\treturn "..b.."("..d..");\n")
+        if a == "void" then
+			io.write("\t"..b.."("..d..", "..f..");\n")
+		else
+			io.write("\treturn "..b.."("..d..", "..f..");\n")
+		end
         io.write("}\n")
         io.write("\n")
-        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..");\n"
+        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..");\n"
         hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
     end
 end
 
 function wrapFunction2(line)
     local a,b,c,d,e,f = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*([%w_]+)%s+([%w_]+)%s*,%s*([%w_]+)%s*([%w_]+)%s*%)")
-    if a ~= nil and b ~= nil and c ~= nil and d ~= nil and e ~= nil and f ~= nil then
-        io.write(a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..")\n")
-        io.write("{\n")
-        io.write("\treturn "..b.."("..d..", "..f..");\n")
-        io.write("}\n")
-        io.write("\n")
-        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..");\n"
-        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
-    end
+    wrapFunction2core(a, b, c, d, e, f)
 end
 
 function wrapFunction2b(line)
     local a,b,c,d,e,f = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*__transfersize%(%d+%)%s*([%w_]+%s+const%s+%*)%s+([%w_]+)%s*,%s*([%w_]+)%s*([%w_]+)%s*%)")
-    if a ~= nil and b ~= nil and c ~= nil and d ~= nil and e ~= nil and f ~= nil then
-        io.write(a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..")\n")
-        io.write("{\n")
-        io.write("\treturn "..b.."("..d..", "..f..");\n")
-        io.write("}\n")
-        io.write("\n")
-        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..");\n"
-        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
-    end
+    wrapFunction2core(a, b, c, d, e, f)
 end
 
-function wrapFunction3(line)
-    local a,b,c,d,e,f,g,h = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*([%w_]+)%s+([%w_]+)%s*,%s*([%w_]+)%s*([%w_]+)%s*%,%s*([%w_]+)%s*([%w_]+)%s*%)")
+function wrapFunction2c(line)
+    local a,b,c,d,e,f = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*__transfersize%(%d+%)%s*([%w_]+%s+%*)%s+([%w_]+)%s*,%s*([%w_]+)%s*([%w_]+)%s*%)")
+    wrapFunction2core(a, b, c, d, e, f)
+end
+
+function wrapFunction2d(line)
+    local a,b,c,d,e,f = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*__transfersize%(%d+%)%s*([%w_]+%s+%*)%s+([%w_]+)%s*,%s*([%w_]+%s*%*)%s*([%w_]+)%s*%)")
+    wrapFunction2core(a, b, c, d, e, f)
+end
+
+function wrapFunction3core(a, b, c, d, e, f, g, h)
     if a ~= nil and b ~= nil and c ~= nil and d ~= nil and e ~= nil and f ~= nil and g ~= nil and h ~= nil then
         io.write(a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..", "..g.." "..h..")\n")
         io.write("{\n")
-        io.write("\treturn "..b.."("..d..", "..f..", "..h..");\n")
+		if a == "void" then
+			io.write("\t"..b.."("..d..", "..f..", "..h..");\n")
+		else
+			io.write("\treturn "..b.."("..d..", "..f..", "..h..");\n")
+		end
         io.write("}\n")
         io.write("\n")
         hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..", "..g.." "..h..");\n"
         hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
     end
+end
+
+function wrapFunction3(line)
+    local a,b,c,d,e,f,g,h = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*([%w_]+)%s+([%w_]+)%s*,%s*([%w_]+)%s*([%w_]+)%s*,%s*([%w_]+)%s*([%w_]+)%s*%)")
+    wrapFunction3core(a, b, c, d, e, f, g, h)
+end
+
+function wrapFunction3core2(a, b, c, d, e, f, g, h, min, max)
+    if a ~= nil and b ~= nil and c ~= nil and d ~= nil and e ~= nil and f ~= nil and g ~= nil and h ~= nil and min ~= nil and max ~= nil then
+        io.write(a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..", "..g.." "..h..")\n")
+        io.write("{\n")
+		io.write("\tswitch("..h..")\n")
+		io.write("\t{\n")
+		for i = min, max, 1 do
+			io.write("\t\tcase "..i..":\n")
+			if a == "void" then
+				io.write("\t\t\t"..b.."("..d..", "..f..", "..i..");\n")
+			else
+				io.write("\t\t\treturn "..b.."("..d..", "..f..", "..i..");\n")
+			end
+		end
+		io.write("\t}\n")
+		if a == "void" then
+			io.write("\t"..b.."("..d..", "..f..", 1);\n")
+		else
+			io.write("\treturn "..b.."("..d..", "..f..", 1);\n")
+		end
+        io.write("}\n")
+        io.write("\n")
+        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..", "..g.." "..h..");\n"
+        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
+    end
+end
+
+function wrapFunction3b(line)
+    local a,b,c,d,e,f,min,max,g,h = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*__transfersize%(%d+%)%s*([%w_]+%s+const%s+%*)%s*([%w_]+)%s*,%s*([%w_]+%s*%*)%s*([%w_]+)%s*,%s*__constrange%((%d+),(%d+)%)%s*([%w_]+)%s*([%w_]+)%s*%)")
+    wrapFunction3core2(a, b, c, d, e, f, g, h, min, max)
+end
+
+function wrapFunction3c(line)
+    local a,b,c,d,e,f,min,max,g,h = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*__transfersize%(%d+%)%s*([%w_]+%s+const%s+%*)%s*([%w_]+)%s*,%s*([%w_]+)%s*([%w_]+)%s*,%s*__constrange%((%d+),(%d+)%)%s*([%w_]+)%s*([%w_]+)%s*%)")
+    wrapFunction3core2(a, b, c, d, e, f, g, h, min, max)
+end
+
+function wrapFunction3d(line)
+    local a,b,c,d,e,f,min,max,g,h = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*([%w_]+)%s*([%w_]+)%s*,%s*([%w_]+)%s*([%w_]+)%s*,%s*__constrange%((%d+),(%d+)%)%s*([%w_]+)%s*([%w_]+)%s*%)")
+    wrapFunction3core2(a, b, c, d, e, f, g, h, min, max)
 end
 
 io.output("NEONvsSSE_layer.c")
@@ -845,7 +854,12 @@ for line in string.gmatch(functions, "[^\r\n]+") do
     wrapFunction1b(line)
     wrapFunction2(line)
     wrapFunction2b(line)
+	wrapFunction2c(line)
+	wrapFunction2d(line)
     wrapFunction3(line)
+	wrapFunction3b(line)
+	wrapFunction3c(line)
+	wrapFunction3d(line)
 end
 
 io.close()

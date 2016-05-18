@@ -571,6 +571,78 @@ extern uint32x4_t np_vqrshlq_u32(uint32x4_t a, int32x4_t b);
 #define vqrshlq_u32 np_vqrshlq_u32
 extern uint64x2_t np_vqrshlq_u64(uint64x2_t a, int64x2_t b);
 #define vqrshlq_u64 np_vqrshlq_u64
+extern int8x16_t np_vsraq_n_s8(int8x16_t a, int8x16_t b, int c);
+#define vsraq_n_s8 np_vsraq_n_s8
+extern int16x8_t np_vsraq_n_s16(int16x8_t a, int16x8_t b, int c);
+#define vsraq_n_s16 np_vsraq_n_s16
+extern int32x4_t np_vsraq_n_s32(int32x4_t a, int32x4_t b, int c);
+#define vsraq_n_s32 np_vsraq_n_s32
+extern int64x2_t np_vsraq_n_s64(int64x2_t a, int64x2_t b, int c);
+#define vsraq_n_s64 np_vsraq_n_s64
+extern uint8x16_t np_vsraq_n_u8(uint8x16_t a, uint8x16_t b, int c);
+#define vsraq_n_u8 np_vsraq_n_u8
+extern uint16x8_t np_vsraq_n_u16(uint16x8_t a, uint16x8_t b, int c);
+#define vsraq_n_u16 np_vsraq_n_u16
+extern uint32x4_t np_vsraq_n_u32(uint32x4_t a, uint32x4_t b, int c);
+#define vsraq_n_u32 np_vsraq_n_u32
+extern uint64x2_t np_vsraq_n_u64(uint64x2_t a, uint64x2_t b, int c);
+#define vsraq_n_u64 np_vsraq_n_u64
+extern int8x16_t np_vrsraq_n_s8(int8x16_t a, int8x16_t b, int c);
+#define vrsraq_n_s8 np_vrsraq_n_s8
+extern int16x8_t np_vrsraq_n_s16(int16x8_t a, int16x8_t b, int c);
+#define vrsraq_n_s16 np_vrsraq_n_s16
+extern int32x4_t np_vrsraq_n_s32(int32x4_t a, int32x4_t b, int c);
+#define vrsraq_n_s32 np_vrsraq_n_s32
+extern int64x2_t np_vrsraq_n_s64(int64x2_t a, int64x2_t b, int c);
+#define vrsraq_n_s64 np_vrsraq_n_s64
+extern uint8x16_t np_vrsraq_n_u8(uint8x16_t a, uint8x16_t b, int c);
+#define vrsraq_n_u8 np_vrsraq_n_u8
+extern uint16x8_t np_vrsraq_n_u16(uint16x8_t a, uint16x8_t b, int c);
+#define vrsraq_n_u16 np_vrsraq_n_u16
+extern uint32x4_t np_vrsraq_n_u32(uint32x4_t a, uint32x4_t b, int c);
+#define vrsraq_n_u32 np_vrsraq_n_u32
+extern uint64x2_t np_vrsraq_n_u64(uint64x2_t a, uint64x2_t b, int c);
+#define vrsraq_n_u64 np_vrsraq_n_u64
+extern int8x16_t np_vsriq_n_s8(int8x16_t a, int8x16_t b, int c);
+#define vsriq_n_s8 np_vsriq_n_s8
+extern int16x8_t np_vsriq_n_s16(int16x8_t a, int16x8_t b, int c);
+#define vsriq_n_s16 np_vsriq_n_s16
+extern int32x4_t np_vsriq_n_s32(int32x4_t a, int32x4_t b, int c);
+#define vsriq_n_s32 np_vsriq_n_s32
+extern int64x2_t np_vsriq_n_s64(int64x2_t a, int64x2_t b, int c);
+#define vsriq_n_s64 np_vsriq_n_s64
+extern uint8x16_t np_vsriq_n_u8(uint8x16_t a, uint8x16_t b, int c);
+#define vsriq_n_u8 np_vsriq_n_u8
+extern uint16x8_t np_vsriq_n_u16(uint16x8_t a, uint16x8_t b, int c);
+#define vsriq_n_u16 np_vsriq_n_u16
+extern uint32x4_t np_vsriq_n_u32(uint32x4_t a, uint32x4_t b, int c);
+#define vsriq_n_u32 np_vsriq_n_u32
+extern uint64x2_t np_vsriq_n_u64(uint64x2_t a, uint64x2_t b, int c);
+#define vsriq_n_u64 np_vsriq_n_u64
+extern poly8x16_t np_vsriq_n_p8(poly8x16_t a, poly8x16_t b, int c);
+#define vsriq_n_p8 np_vsriq_n_p8
+extern poly16x8_t np_vsriq_n_p16(poly16x8_t a, poly16x8_t b, int c);
+#define vsriq_n_p16 np_vsriq_n_p16
+extern int8x16_t np_vsliq_n_s8(int8x16_t a, int8x16_t b, int c);
+#define vsliq_n_s8 np_vsliq_n_s8
+extern int16x8_t np_vsliq_n_s16(int16x8_t a, int16x8_t b, int c);
+#define vsliq_n_s16 np_vsliq_n_s16
+extern int32x4_t np_vsliq_n_s32(int32x4_t a, int32x4_t b, int c);
+#define vsliq_n_s32 np_vsliq_n_s32
+extern int64x2_t np_vsliq_n_s64(int64x2_t a, int64x2_t b, int c);
+#define vsliq_n_s64 np_vsliq_n_s64
+extern uint8x16_t np_vsliq_n_u8(uint8x16_t a, uint8x16_t b, int c);
+#define vsliq_n_u8 np_vsliq_n_u8
+extern uint16x8_t np_vsliq_n_u16(uint16x8_t a, uint16x8_t b, int c);
+#define vsliq_n_u16 np_vsliq_n_u16
+extern uint32x4_t np_vsliq_n_u32(uint32x4_t a, uint32x4_t b, int c);
+#define vsliq_n_u32 np_vsliq_n_u32
+extern uint64x2_t np_vsliq_n_u64(uint64x2_t a, uint64x2_t b, int c);
+#define vsliq_n_u64 np_vsliq_n_u64
+extern poly8x16_t np_vsliq_n_p8(poly8x16_t a, poly8x16_t b, int c);
+#define vsliq_n_p8 np_vsliq_n_p8
+extern poly16x8_t np_vsliq_n_p16(poly16x8_t a, poly16x8_t b, int c);
+#define vsliq_n_p16 np_vsliq_n_p16
 extern uint8x16_t np_vld1q_u8(uint8_t const * ptr);
 #define vld1q_u8 np_vld1q_u8
 extern uint16x8_t np_vld1q_u16(uint16_t const * ptr);
@@ -593,6 +665,24 @@ extern poly8x16_t np_vld1q_p8(poly8_t const * ptr);
 #define vld1q_p8 np_vld1q_p8
 extern poly16x8_t np_vld1q_p16(poly16_t const * ptr);
 #define vld1q_p16 np_vld1q_p16
+extern uint8x16_t np_vld1q_lane_u8(uint8_t const * ptr, uint8x16_t vec, int lane);
+#define vld1q_lane_u8 np_vld1q_lane_u8
+extern uint16x8_t np_vld1q_lane_u16(uint16_t const * ptr, uint16x8_t vec, int lane);
+#define vld1q_lane_u16 np_vld1q_lane_u16
+extern uint32x4_t np_vld1q_lane_u32(uint32_t const * ptr, uint32x4_t vec, int lane);
+#define vld1q_lane_u32 np_vld1q_lane_u32
+extern int8x16_t np_vld1q_lane_s8(int8_t const * ptr, int8x16_t vec, int lane);
+#define vld1q_lane_s8 np_vld1q_lane_s8
+extern int16x8_t np_vld1q_lane_s16(int16_t const * ptr, int16x8_t vec, int lane);
+#define vld1q_lane_s16 np_vld1q_lane_s16
+extern int32x4_t np_vld1q_lane_s32(int32_t const * ptr, int32x4_t vec, int lane);
+#define vld1q_lane_s32 np_vld1q_lane_s32
+extern float32x4_t np_vld1q_lane_f32(float32_t const * ptr, float32x4_t vec, int lane);
+#define vld1q_lane_f32 np_vld1q_lane_f32
+extern poly8x16_t np_vld1q_lane_p8(poly8_t const * ptr, poly8x16_t vec, int lane);
+#define vld1q_lane_p8 np_vld1q_lane_p8
+extern poly16x8_t np_vld1q_lane_p16(poly16_t const * ptr, poly16x8_t vec, int lane);
+#define vld1q_lane_p16 np_vld1q_lane_p16
 extern uint8x16_t np_vld1q_dup_u8(uint8_t const * ptr);
 #define vld1q_dup_u8 np_vld1q_dup_u8
 extern uint16x8_t np_vld1q_dup_u16(uint16_t const * ptr);
@@ -611,6 +701,28 @@ extern poly8x16_t np_vld1q_dup_p8(poly8_t const * ptr);
 #define vld1q_dup_p8 np_vld1q_dup_p8
 extern poly16x8_t np_vld1q_dup_p16(poly16_t const * ptr);
 #define vld1q_dup_p16 np_vld1q_dup_p16
+extern void np_vst1q_u8(uint8_t * ptr, uint8x16_t val);
+#define vst1q_u8 np_vst1q_u8
+extern void np_vst1q_u16(uint16_t * ptr, uint16x8_t val);
+#define vst1q_u16 np_vst1q_u16
+extern void np_vst1q_u32(uint32_t * ptr, uint32x4_t val);
+#define vst1q_u32 np_vst1q_u32
+extern void np_vst1q_u64(uint64_t * ptr, uint64x2_t val);
+#define vst1q_u64 np_vst1q_u64
+extern void np_vst1q_s8(int8_t * ptr, int8x16_t val);
+#define vst1q_s8 np_vst1q_s8
+extern void np_vst1q_s16(int16_t * ptr, int16x8_t val);
+#define vst1q_s16 np_vst1q_s16
+extern void np_vst1q_s32(int32_t * ptr, int32x4_t val);
+#define vst1q_s32 np_vst1q_s32
+extern void np_vst1q_s64(int64_t * ptr, int64x2_t val);
+#define vst1q_s64 np_vst1q_s64
+extern void np_vst1q_f32(float32_t * ptr, float32x4_t val);
+#define vst1q_f32 np_vst1q_f32
+extern void np_vst1q_p8(poly8_t * ptr, poly8x16_t val);
+#define vst1q_p8 np_vst1q_p8
+extern void np_vst1q_p16(poly16_t * ptr, poly16x8_t val);
+#define vst1q_p16 np_vst1q_p16
 extern uint8x16x2_t np_vld2q_u8(uint8_t const * ptr);
 #define vld2q_u8 np_vld2q_u8
 extern uint16x8x2_t np_vld2q_u16(uint16_t const * ptr);
@@ -665,6 +777,28 @@ extern poly8x16x4_t np_vld4q_p8(poly8_t const * ptr);
 #define vld4q_p8 np_vld4q_p8
 extern poly16x8x4_t np_vld4q_p16(poly16_t const * ptr);
 #define vld4q_p16 np_vld4q_p16
+extern uint8x16_t np_vsetq_lane_u8(uint8_t value, uint8x16_t vec, int lane);
+#define vsetq_lane_u8 np_vsetq_lane_u8
+extern uint16x8_t np_vsetq_lane_u16(uint16_t value, uint16x8_t vec, int lane);
+#define vsetq_lane_u16 np_vsetq_lane_u16
+extern uint32x4_t np_vsetq_lane_u32(uint32_t value, uint32x4_t vec, int lane);
+#define vsetq_lane_u32 np_vsetq_lane_u32
+extern int8x16_t np_vsetq_lane_s8(int8_t value, int8x16_t vec, int lane);
+#define vsetq_lane_s8 np_vsetq_lane_s8
+extern int16x8_t np_vsetq_lane_s16(int16_t value, int16x8_t vec, int lane);
+#define vsetq_lane_s16 np_vsetq_lane_s16
+extern int32x4_t np_vsetq_lane_s32(int32_t value, int32x4_t vec, int lane);
+#define vsetq_lane_s32 np_vsetq_lane_s32
+extern poly8x16_t np_vsetq_lane_p8(poly8_t value, poly8x16_t vec, int lane);
+#define vsetq_lane_p8 np_vsetq_lane_p8
+extern poly16x8_t np_vsetq_lane_p16(poly16_t value, poly16x8_t vec, int lane);
+#define vsetq_lane_p16 np_vsetq_lane_p16
+extern float32x4_t np_vsetq_lane_f32(float32_t value, float32x4_t vec, int lane);
+#define vsetq_lane_f32 np_vsetq_lane_f32
+extern int64x2_t np_vsetq_lane_s64(int64_t value, int64x2_t vec, int lane);
+#define vsetq_lane_s64 np_vsetq_lane_s64
+extern uint64x2_t np_vsetq_lane_u64(uint64_t value, uint64x2_t vec, int lane);
+#define vsetq_lane_u64 np_vsetq_lane_u64
 extern uint8x16_t np_vdupq_n_u8(uint8_t value);
 #define vdupq_n_u8 np_vdupq_n_u8
 extern uint16x8_t np_vdupq_n_u16(uint16_t value);
@@ -755,6 +889,28 @@ extern uint32x4_t np_vmlsq_n_u32(uint32x4_t a, uint32x4_t b, uint32_t c);
 #define vmlsq_n_u32 np_vmlsq_n_u32
 extern float32x4_t np_vmlsq_n_f32(float32x4_t a, float32x4_t b, float32_t c);
 #define vmlsq_n_f32 np_vmlsq_n_f32
+extern int8x16_t np_vextq_s8(int8x16_t a, int8x16_t b, int c);
+#define vextq_s8 np_vextq_s8
+extern uint8x16_t np_vextq_u8(uint8x16_t a, uint8x16_t b, int c);
+#define vextq_u8 np_vextq_u8
+extern poly8x16_t np_vextq_p8(poly8x16_t a, poly8x16_t b, int c);
+#define vextq_p8 np_vextq_p8
+extern int16x8_t np_vextq_s16(int16x8_t a, int16x8_t b, int c);
+#define vextq_s16 np_vextq_s16
+extern uint16x8_t np_vextq_u16(uint16x8_t a, uint16x8_t b, int c);
+#define vextq_u16 np_vextq_u16
+extern poly16x8_t np_vextq_p16(poly16x8_t a, poly16x8_t b, int c);
+#define vextq_p16 np_vextq_p16
+extern int32x4_t np_vextq_s32(int32x4_t a, int32x4_t b, int c);
+#define vextq_s32 np_vextq_s32
+extern uint32x4_t np_vextq_u32(uint32x4_t a, uint32x4_t b, int c);
+#define vextq_u32 np_vextq_u32
+extern int64x2_t np_vextq_s64(int64x2_t a, int64x2_t b, int c);
+#define vextq_s64 np_vextq_s64
+extern uint64x2_t np_vextq_u64(uint64x2_t a, uint64x2_t b, int c);
+#define vextq_u64 np_vextq_u64
+extern float32x4_t np_vextq_f32(float32x4_t a, float32x4_t b, int c);
+#define vextq_f32 np_vextq_f32
 extern int8x16_t np_vrev64q_s8(int8x16_t vec);
 #define vrev64q_s8 np_vrev64q_s8
 extern int16x8_t np_vrev64q_s16(int16x8_t vec);

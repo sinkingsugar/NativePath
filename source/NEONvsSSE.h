@@ -9209,7 +9209,7 @@ poly16x8_t vsliq_n_p16(poly16x8_t a, poly16x8_t b, __constrange(0,15) int c); //
 // it loads a 32-byte block aligned on a 16-byte boundary and extracts the 16 bytes corresponding to the unaligned access
 //If the ptr is aligned then could use __m128i _mm_load_si128 ((__m128i*) ptr) instead;
 #define LOAD_SI128(ptr) \
-        ( ((unsigned long)(ptr) & 15) == 0 ) ? _mm_load_si128((__m128i*)(ptr)) : _mm_loadu_si128((__m128i*)(ptr));
+        ( ((unsigned long)(uintptr_t)(ptr) & 15) == 0 ) ? _mm_load_si128((__m128i*)(ptr)) : _mm_loadu_si128((__m128i*)(ptr));
 
 uint8x16_t vld1q_u8(__transfersize(16) uint8_t const * ptr); // VLD1.8 {d0, d1}, [r0]
 #define vld1q_u8 LOAD_SI128
@@ -9246,7 +9246,7 @@ f2 = _mm_set_ps (ptr[7], ptr[6], ptr[5], ptr[4]);
 float32x4_t vld1q_f32(__transfersize(4) float32_t const * ptr); // VLD1.32 {d0, d1}, [r0]
 _NEON2SSE_INLINE float32x4_t vld1q_f32(__transfersize(4) float32_t const * ptr)
 {
-    if( (((unsigned long)(ptr)) & 15 ) == 0 ) //16 bits aligned
+    if( (((unsigned long)(uintptr_t)(ptr)) & 15 ) == 0 ) //16 bits aligned
         return _mm_load_ps(ptr);
     else
         return _mm_loadu_ps(ptr);
@@ -9535,7 +9535,7 @@ poly16x4_t vld1_dup_p16(__transfersize(1) poly16_t const * ptr); // VLD1.16 {d0[
 // If ptr is 16bit aligned and you  need to store data without cache pollution then use void _mm_stream_si128 ((__m128i*)ptr, val);
 //here we assume the case of  NOT 16bit aligned ptr possible. If it is aligned we could to use _mm_store_si128 like shown in the following macro
 #define STORE_SI128(ptr, val) \
-        (((unsigned long)(ptr) & 15) == 0 ) ? _mm_store_si128 ((__m128i*)(ptr), val) : _mm_storeu_si128 ((__m128i*)(ptr), val);
+        (((unsigned long)(uintptr_t)(ptr) & 15) == 0 ) ? _mm_store_si128 ((__m128i*)(ptr), val) : _mm_storeu_si128 ((__m128i*)(ptr), val);
 
 void vst1q_u8(__transfersize(16) uint8_t * ptr, uint8x16_t val); // VST1.8 {d0, d1}, [r0]
 #define vst1q_u8 STORE_SI128
@@ -9567,7 +9567,7 @@ void vst1q_f16(__transfersize(8) __fp16 * ptr, float16x8_t val); // VST1.16 {d0,
 void vst1q_f32(__transfersize(4) float32_t * ptr, float32x4_t val); // VST1.32 {d0, d1}, [r0]
 _NEON2SSE_INLINE void vst1q_f32(__transfersize(4) float32_t * ptr, float32x4_t val)
 {
-    if( ((unsigned long)(ptr) & 15)  == 0 ) //16 bits aligned
+    if( ((unsigned long)(uintptr_t)(ptr) & 15)  == 0 ) //16 bits aligned
         _mm_store_ps (ptr, val);
     else
         _mm_storeu_ps (ptr, val);
@@ -14362,7 +14362,7 @@ int32x4_t vextq_s32(int32x4_t a, int32x4_t b, __constrange(0,3) int c); // VEXT.
 uint32x4_t vextq_u32(uint32x4_t a, uint32x4_t b, __constrange(0,3) int c); // VEXT.32 q0,q0,q0,#0
 #define vextq_u32(a,b,c) _MM_ALIGNR_EPI8 (b,a,c * 4)
 
-float32x4_t vextq_f32(float32x4_t a, float32x4_t b, __constrange(0,3) float c); // VEXT.32 q0,q0,q0,#0
+float32x4_t vextq_f32(float32x4_t a, float32x4_t b, __constrange(0,3) int c); // VEXT.32 q0,q0,q0,#0
 #define vextq_f32(a,b,c) _M128(vextq_s32(_M128i(a),_M128i(b),c) )
 
 int64x2_t vextq_s64(int64x2_t a, int64x2_t b, __constrange(0,1) int c); // VEXT.64 q0,q0,q0,#0
