@@ -784,6 +784,29 @@ function wrapFunction2d(line)
     wrapFunction2core(a, b, c, d, e, f)
 end
 
+function wrapFunction2core2(a, b, c, d, e, f, min, max)
+	if a ~= nil and b ~= nil and c ~= nil and d ~= nil and e ~= nil and f ~= nil and min ~= nil and max ~= nil then
+		for i = min, max, 1 do
+			io.write(a.." ".."np_"..b.."_"..i.."("..c.." "..d..")\n")
+			io.write("{\n")
+			if a == "void" then
+				io.write("\t"..b.."("..d..", "..i..");\n")
+			else
+				io.write("\treturn "..b.."("..d..", "..i..");\n")
+			end
+			io.write("}\n")
+			io.write("\n")
+			hfile = hfile.."extern "..a.." ".."np_"..b.."_"..i.."("..c.." "..d..");\n"
+		end
+		hfile = hfile.."#define "..b.."(__a, __b) ".."np_"..b.."_##__b(__a)\n"
+    end
+end
+
+function wrapFunction2e(line)
+    local a,b,c,d,min,max,e,f = string.match(line, "^([%w_]+)%s+([%w_]+)%s*%(%s*([%w_]+)%s+([%w_]+)%s*,%s*__constrange%((%d+),(%d+)%)%s*([%w_]+)%s*([%w_]+)%s*%)")
+    wrapFunction2core2(a, b, c, d, e, f, min, max)
+end
+
 function wrapFunction3core(a, b, c, d, e, f, g, h)
     if a ~= nil and b ~= nil and c ~= nil and d ~= nil and e ~= nil and f ~= nil and g ~= nil and h ~= nil then
         io.write(a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..", "..g.." "..h..")\n")
@@ -807,28 +830,19 @@ end
 
 function wrapFunction3core2(a, b, c, d, e, f, g, h, min, max)
     if a ~= nil and b ~= nil and c ~= nil and d ~= nil and e ~= nil and f ~= nil and g ~= nil and h ~= nil and min ~= nil and max ~= nil then
-        io.write(a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..", "..g.." "..h..")\n")
-        io.write("{\n")
-		io.write("\tswitch("..h..")\n")
-		io.write("\t{\n")
 		for i = min, max, 1 do
-			io.write("\t\tcase "..i..":\n")
+			io.write(a.." ".."np_"..b.."_"..i.."("..c.." "..d..", "..e.." "..f..")\n")
+			io.write("{\n")
 			if a == "void" then
-				io.write("\t\t\t"..b.."("..d..", "..f..", "..i..");\n")
+				io.write("\t"..b.."("..d..", "..f..", "..i..");\n")
 			else
-				io.write("\t\t\treturn "..b.."("..d..", "..f..", "..i..");\n")
+				io.write("\treturn "..b.."("..d..", "..f..", "..i..");\n")
 			end
+			io.write("}\n")
+			io.write("\n")
+			hfile = hfile.."extern "..a.." ".."np_"..b.."_"..i.."("..c.." "..d..", "..e.." "..f..");\n"			
 		end
-		io.write("\t}\n")
-		if a == "void" then
-			io.write("\t"..b.."("..d..", "..f..", 1);\n")
-		else
-			io.write("\treturn "..b.."("..d..", "..f..", 1);\n")
-		end
-        io.write("}\n")
-        io.write("\n")
-        hfile = hfile.."extern "..a.." ".."np_"..b.."("..c.." "..d..", "..e.." "..f..", "..g.." "..h..");\n"
-        hfile = hfile.."#define "..b.." ".."np_"..b.."\n"
+		hfile = hfile.."#define "..b.."(__a, __b, __c) ".."np_"..b.."_##__c(__a, __b)\n"
     end
 end
 
@@ -856,6 +870,7 @@ for line in string.gmatch(functions, "[^\r\n]+") do
     wrapFunction2b(line)
 	wrapFunction2c(line)
 	wrapFunction2d(line)
+	wrapFunction2e(line)
     wrapFunction3(line)
 	wrapFunction3b(line)
 	wrapFunction3c(line)
