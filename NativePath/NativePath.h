@@ -172,6 +172,14 @@ static union
 //http://clang.llvm.org/docs/LanguageExtensions.html#vectors-and-extended-vectors
 //https://developer.chrome.com/native-client/reference/pnacl-c-cpp-language-support
 
+typedef float float2 __attribute__((ext_vector_type(2)));
+typedef int32_t int2 __attribute__((ext_vector_type(2)));
+typedef uint32_t uint2 __attribute__((ext_vector_type(2)));
+
+typedef float float3 __attribute__((ext_vector_type(3)));
+typedef int32_t int3 __attribute__((ext_vector_type(3)));
+typedef uint32_t uint3 __attribute__((ext_vector_type(3)));
+
 typedef float float4 __attribute__((ext_vector_type(4)));
 typedef int32_t int4 __attribute__((ext_vector_type(4)));
 typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
