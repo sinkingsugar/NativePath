@@ -172,12 +172,13 @@ static union
 //http://clang.llvm.org/docs/LanguageExtensions.html#vectors-and-extended-vectors
 //https://developer.chrome.com/native-client/reference/pnacl-c-cpp-language-support
 
-#define VECTOR_BYTES 16
-#define VECTOR_ALIGN 4
+typedef float float4 __attribute__((ext_vector_type(4)));
+typedef int32_t int4 __attribute__((ext_vector_type(4)));
+typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 
-typedef float float4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_ALIGN)));
-typedef int32_t int4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_ALIGN)));
-typedef uint32_t uint4 __attribute__((vector_size(VECTOR_BYTES), aligned(VECTOR_ALIGN)));
+#if !__has_extension(attribute_ext_vector_type)
+	#error "attribute_ext_vector_type not available"
+#endif
 
 //CLANG usable builtins
 
