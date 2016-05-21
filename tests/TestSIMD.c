@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <NativePath.h>
 
 void testFloat4()

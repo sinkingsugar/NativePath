@@ -2,4 +2,6 @@
 
 "c:\Program Files\LLVM\bin\clang.exe" -fno-builtin -fno-common -fno-ms-extensions -nobuiltininc -nostdinc++ -v -W -ID:\Storage\Development\NativePath\NativePath\standard -ID:\Storage\Development\NativePath\NativePath -I ..\include -I D:\Storage\Development\NativePath\NativePath -DEASTL_EABASE_DISABLED -I ..\test\packages\EABase\include\Common -DEASTL_DLL -Wno-macro-redefined -DEA_PRAGMA_ONCE_SUPPORTED -DEA_COMPILER_NO_NULLPTR
 
-"c:\Program Files\LLVM\bin\clang.exe" -fno-ms-extensions -nobuiltininc -nostdinc++ -v -W -Wl,-libpath:D:\Storage\Development\NativePath\build\Windows\x64\Release\ -llibNativePath -INativePath tests\TestSIMD.c
+"c:\Program Files\LLVM\bin\clang.exe" -fno-ms-extensions -nobuiltininc -nostdinc++ -m64 -v -W -INativePath/standard -INativePath -Wl,"-libpath:D:\Storage\Development\NativePath\build\Windows\x64\Release\,-libpath:C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\ucrt\x64,-libpath:C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\um\x64,-nodefaultlib:libcmt" -llibNativePath tests\TestSIMD.c
+
+"c:\Program Files\LLVM\bin\clang.exe" -fno-ms-extensions -nobuiltininc -nostdinc++ -m32 -v -W -INativePath/standard -INativePath -Wl,"-libpath:D:\Storage\Development\NativePath\build\Windows\x86\Release,-libpath:C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\ucrt\x86,-libpath:C:\Program Files (x86)\Windows Kits\10\Lib\10.0.10586.0\um\x86,-nodefaultlib:libcmt" -llibNativePath tests\TestSIMD.c

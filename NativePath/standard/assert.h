@@ -1,8 +1,13 @@
 #ifndef assert_h
 #define assert_h
 
-#include <NativePath.h>
-#include <stdbool.h>
+#include "../NativePath.h"
+#include "stdio.h"
+#include "stdbool.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 inline void assert(bool condition)
 {
@@ -13,5 +18,9 @@ inline void assert(bool condition)
         abort();
     }
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

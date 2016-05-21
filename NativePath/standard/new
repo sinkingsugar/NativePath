@@ -1,7 +1,7 @@
 #ifndef new_hpp
 #define new_hpp
 
-#include <NativePath.h>
+#include "../NativePath.h"
 
 #ifdef __cplusplus
 //C++ utility

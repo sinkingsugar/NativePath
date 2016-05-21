@@ -31,6 +31,14 @@ THE SOFTWARE.
 #ifndef NativeTime_h
 #define NativeTime_h
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern double npSeconds();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* NativeTime_h */

@@ -1936,6 +1936,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 	#define __NSStringMakeConstantString __builtin___NSStringMakeConstantString
 #endif
 
+/*
 #if !__has_builtin(__builtin_va_start)
 	#error "va_start clang built-in not available"
 #else
@@ -1953,6 +1954,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #else
 	#define va_copy __builtin_va_copy
 #endif
+*/
 
 #if !__has_builtin(__builtin_stdarg_start)
 	#error "stdarg_start clang built-in not available"
@@ -2026,11 +2028,13 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 	#define memset __builtin_memset
 #endif
 
+/*
 #if !__has_builtin(__builtin_printf)
 	#error "printf clang built-in not available"
 #else
 	#define printf __builtin_printf
 #endif
+*/
 
 #if !__has_builtin(__builtin_stpcpy)
 	#error "stpcpy clang built-in not available"
@@ -3101,11 +3105,5 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #else
 	#define __get_unsafe_stack_ptr __builtin___get_unsafe_stack_ptr
 #endif
-
-#include <NativeMath.h>
-#include <NativeMemory.h>
-#include <NativeTime.h>
-#include <NativeDynamicLinking.h>
-#include <NativeSIMD.h>
 
 #endif /* nativepath_h */

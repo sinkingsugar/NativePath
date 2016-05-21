@@ -31,7 +31,11 @@ THE SOFTWARE.
 #ifndef NativeSIMD_h
 #define NativeSIMD_h
 
-#include <NativePath.h>
+#include "NativePath.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 typedef float float32_t;
 typedef int8_t poly8_t;
@@ -3725,5 +3729,9 @@ extern poly8x16x2_t np_vuzpq_p8(poly8x16_t a, poly8x16_t b);
 #define vuzpq_p8 np_vuzpq_p8
 extern poly16x8x2_t np_vuzpq_p16(poly16x8_t a, poly16x8_t b);
 #define vuzpq_p16 np_vuzpq_p16
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

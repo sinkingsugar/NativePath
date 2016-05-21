@@ -31,6 +31,10 @@ THE SOFTWARE.
 #ifndef nativemath_h
 #define nativemath_h
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //ShaderFastMathLib
 
 //
@@ -132,5 +136,9 @@ extern double npLolCos(double x);
 extern void npLolSincos(double x, double *sinx, double *cosx);
 extern void npLolSincosf(float x, float *sinx, float *cosx);
 extern double npLolTan(double x);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* nativemath_h */
