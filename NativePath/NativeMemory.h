@@ -37,8 +37,6 @@ THE SOFTWARE.
 extern "C" {
 #endif
 
-typedef __SIZE_TYPE__ size_t;
-
 extern void* npMalloc(size_t size);
 #define malloc npMalloc
 
