@@ -2,6 +2,7 @@
 #define stdlib_h
 
 #include "../NativePath.h"
+#include "../NativeMemory.h"
 
 #ifdef __cplusplus
 extern "C" {

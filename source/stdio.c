@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -26,7 +28,7 @@ int npPrintf(const char *c, ...)
 	char buf[1024];
 	va_list ap;
 	va_start(ap, c);
-	int len = vsprintf(buf, c, ap);
+	vsprintf(buf, c, ap);
 	va_end(ap);
 	return printf("%s", buf);
 }

@@ -128,7 +128,9 @@ static union
 	char double_incorrect[sizeof(double) == 8 ? 1 : -1];
 } __types_safeguard;
 
+#ifndef NULL
 #define NULL 0
+#endif
 
 //utility
 #define tolower(__x__) __x__ //TODO
