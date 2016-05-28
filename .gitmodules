@@ -1,0 +1,4 @@
+[submodule "deps/ustl"]
+	path = deps/ustl
+	url = https://github.com/sinkingsugar/ustl.git
+	branch = master
