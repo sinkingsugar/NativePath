@@ -26,6 +26,12 @@
 #ifndef __STDARG_H
 #define __STDARG_H
 
+#undef va_list
+#undef va_start
+#undef va_end
+#undef va_arg
+#undef va_copy
+
 #ifndef _VA_LIST
 typedef __builtin_va_list va_list;
 #define _VA_LIST

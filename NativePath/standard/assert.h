@@ -9,6 +9,7 @@
 extern "C" {
 #endif
 
+#undef assert
 inline void assert(bool condition)
 {
     if(!condition)

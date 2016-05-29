@@ -10,6 +10,7 @@ extern "C" {
 
 //TODO more stdlib stuff
 
+#undef exit
 #define exit npExit
 
 extern void npExit(int code);

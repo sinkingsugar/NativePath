@@ -12,11 +12,17 @@ extern "C" {
 
 typedef void FILE;
 
+#undef stderr
 #define stderr npGetStderr()
+#undef stdin
 #define stdin npGetStdin()
+#undef stdout
 #define stdout npGetStdout()
+#undef fflush
 #define fflush npFflush
+#undef printf
 #define printf npPrintf
+#undef sprintf
 #define sprintf npSprintf
 
 extern FILE* npGetStderr();
