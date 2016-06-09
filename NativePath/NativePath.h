@@ -132,6 +132,10 @@ static union
 #define NULL 0
 #endif
 
+#ifndef nullptr
+#define nullptr NULL
+#endif
+
 //utility
 #define tolower(__x__) __x__ //TODO
 #define toupper(__x__) __x__ //TODO
