@@ -113,9 +113,18 @@ void* LoadDynamicLibrary(const char* libraryPath)
 #ifdef NATIVE_PATH_IOS
     if(libraryPath)
     {
+        //dylib case
         sprintf(nameBuffer, "%s.dylib", libraryPath);
-    }   
-    return dlopen(libraryPath ? nameBuffer : NULL, RTLD_NOW);   
+        void* lib = dlopen(nameBuffer, RTLD_NOW);
+        if(lib) return lib;
+        //framework case
+        sprintf(nameBuffer, "%s", libraryPath);
+        lib = dlopen(nameBuffer, RTLD_NOW);
+        if(lib) return lib;
+        else return NULL;
+    }
+    //return the executable itself
+    return dlopen(NULL, RTLD_NOW);   
 #endif
 	
 	return 0;
