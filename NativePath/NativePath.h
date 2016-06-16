@@ -132,6 +132,8 @@ static union
 #define NULL 0
 #endif
 
+typedef int npBool;
+
 #ifndef nullptr
 #define nullptr NULL
 #endif
