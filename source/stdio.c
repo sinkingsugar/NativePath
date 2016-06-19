@@ -41,3 +41,12 @@ int npSprintf(char* buffer, const char* format, ...)
 	va_end(argList);
     return len;
 }
+
+int npFprintf(FILE *stream, const char *format, ...)
+{
+	va_list argList;
+	va_start(argList, format);
+	int len = fprintf(stream, format, argList);
+	va_end(argList);
+    return len;
+}

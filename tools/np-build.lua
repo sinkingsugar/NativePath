@@ -1,5 +1,3 @@
---eg: >c:\Users\giovanni.petrantoni\Desktop\luapower-all-master\luajit np-build.lua c:\Development\opus\celt_np -IC:\Development\opus\include -IC:\Development\opus\celt -DUSE_ALLOCA -DHAVE_LRINTF -DCUSTOM_MODES -DOPUS_BUILD -ncelt
-
 ffi = require 'ffi'
 
 local SLASH = "/"
@@ -38,15 +36,18 @@ function string.starts(String,Start)
    return string.sub(String,1,string.len(Start))==Start
 end
 
-local common_flags = "-Wall -Wno-macro-redefined -I.."..SLASH.."NativePath -I.."..SLASH.."NativePath"..SLASH.."standard"
+local common_flags = "-Wno-macro-redefined -I.."..SLASH.."NativePath -I.."..SLASH.."NativePath"..SLASH.."standard"
 local debug_flags = "-O0 -g"
 local debug_ms_flags = "-Od -Zi"
 local release_flags = "-O3"
+local release_ms_flags = ""
 
 local objs = {}
 
 local cfiles = {}
 local hfiles = {}
+local exclude_dirs = {}
+local exclude_files = {}
 
 local debug = false
 local platform = "windows"
@@ -59,7 +60,8 @@ local outputName = "lib"
 function BuildWindows32DLL(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -m32 -DNP_WIN32 -fno-ms-extensions -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -m32 -DNP_WIN32 -Wall -fno-ms-extensions -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	print(cmd)
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -110,7 +112,7 @@ end
 
 function BuildWindowsUWP32(cfile)
 	local flags = ""
-	if debug then flags = debug_ms_flags else flags = release_flags end
+	if debug then flags = debug_ms_flags else flags = release_ms_flags end
 	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m32 "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
@@ -126,7 +128,7 @@ end
 
 function BuildWindowsUWP64(cfile)
 	local flags = ""
-	if debug then flags = debug_ms_flags else flags = release_flags end
+	if debug then flags = debug_ms_flags else flags = release_ms_flags end
 	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m64 "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
@@ -142,7 +144,7 @@ end
 
 function BuildWindowsUWPARM(cfile)
 	local flags = ""
-	if debug then flags = debug_ms_flags else flags = release_flags end
+	if debug then flags = debug_ms_flags else flags = release_ms_flags end
 	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m32 --target=thumbv7-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
@@ -301,6 +303,15 @@ function LinkLinuxX86()
 	os.execute(cmd)
 end
 
+function table.contains(table, element)
+  for _, value in pairs(table) do
+    if string.starts(element, value) then
+      return true
+    end
+  end
+  return false
+end
+
 for i,v in ipairs(arg) do 
 	if v == "debug" then
 		debug = true
@@ -313,6 +324,12 @@ for i,v in ipairs(arg) do
 	elseif string.starts(v, "-n") then
 		local n = string.sub(v, 3)
 		outputName = n
+	elseif string.starts(v, "-E") then
+		local n = string.sub(v, 3)
+		table.insert(exclude_dirs, n)
+ 	elseif string.starts(v, "-e") then
+		local n = string.sub(v, 3)
+		table.insert(exclude_files, n)
 	elseif v == "ios" then
 		platform = "ios"
 	elseif v == "linux" then
@@ -323,8 +340,12 @@ for i,v in ipairs(arg) do
 end
 
 for filename, attr in dirtree(directory) do
-	if string.ends(filename, ".c") or string.ends(filename, ".cpp") and attr.mode == "file" then
-		table.insert(cfiles, filename)
+	if table.contains(exclude_dirs, filename) ~= true then
+		if string.ends(filename, ".c") or string.ends(filename, ".cpp") and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
+			table.insert(cfiles, filename)
+		end
+	else
+		print("Excluding: "..filename)
 	end
 end
 
