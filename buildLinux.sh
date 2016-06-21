@@ -9,7 +9,7 @@ if [ "$CC" = "" ]; then
     CC=clang-3.6
 fi
 
-CFLAGS="-mssse3 -Wall -Wno-unused-const-variable -Wno-unused-function -Isource"
+CFLAGS="-mssse3 -Wall -Wno-unused-const-variable -Wno-unused-function -Isource -Wno-unknown-attributes"
 
 #Linux 64
 $CC -fPIC -m64 $CFLAGS -c $sources
