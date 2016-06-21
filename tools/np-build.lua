@@ -38,9 +38,9 @@ end
 
 local common_flags = "-Wno-macro-redefined -I.."..SLASH.."NativePath -I.."..SLASH.."NativePath"..SLASH.."standard"
 local debug_flags = "-O0 -g"
-local debug_ms_flags = "-Od -Zi"
+local debug_ms_flags = "-Od"
 local release_flags = "-O3"
-local release_ms_flags = ""
+local release_ms_flags = "-O2"
 
 local objs = {}
 
@@ -184,6 +184,26 @@ function LinkWindows81ARM()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86_arm 8.1 store && lib /OUT:Windows8.1\\ARM\\"..outputName..".lib "..objs_str
+	os.execute(cmd)
+end
+
+--Win Phone 8.1
+
+function LinkWindowsWP32()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\WPSDK\\WP80\\vcvarsphoneall\" x86 && lib /OUT:WindowsPhone\\x86\\"..outputName..".lib "..objs_str
+	os.execute(cmd)
+end
+
+function LinkWindowsWPARM()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\WPSDK\\WP80\\vcvarsphoneall\" x86_arm && lib /OUT:WindowsPhone\\ARM\\"..outputName..".lib "..objs_str
 	os.execute(cmd)
 end
 
@@ -430,6 +450,28 @@ if platform == "windows" then
 		BuildWindowsUWPARM(f)
 	end
 	LinkWindows81ARM()
+
+	--
+
+	objs = {}
+
+	lfs.mkdir("WindowsPhone")
+	lfs.chdir("WindowsPhone")
+	lfs.mkdir("x86")
+	lfs.mkdir("ARM")
+	lfs.chdir("..")
+
+	for i,f in ipairs(cfiles) do
+		BuildWindowsUWP32(f)
+	end
+	LinkWindowsWP32()
+
+	objs = {}
+
+	for i,f in ipairs(cfiles) do
+		BuildWindowsUWPARM(f)
+	end
+	LinkWindowsWPARM()
 elseif platform == "ios" then
 	objs = {}
 
