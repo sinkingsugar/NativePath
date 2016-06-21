@@ -84,11 +84,17 @@ void* LoadDynamicLibrary(const char* libraryPath)
 	char nameBuffer[2048];
 		
 #if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID)
-	if(libraryPath) 
+    if(libraryPath) 
     {
+        void *lib = NULL;
+        sprintf(nameBuffer, "%s", libraryPath);
+        lib = dlopen(nameBuffer, RTLD_NOW);
+        if (lib) return lib;
+
         sprintf(nameBuffer, "%s.so", libraryPath);
+        return dlopen(nameBuffer, RTLD_NOW);
     }
-	return dlopen(libraryPath ? nameBuffer : NULL, RTLD_NOW);
+    return dlopen(NULL, RTLD_NOW);
 #endif
 
 #ifdef NATIVE_PATH_WIN_DESKTOP
