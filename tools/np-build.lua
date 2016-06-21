@@ -55,6 +55,8 @@ local platform = "windows"
 local directory = ""
 local outputName = "lib"
 
+local android_ndk_path = os.getenv("ANDROID_NDK_PATH");
+
 --Win dll for checking
 
 function BuildWindows32DLL(cfile)
@@ -209,14 +211,14 @@ end
 
 --iOS
 
-function BuildWindowsiOSArm7(cfile)
+function BuildIOSArm7(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
-function LinkWindowsiOSArm7()
+function LinkIOSArm7()
 	local objs_str = ""
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
@@ -225,14 +227,14 @@ function LinkWindowsiOSArm7()
 	os.execute(cmd)
 end
 
-function BuildWindowsiOSArm7s(cfile)
+function BuildIOSArm7s(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7s-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
-function LinkWindowsiOSArm7s()
+function LinkIOSArm7s()
 	local objs_str = ""
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
@@ -241,14 +243,14 @@ function LinkWindowsiOSArm7s()
 	os.execute(cmd)
 end
 
-function BuildWindowsiOSArm64(cfile)
+function BuildIOSArm64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target arm64-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
-function LinkWindowsiOSArm64()
+function LinkIOSArm64()
 	local objs_str = ""
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
@@ -257,14 +259,14 @@ function LinkWindowsiOSArm64()
 	os.execute(cmd)
 end
 
-function BuildWindowsiOSx86(cfile)
+function BuildIOSx86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target i386-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
-function LinkWindowsiOSx86()
+function LinkIOSx86()
 	local objs_str = ""
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
@@ -273,19 +275,101 @@ function LinkWindowsiOSx86()
 	os.execute(cmd)
 end
 
-function BuildWindowsiOSx64(cfile)
+function BuildIOSx64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target x86_64-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
-function LinkWindowsiOSx64()
+function LinkIOSx64()
 	local objs_str = ""
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_x86_64.a "..objs_str
+	os.execute(cmd)
+end
+
+--Android
+
+function BuildAndroidArm(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target arm-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+end
+
+function LinkAndroidArm()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-ar rcs -format=gnu Android\\armeabi\\"..outputName..".a "..objs_str
+	os.execute(cmd)
+end
+
+function BuildAndroidArm7(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target armv7-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+end
+
+function LinkAndroidArm7()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-ar rcs -format=gnu Android\\armeabi-v7a\\"..outputName..".a "..objs_str
+	os.execute(cmd)
+end
+
+function BuildAndroidArm64(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target aarch64-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+end
+
+function LinkAndroidArm64()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-ar rcs -format=gnu Android\\arm64-v8a\\"..outputName..".a "..objs_str
+	os.execute(cmd)
+end
+
+function BuildAndroidx86(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target i386-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+end
+
+function LinkAndroidx86()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-ar rcs -format=gnu Android\\x86\\"..outputName..".a "..objs_str
+	os.execute(cmd)
+end
+
+function BuildAndroidx64(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target x86_64-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+end
+
+function LinkAndroidx64()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-ar rcs -format=gnu Android\\x86_64\\"..outputName..".a "..objs_str
 	os.execute(cmd)
 end
 
@@ -354,6 +438,8 @@ for i,v in ipairs(arg) do
 		platform = "ios"
 	elseif v == "linux" then
 		platform = "linux"
+    elseif v == "android" then
+		platform = "android"
 	else
 		directory = v
 	end
@@ -476,37 +562,37 @@ elseif platform == "ios" then
 	objs = {}
 
 	for i,f in ipairs(cfiles) do
-		BuildWindowsiOSArm7(f)
+		BuildIOSArm7(f)
 	end
-	LinkWindowsiOSArm7()
+	LinkIOSArm7()
 	
 	objs = {}
 
 	for i,f in ipairs(cfiles) do
-		BuildWindowsiOSArm7s(f)
+		BuildIOSArm7s(f)
 	end
-	LinkWindowsiOSArm7s()
+	LinkIOSArm7s()
 	
 	objs = {}
 
 	for i,f in ipairs(cfiles) do
-		BuildWindowsiOSArm64(f)
+		BuildIOSArm64(f)
 	end
-	LinkWindowsiOSArm64()
+	LinkIOSArm64()
 	
 	objs = {}
 
 	for i,f in ipairs(cfiles) do
-		BuildWindowsiOSx86(f)
+		BuildIOSx86(f)
 	end
-	LinkWindowsiOSx86()
+	LinkIOSx86()
 	
 	objs = {}
 
 	for i,f in ipairs(cfiles) do
-		BuildWindowsiOSx64(f)
+		BuildIOSx64(f)
 	end
-	LinkWindowsiOSx64()
+	LinkIOSx64()
 	
 	lfs.mkdir("iOS")
 	
@@ -531,4 +617,48 @@ elseif platform == "linux" then
 		BuildLinuxX86(f)
 	end
 	LinkLinuxX86()
+elseif platform == "android" then
+	lfs.mkdir("Android")
+	lfs.chdir("Android")
+	lfs.mkdir("x86_64")
+	lfs.mkdir("x86")
+	lfs.mkdir("arm64-v8a")
+	lfs.mkdir("armeabi")
+	lfs.mkdir("armeabi-v7a")
+	lfs.chdir("..")
+	
+	objs = {}
+
+	for i,f in ipairs(cfiles) do
+		BuildAndroidArm(f)
+	end
+	LinkAndroidArm()
+
+	objs = {}
+
+	for i,f in ipairs(cfiles) do
+		BuildAndroidArm7(f)
+	end
+	LinkAndroidArm7()
+
+	objs = {}
+
+	for i,f in ipairs(cfiles) do
+		BuildAndroidArm64(f)
+	end
+	LinkAndroidArm64()
+
+	objs = {}
+
+	for i,f in ipairs(cfiles) do
+		BuildAndroidx86(f)
+	end
+	LinkAndroidx86()
+
+	objs = {}
+
+	for i,f in ipairs(cfiles) do
+		BuildAndroidx64(f)
+	end
+	LinkAndroidx64()
 end

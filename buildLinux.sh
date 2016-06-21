@@ -3,7 +3,7 @@
 mkdir -p build/Linux/x86
 mkdir -p build/Linux/x86_64
 
-sources="source/NativeMath.c source/NativeMemory.c source/lol_trig.cpp source/NativeTime.cpp source/NativeDynamicLinking.c source/stdio.c source/stdlib.c source/NEONvsSSE.c"
+sources="source/NativeMath.c source/NativeMemory.c source/lol_trig.cpp source/NativeTime.cpp source/NativeDynamicLinking.c source/stdio.c source/stdlib.c source/NEONvsSSE.c source/workarounds.c source/NativeThreading.cpp"
 
 if [ "$CC" = "" ]; then
     CC=clang-3.6

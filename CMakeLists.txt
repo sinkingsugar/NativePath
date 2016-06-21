@@ -26,4 +26,5 @@ ADD_LIBRARY(${NP_LIB} STATIC
 	source/stdio.c
 	source/NEONvsSSE.c
 	source/NativeThreading.cpp
+	source/workarounds.c
 )

@@ -28,6 +28,40 @@ THE SOFTWARE.
 //  Copyright © 2016 Giovanni Petrantoni. All rights reserved.
 //
 
+//todo, this is too basic
+
+#ifdef __ANDROID__
+
+#include <unistd.h>
+
+extern "C"
+{
+    typedef void (*ThreadDelegate)(void);
+    typedef void Thread;
+
+    Thread* npThreadStart(ThreadDelegate func)
+    {
+        return NULL;
+    }
+
+    void npThreadJoin(Thread* thread)
+    {
+        
+    }
+
+    void npThreadSleep(int milliseconds)
+    {
+        usleep(milliseconds * 1000);
+    }
+
+    void npThreadYield()
+    {
+        usleep(0);
+    }
+}
+
+#else
+
 #include <thread>
 #include <chrono>
 
@@ -86,3 +120,5 @@ namespace NativePath
     }
 
 }
+
+#endif
