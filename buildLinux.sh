@@ -20,7 +20,7 @@ mv libNativePath.a build/Linux/x86_64/
 rm *.o
 
 #Linux 32
-$CC -m32 $CFLAGS -c $sources
+$CC -fPIC -m32 $CFLAGS -c $sources
 $CC -shared -m32 -Wl,-soname,libNativePath.so -o libNativePath.so *.o
 ar rcs libNativePath.a *.o
 mv libNativePath.so build/Linux/x86/
