@@ -40,3 +40,8 @@ void npFree(void* block)
     free(block);
 }
 
+void* npCalloc(size_t num, size_t size)
+{
+    return calloc(num, size);
+}
+
