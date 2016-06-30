@@ -30,7 +30,7 @@ THE SOFTWARE.
 
 //todo, this is too basic
 
-#ifdef __ANDROID__
+#if defined(__ANDROID__) || defined(__linux__)
 
 #include <unistd.h>
 
