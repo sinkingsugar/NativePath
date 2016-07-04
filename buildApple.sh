@@ -1,5 +1,5 @@
-mkdir build/iOS
-mkdir build/macOS
+mkdir -p build/iOS
+mkdir -p build/macOS
 #xcodebuild clean
 
 xcodebuild VALID_ARCHS="armv7 armv7s arm64" ARCHS="armv7 armv7s arm64" ONLY_ACTIVE_ARCH=NO -sdk iphoneos -mios-version-min=6.0
