@@ -41,6 +41,8 @@ LOCAL_SRC_FILES := \
    ../../source/NativeDynamicLinking.c \
    ../../source/stdio.c \
    ../../source/stdlib.c \
-   ../../source/NEONvsSSE.c
+   ../../source/NEONvsSSE.c \
+   ../../source/workarounds.c \
+   ../../source/NativeThreading.cpp
 
 include $(BUILD_STATIC_LIBRARY)

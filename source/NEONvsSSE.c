@@ -33,6 +33,7 @@
         // iOS device
     #elif TARGET_OS_MAC
         // Other kinds of Mac OS
+        #include <NEONvsSSE.h>
     #else
     #   error "Unknown Apple platform"
     #endif

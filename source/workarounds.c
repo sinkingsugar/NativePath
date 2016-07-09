@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2015 Giovanni Petrantoni
+Copyright (c) 2016 Giovanni Petrantoni
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -21,73 +21,19 @@ THE SOFTWARE.
 */
 
 //
-//  NativeTime.cpp
+//  workarounds.c
 //  NativePath
 //
-//  Created by Giovanni Petrantoni on 11/28/15.
-//  Copyright © 2015 Giovanni Petrantoni. All rights reserved.
+//  Created by Giovanni Petrantoni on 06/21/16.
+//  Copyright © 2016 Giovanni Petrantoni. All rights reserved.
 //
 
-#ifndef WIN32
-#include <sys/time.h>
-#else
-#include <windows.h>
-#endif
+#ifdef __ANDROID__
 
-namespace NativePath
+extern void __stack_chk_fail();
+void __stack_chk_fail_local()
 {
-
-	class Timer
-	{
-	private:
-	#ifdef WIN32
-		LARGE_INTEGER m_depart;
-	#else
-		timeval m_depart;
-	#endif
-
-	public:
-		Timer()
-		{
-			start();
-		}
-
-		inline void start()
-		{
-	#ifdef WIN32
-			QueryPerformanceCounter(&m_depart);
-	#else
-			gettimeofday(&m_depart, 0);
-	#endif
-		}
-
-		inline double seconds() const
-		{
-	#ifdef WIN32
-			LARGE_INTEGER now;
-			LARGE_INTEGER freq;
-
-			QueryPerformanceCounter(&now);
-			QueryPerformanceFrequency(&freq);
-
-			return (now.QuadPart - m_depart.QuadPart) / static_cast<double>(freq.QuadPart);
-	#else
-			timeval now;
-			gettimeofday(&now, 0);
-
-			return now.tv_sec - m_depart.tv_sec + (now.tv_usec - m_depart.tv_usec) / 1000000.0f;
-	#endif
-		}
-	};
-
-	Timer __gTimer;
-
-	extern "C"
-	{
-		double npSeconds()
-		{
-			return __gTimer.seconds();
-		}
-	}
-
+  __stack_chk_fail();
 }
+
+#endif
