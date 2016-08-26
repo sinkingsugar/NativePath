@@ -17,6 +17,9 @@ function BuildWindows32DLL(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -m32 -DNP_WIN32 -Wall -fno-ms-extensions -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -26,6 +29,9 @@ function LinkWindows32DLL()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "clang -v -m32 -shared -o Windows\\x86\\"..outputName..".dll -Wl,\"-libpath:C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.10586.0\\ucrt\\x86\",\"-libpath:C:\\Program Files (x86)\\Windows Kits\\10\\Lib\\10.0.10586.0\\um\\x86\",-nodefaultlib:libcmt,-dll,-libpath:..\\Libs\\Windows\\x86\\ -llibNativePath "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -35,6 +41,9 @@ function BuildWindows32(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -m32 -DNP_WIN32 -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -44,6 +53,9 @@ function LinkWindows32()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86 && lib /NOLOGO /OUT:Windows\\x86\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -51,6 +63,9 @@ function BuildWindows64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -m64 -DNP_WIN32 -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -60,6 +75,9 @@ function LinkWindows64()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x64 && lib /NOLOGO /OUT:Windows\\x64\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -69,6 +87,9 @@ function BuildWindowsUWP32(cfile)
 	local flags = ""
 	if debug then flags = debug_ms_flags else flags = release_ms_flags end
 	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m32 "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -78,6 +99,9 @@ function LinkWindowsUWP32()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86 store && lib /NOLOGO /OUT:WindowsUWP\\x86\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -85,6 +109,9 @@ function BuildWindowsUWP64(cfile)
 	local flags = ""
 	if debug then flags = debug_ms_flags else flags = release_ms_flags end
 	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m64 "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -94,6 +121,9 @@ function LinkWindowsUWP64()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x64 store && lib /NOLOGO /OUT:WindowsUWP\\x64\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -101,6 +131,9 @@ function BuildWindowsUWPARM(cfile)
 	local flags = ""
 	if debug then flags = debug_ms_flags else flags = release_ms_flags end
 	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m32 --target=thumbv7-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -110,6 +143,9 @@ function LinkWindowsUWPARM()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86_arm store && lib /NOLOGO /OUT:WindowsUWP\\ARM\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -121,6 +157,9 @@ function LinkWindows8132()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86 8.1 store && lib /NOLOGO /OUT:Windows8.1\\x86\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -130,6 +169,9 @@ function LinkWindows8164()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x64 8.1 store && lib /NOLOGO /OUT:Windows8.1\\x64\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -139,6 +181,9 @@ function LinkWindows81ARM()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86_arm 8.1 store && lib /NOLOGO /OUT:Windows8.1\\ARM\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -150,6 +195,9 @@ function LinkWindowsWP32()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\WPSDK\\WP80\\vcvarsphoneall\" x86 && lib /NOLOGO /OUT:WindowsPhone\\x86\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -159,6 +207,9 @@ function LinkWindowsWPARM()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\VC\\WPSDK\\WP80\\vcvarsphoneall\" x86_arm && lib /NOLOGO /OUT:WindowsPhone\\ARM\\"..outputName..".lib "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -168,6 +219,12 @@ function BuildIOSArm7(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -176,7 +233,10 @@ function LinkIOSArm7()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_armv7.a "..objs_str
+	local cmd = "llvm-ar rcs -format=bsd iOS\\"..outputName.."_armv7.a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -184,6 +244,9 @@ function BuildIOSArm7s(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7s-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -192,7 +255,10 @@ function LinkIOSArm7s()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_armv7s.a "..objs_str
+	local cmd = "llvm-ar rcs -format=bsd iOS\\"..outputName.."_armv7s.a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -200,6 +266,9 @@ function BuildIOSArm64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target arm64-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -208,7 +277,10 @@ function LinkIOSArm64()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_arm64.a "..objs_str
+	local cmd = "llvm-ar rcs -format=bsd iOS\\"..outputName.."_arm64.a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -216,6 +288,9 @@ function BuildIOSx86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target i386-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -224,7 +299,10 @@ function LinkIOSx86()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_i386.a "..objs_str
+	local cmd = "llvm-ar rcs -format=bsd iOS\\"..outputName.."_i386.a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -232,6 +310,9 @@ function BuildIOSx64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target x86_64-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -240,7 +321,10 @@ function LinkIOSx64()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_x86_64.a "..objs_str
+	local cmd = "llvm-ar rcs -format=bsd iOS\\"..outputName.."_x86_64.a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -250,6 +334,9 @@ function BuildMacOSx86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_MACOS -nobuiltininc -nostdinc++ -mmacosx-version-min=10.5 -target i386-apple-macosx "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -258,7 +345,10 @@ function LinkMacOSx86()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_i386.a "..objs_str
+	local cmd = "llvm-ar rcs -format=bsd macOS\\"..outputName.."_i386.a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -266,6 +356,9 @@ function BuildMacOSx64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_MACOS -nobuiltininc -nostdinc++ -mmacosx-version-min=10.5 -target x86_64-apple-macosx "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -274,7 +367,10 @@ function LinkMacOSx64()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_x86_64.a "..objs_str
+	local cmd = "llvm-ar rcs -format=bsd macOS\\"..outputName.."_x86_64.a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -284,6 +380,9 @@ function BuildAndroidArm(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target arm-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -293,6 +392,9 @@ function LinkAndroidArm()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "llvm-ar rcs -format=gnu Android\\armeabi\\"..outputName..".a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -300,6 +402,9 @@ function BuildAndroidArm7(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target armv7-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -309,6 +414,9 @@ function LinkAndroidArm7()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "llvm-ar rcs -format=gnu Android\\armeabi-v7a\\"..outputName..".a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -316,6 +424,9 @@ function BuildAndroidArm64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target aarch64-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -325,6 +436,9 @@ function LinkAndroidArm64()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "llvm-ar rcs -format=gnu Android\\arm64-v8a\\"..outputName..".a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -332,6 +446,12 @@ function BuildAndroidx86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target i386-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -341,6 +461,9 @@ function LinkAndroidx86()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "llvm-ar rcs -format=gnu Android\\x86\\"..outputName..".a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -348,6 +471,9 @@ function BuildAndroidx64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target x86_64-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -357,6 +483,9 @@ function LinkAndroidx64()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "llvm-ar rcs -format=gnu Android\\x86_64\\"..outputName..".a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -366,6 +495,9 @@ function BuildLinuxX64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_LINUX -nobuiltininc -nostdinc++ -fPIC -target x86_64-linux-gnu "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -374,7 +506,10 @@ function LinkLinuxX64()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "llvm-ar rcs -format=gnu Linux\\x64\\"..outputName..".a "..objs_str
+	local cmd = "llvm-ar rcs -format=gnu Linux\\x86_64\\"..outputName..".a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -382,6 +517,9 @@ function BuildLinuxX86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	local cmd = "clang -DNP_LINUX -nobuiltininc -nostdinc++ -fPIC -target i386-linux-gnu "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
 end
 
@@ -391,6 +529,9 @@ function LinkLinuxX86()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "llvm-ar rcs -format=gnu Linux\\x86\\"..outputName..".a "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
 	os.execute(cmd)
 end
 
@@ -537,7 +678,16 @@ elseif platform == "ios" then
 	
 	lfs.mkdir("iOS")
 	
-	os.execute("lipo "..outputName.."_armv7.a "..outputName.."_armv7s.a "..outputName.."_arm64.a "..outputName.."_i386.a "..outputName.."_x86_64.a -create -output iOS\\"..outputName..".a")
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute("lipo iOS\\"..outputName.."_armv7.a iOS\\"..outputName.."_armv7s.a iOS\\"..outputName.."_arm64.a iOS\\"..outputName.."_i386.a iOS\\"..outputName.."_x86_64.a -create -output iOS\\"..outputName..".a")
+	os.remove("iOS\\"..outputName.."_armv7.a ")
+    os.remove("iOS\\"..outputName.."_armv7s.a ")
+    os.remove("iOS\\"..outputName.."_arm64.a ")
+    os.remove("iOS\\"..outputName.."_i386.a ")
+    os.remove("iOS\\"..outputName.."_x86_64.a")
+
 elseif platform == "macos" then	
 	objs = {}
     print ("Building macOS x86...")
@@ -555,7 +705,13 @@ elseif platform == "macos" then
 	
 	lfs.mkdir("macOS")
 	
-	os.execute("lipo "..outputName.."_i386.a "..outputName.."_x86_64.a -create -output macOS\\"..outputName..".a")
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute("lipo macOS\\"..outputName.."_i386.a macOS\\"..outputName.."_x86_64.a -create -output macOS\\"..outputName..".a")
+	os.remove("macOS\\"..outputName.."_i386.a")
+	os.remove("macOS\\"..outputName.."_x86_64.a")
+
 elseif platform == "linux" then
 	lfs.mkdir("Linux")
 	lfs.chdir("Linux")
