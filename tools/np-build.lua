@@ -447,7 +447,7 @@ end
 
 for filename, attr in dirtree(directory) do
 	if table.contains(exclude_dirs, filename) ~= true then
-		if string.ends(filename, ".c") or string.ends(filename, ".cpp") and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
+		if (string.ends(filename, ".c") or string.ends(filename, ".cpp")) and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
 			table.insert(cfiles, filename)
 		end
 	else
