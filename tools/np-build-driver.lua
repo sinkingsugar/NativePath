@@ -16,11 +16,11 @@ function dirtree(dir)
     for entry in lfs.dir(dir) do
       if entry ~= "." and entry ~= ".." then
         entry=dir..SLASH..entry
-	local attr=lfs.attributes(entry)
-	coroutine.yield(entry,attr)
-	if attr.mode == "directory" then
-	  yieldtree(entry)
-	end
+        local attr=lfs.attributes(entry)
+        coroutine.yield(entry,attr)
+        if attr.mode == "directory" then
+          yieldtree(entry)
+        end
       end
     end
   end
@@ -46,6 +46,7 @@ objs = {}
 cfiles = {}
 hfiles = {}
 debug = false
+is_verbose = false
 platform = "windows"
 outputName = "lib"
 
@@ -59,43 +60,41 @@ function table.contains(table, element)
 end
 
 for i,v in ipairs(arg) do 
-	if v == "debug" then
-		debug = true
-	elseif string.starts(v, "-I") then
-		local includeDir = string.sub(v, 3)
-		common_flags = common_flags.." -I"..includeDir
-	elseif string.starts(v, "-D") then
-		local includeDir = string.sub(v, 3)
-		common_flags = common_flags.." -D"..includeDir
-	elseif string.starts(v, "-n") then
-		local n = string.sub(v, 3)
-		outputName = n
-	elseif string.starts(v, "-E") then
-		local n = string.sub(v, 3)
-		table.insert(exclude_dirs, n)
- 	elseif string.starts(v, "-e") then
-		local n = string.sub(v, 3)
-		table.insert(exclude_files, n)
-	elseif v == "ios" then
-		platform = "ios"
-	elseif v == "linux" then
-		platform = "linux"
-    elseif v == "android" then
-		platform = "android"
-	elseif v == "macos" then
-		platform = "macos"
-	else
-		directory = v
-	end
+    if v == "debug" then
+        debug = true
+    elseif string.starts(v, "-I") then
+        local includeDir = string.sub(v, 3)
+        common_flags = common_flags.." -I"..includeDir
+    elseif string.starts(v, "-D") then
+        local includeDir = string.sub(v, 3)
+        common_flags = common_flags.." -D"..includeDir
+    elseif string.starts(v, "-n") then
+        local n = string.sub(v, 3)
+        outputName = n
+    elseif string.starts(v, "-E") then
+        local n = string.sub(v, 3)
+        table.insert(exclude_dirs, n)
+    elseif string.starts(v, "-e") then
+        local n = string.sub(v, 3)
+        table.insert(exclude_files, n)
+    elseif v == "--verbose" or v == "-v" then
+        is_verbose = true
+    elseif string.starts(v, "-p") then
+        platform = string.sub(v, 3)
+    else
+        directory = v
+    end
 end
 
 for filename, attr in dirtree(directory) do
-	if table.contains(exclude_dirs, filename) ~= true and table.contains(exclude_files, filename) ~= true then
-		if (string.ends(filename, ".c") or string.ends(filename, ".cpp")) and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
-			table.insert(cfiles, filename)
-	        print("Keeping:   "..filename)
-		end
-	else
-		print("Excluding: "..filename)
-	end
+    if table.contains(exclude_dirs, filename) ~= true and table.contains(exclude_files, filename) ~= true then
+        if (string.ends(filename, ".c") or string.ends(filename, ".cpp")) and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
+            table.insert(cfiles, filename)
+            if is_verbose == true then
+                print("Keeping:   "..filename)
+            end
+        end
+    elseif is_verbose == true then
+        print("Excluding: "..filename)
+    end
 end
