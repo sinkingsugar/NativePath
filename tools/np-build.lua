@@ -291,6 +291,40 @@ function LinkIOSx64()
 	os.execute(cmd)
 end
 
+--macOS
+
+function BuildMacOSx86(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -DNP_MACOS -nobuiltininc -nostdinc++ -mmacosx-version-min=10.5 -target i386-apple-macosx "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+end
+
+function LinkMacOSx86()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_i386.a "..objs_str
+	os.execute(cmd)
+end
+
+function BuildMacOSx64(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -DNP_MACOS -nobuiltininc -nostdinc++ -mmacosx-version-min=10.5 -target x86_64-apple-macosx "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".o") end
+end
+
+function LinkMacOSx64()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-ar rcs -format=bsd "..outputName.."_x86_64.a "..objs_str
+	os.execute(cmd)
+end
+
 --Android
 
 function BuildAndroidArm(cfile)
@@ -440,13 +474,16 @@ for i,v in ipairs(arg) do
 		platform = "linux"
     elseif v == "android" then
 		platform = "android"
+	elseif v == "macos" then
+		platform = "macos"
 	else
 		directory = v
 	end
 end
 
 for filename, attr in dirtree(directory) do
-	if table.contains(exclude_dirs, filename) ~= true then
+	print("Processing: "..filename)
+	if table.contains(exclude_dirs, filename) ~= true and table.contains(exclude_files, filename) ~= true then
 		if (string.ends(filename, ".c") or string.ends(filename, ".cpp")) and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
 			table.insert(cfiles, filename)
 		end
@@ -597,6 +634,24 @@ elseif platform == "ios" then
 	lfs.mkdir("iOS")
 	
 	os.execute("lipo "..outputName.."_armv7.a "..outputName.."_armv7s.a "..outputName.."_arm64.a "..outputName.."_i386.a "..outputName.."_x86_64.a -create -output iOS\\"..outputName..".a")
+elseif platform == "macos" then	
+	objs = {}
+
+	for i,f in ipairs(cfiles) do
+		BuildMacOSx86(f)
+	end
+	LinkMacOSx86()
+	
+	objs = {}
+
+	for i,f in ipairs(cfiles) do
+		BuildMacOSx64(f)
+	end
+	LinkMacOSx64()
+	
+	lfs.mkdir("macOS")
+	
+	os.execute("lipo "..outputName.."_i386.a "..outputName.."_x86_64.a -create -output macOS\\"..outputName..".a")
 elseif platform == "linux" then
 	lfs.mkdir("Linux")
 	lfs.chdir("Linux")
