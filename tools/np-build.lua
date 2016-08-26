@@ -715,7 +715,7 @@ elseif platform == "macos" then
 elseif platform == "linux" then
 	lfs.mkdir("Linux")
 	lfs.chdir("Linux")
-	lfs.mkdir("x64")
+	lfs.mkdir("x86_64")
 	lfs.mkdir("x86")
 	lfs.chdir("..")
 	
