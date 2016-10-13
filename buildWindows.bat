@@ -1,3 +1,5 @@
+@echo off
+
 call "%PROGRAMFILES(X86)%\Microsoft Visual Studio 14.0\vc\vcvarsall.bat" x86
 set WindowsSdkDir=
 
@@ -75,3 +77,8 @@ cmake ..\..\..\ -G "Visual Studio 14 ARM" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMA
 msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
 popd
+
+:error_popd
+popd
+
+@echo on
