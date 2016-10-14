@@ -50,3 +50,8 @@ int npFprintf(FILE *stream, const char *format, ...)
 	va_end(argList);
     return len;
 }
+
+int npVsnprintf(char * s, size_t n, const char * format, va_list arg)
+{
+	return vsnprintf(s, n, format, arg);
+}

@@ -6,7 +6,7 @@
 	#ifdef _M_ARM
 		#include <arm_neon.h>
 	#else
-		#include <NEONvsSSE.h>
+		#include "NEONvsSSE.h"
 	#endif
 
 	#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
@@ -25,7 +25,7 @@
     #if TARGET_IPHONE_SIMULATOR
         #define NATIVE_PATH_IOS
          // iOS Simulator
-        #include <NEONvsSSE.h>
+        #include "NEONvsSSE.h"
     #elif TARGET_OS_IPHONE
         #define NATIVE_PATH_IOS
         #include <stdio.h>
@@ -33,6 +33,7 @@
         // iOS device
     #elif TARGET_OS_MAC
         // Other kinds of Mac OS
+        #include "NEONvsSSE.h"
     #else
     #   error "Unknown Apple platform"
     #endif
@@ -42,13 +43,16 @@
 	#ifdef __USE_NEON__
 	#include <arm_neon.h>
 	#else
-	#include <NEONvsSSE.h>
+	#include "NEONvsSSE.h"
 	#endif
-#elif __linux__
+#elif defined(__linux__) || defined(__ORBIS__)
 	#define NATIVE_PATH_LINUX
 	#include <stdio.h>
-	#include <NEONvsSSE.h>
-    // linux
+	// We have to undefine __SSE4_2__ otherwise it will use __builtin_ia32_insertps128
+	// in a call where the last argument is expected to be a literal and NEONvsSSE.h would provide
+	// just a `const int`.
+	#undef __SSE4_2__
+	#include "NEONvsSSE.h"
 #elif __unix__ // all unices not caught above
     // Unix
 #elif defined(_POSIX_VERSION)

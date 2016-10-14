@@ -57,6 +57,7 @@ THE SOFTWARE.
         // iOS device
     #elif TARGET_OS_MAC
         // Other kinds of Mac OS
+    #define NATIVE_PATH_MACOS
     #else
     #   error "Unknown Apple platform"
     #endif
@@ -116,7 +117,7 @@ void* LoadDynamicLibrary(const char* libraryPath)
 	return NULL;
 #endif
 
-#ifdef NATIVE_PATH_IOS
+#if defined(NATIVE_PATH_IOS) || defined(NATIVE_PATH_MACOS)
     if(libraryPath)
     {
         //dylib case
@@ -138,7 +139,7 @@ void* LoadDynamicLibrary(const char* libraryPath)
 
 void FreeDynamicLibrary(void* handle)
 {
-#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID) || defined(NATIVE_PATH_IOS)
+#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID) || defined(NATIVE_PATH_IOS) || defined(NATIVE_PATH_MACOS)
 	dlclose(handle);
 #endif
 	
@@ -149,7 +150,7 @@ void FreeDynamicLibrary(void* handle)
 
 void* GetSymbolAddress(void* handle, const char* symbolName)
 {
-#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID) || defined(NATIVE_PATH_IOS)
+#if defined(NATIVE_PATH_LINUX) || defined(NATIVE_PATH_ANDROID) || defined(NATIVE_PATH_IOS) || defined(NATIVE_PATH_MACOS)
     return dlsym(handle, symbolName);
 #endif
 	
