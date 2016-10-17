@@ -44,11 +44,6 @@
 
 /*********************************************************************************************************************/
 //!!!!!!!!!!!!!!
-#ifndef USE_SSE4
-#if defined(__SSE4_2__)
-    #define USE_SSE4
-#endif
-#endif
 //if USE_SSE4 is defined, some functions use SSE4 instructions instead of earlier SSE versions, when undefined - SIMD up to SSSE3 are used
 //For older devices without SSE4 support it should be undefined,  for newer devices - defined, probably manualy if your compiler doesn't set __SSE4_2__ predefine
 /*********************************************************************************************************************/

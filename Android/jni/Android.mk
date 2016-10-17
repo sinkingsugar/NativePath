@@ -7,7 +7,13 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../NativePath $(LOCAL_PATH)/../../source
 
 LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O3 -DANDROID_NDK -Wall -D__ANDROID__
 
-ifeq ($(TARGET_ARCH_ABI),x86 x86_64)
+ifeq ($(TARGET_ARCH_ABI),x86)
+    LOCAL_CFLAGS    += -mssse3
+    LOCAL_CPPFLAGS  += -mssse3
+    LOCAL_CXXFLAGS  += -mssse3
+endif
+
+ifeq ($(TARGET_ARCH_ABI),x86_64)
     LOCAL_CFLAGS    += -mssse3
     LOCAL_CPPFLAGS  += -mssse3
     LOCAL_CXXFLAGS  += -mssse3
