@@ -86,7 +86,7 @@ end
 function BuildWindowsUWP32(cfile)
 	local flags = ""
 	if debug then flags = debug_ms_flags else flags = release_ms_flags end
-	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m32 "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -GS- -MD -DWIN_EXPORT -m32 "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -108,7 +108,7 @@ end
 function BuildWindowsUWP64(cfile)
 	local flags = ""
 	if debug then flags = debug_ms_flags else flags = release_ms_flags end
-	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m64 "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -GS- -MD -DWIN_EXPORT -m64 "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -130,7 +130,7 @@ end
 function BuildWindowsUWPARM(cfile)
 	local flags = ""
 	if debug then flags = debug_ms_flags else flags = release_ms_flags end
-	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -MD -DWIN_EXPORT -m32 --target=thumbv7-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang-cl -DNP_WIN32 -WX -EHsc -GS- -MD -DWIN_EXPORT -m32 --target=thumbv7-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
