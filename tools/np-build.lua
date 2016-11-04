@@ -16,7 +16,7 @@ local release_ms_flags = "-O2"
 function BuildWindows32DLL(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -m32 -DNP_WIN32 -Wall -fno-ms-extensions -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -m32 -DNP_WIN32 -Wall -fno-ms-extensions -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -40,7 +40,7 @@ end
 function BuildWindows32(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -m32 -DNP_WIN32 -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -m32 -DNP_WIN32 -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -62,7 +62,7 @@ end
 function BuildWindows64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -m64 -DNP_WIN32 -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -m64 -DNP_WIN32 -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -98,7 +98,7 @@ function LinkWindowsUWP32()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86 store && lib /NOLOGO /OUT:WindowsUWP\\x86\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86 store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\x86\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -120,7 +120,7 @@ function LinkWindowsUWP64()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x64 store && lib /NOLOGO /OUT:WindowsUWP\\x64\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x64 store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\x64\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -142,7 +142,7 @@ function LinkWindowsUWPARM()
 	for i, o in ipairs(objs) do
 		objs_str = objs_str..o.." "
 	end
-	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86_arm store && lib /NOLOGO /OUT:WindowsUWP\\ARM\\"..outputName..".lib "..objs_str
+	local cmd = "\"C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\VC\\vcvarsall\" x86_arm store 10.0.10240 && lib /NOLOGO /OUT:WindowsUWP\\ARM\\"..outputName..".lib "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -218,7 +218,7 @@ end
 function BuildIOSArm7(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_IOS -nostdlibinc -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -243,7 +243,7 @@ end
 function BuildIOSArm7s(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7s-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_IOS -nostdlibinc -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7s-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -265,7 +265,7 @@ end
 function BuildIOSArm64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target arm64-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_IOS -nostdlibinc -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target arm64-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -287,7 +287,7 @@ end
 function BuildIOSx86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target i386-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_IOS -nostdlibinc -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target i386-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -309,7 +309,7 @@ end
 function BuildIOSx64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_IOS -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target x86_64-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_IOS -nostdlibinc -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target x86_64-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -333,7 +333,7 @@ end
 function BuildMacOSx86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_MACOS -nobuiltininc -nostdinc++ -mmacosx-version-min=10.5 -target i386-apple-macosx "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_MACOS -nostdlibinc -nobuiltininc -nostdinc++ -mmacosx-version-min=10.5 -target i386-apple-macosx "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -355,7 +355,7 @@ end
 function BuildMacOSx64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_MACOS -nobuiltininc -nostdinc++ -mmacosx-version-min=10.5 -target x86_64-apple-macosx "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_MACOS -nostdlibinc -nobuiltininc -nostdinc++ -mmacosx-version-min=10.5 -target x86_64-apple-macosx "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -379,7 +379,7 @@ end
 function BuildAndroidArm(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target arm-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_ANDROID -nostdlibinc -nobuiltininc -nostdinc++ -target arm-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -401,7 +401,7 @@ end
 function BuildAndroidArm7(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target armv7-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_ANDROID -nostdlibinc -nobuiltininc -nostdinc++ -target armv7-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -423,7 +423,7 @@ end
 function BuildAndroidArm64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target aarch64-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_ANDROID -nostdlibinc -nobuiltininc -nostdinc++ -target aarch64-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -445,7 +445,7 @@ end
 function BuildAndroidx86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target i386-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_ANDROID -nostdlibinc -nobuiltininc -nostdinc++ -target i386-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -470,7 +470,7 @@ end
 function BuildAndroidx64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_ANDROID -nobuiltininc -nostdinc++ -target x86_64-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_ANDROID -nostdlibinc -nobuiltininc -nostdinc++ -target x86_64-none-android "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -494,7 +494,7 @@ end
 function BuildLinuxX64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_LINUX -nobuiltininc -nostdinc++ -fPIC -target x86_64-linux-gnu "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_LINUX -nostdlibinc -nobuiltininc -nostdinc++ -fPIC -target x86_64-linux-gnu "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -516,7 +516,7 @@ end
 function BuildLinuxX86(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -DNP_LINUX -nobuiltininc -nostdinc++ -fPIC -target i386-linux-gnu "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -DNP_LINUX -nostdlibinc -nobuiltininc -nostdinc++ -fPIC -target i386-linux-gnu "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
