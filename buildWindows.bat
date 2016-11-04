@@ -19,23 +19,23 @@ msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
 popd
 
-REM Windows Universal
-if not exist build\WindowsUniversal\x86 mkdir build\WindowsUniversal\x86
-pushd build\WindowsUniversal\x86
+REM Windows UWP
+if not exist build\UWP\x86 mkdir build\UWP\x86
+pushd build\UWP\x86
 cmake ..\..\..\ -G "Visual Studio 14" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=10.0
 msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
 popd
 
-if not exist build\WindowsUniversal\x64 mkdir build\WindowsUniversal\x64
-pushd build\WindowsUniversal\x64
+if not exist build\UWP\x64 mkdir build\UWP\x64
+pushd build\UWP\x64
 cmake ..\..\..\ -G "Visual Studio 14 Win64" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=10.0
 msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
 popd
 
-if not exist build\WindowsUniversal\ARM mkdir build\WindowsUniversal\ARM
-pushd build\WindowsUniversal\ARM
+if not exist build\UWP\ARM mkdir build\UWP\ARM
+pushd build\UWP\ARM
 cmake ..\..\..\ -G "Visual Studio 14 ARM" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=10.0
 msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
