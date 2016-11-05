@@ -19,66 +19,32 @@ msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
 popd
 
-REM Windows Store
-if not exist build\WindowsStore\x86 mkdir build\WindowsStore\x86
-pushd build\WindowsStore\x86
-cmake ..\..\..\ -G "Visual Studio 14" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=8.1
-msbuild libNativePath.sln /p:Configuration=Release
-if %ERRORLEVEL% neq 0 GOTO :error_popd
-popd
-
-if not exist build\WindowsStore\x64 mkdir build\WindowsStore\x64
-pushd build\WindowsStore\x64
-cmake ..\..\..\ -G "Visual Studio 14 Win64" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=8.1
-msbuild libNativePath.sln /p:Configuration=Release
-if %ERRORLEVEL% neq 0 GOTO :error_popd
-popd
-
-if not exist build\WindowsStore\ARM mkdir build\WindowsStore\ARM
-pushd build\WindowsStore\ARM
-cmake ..\..\..\ -G "Visual Studio 14 ARM" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=8.1
-msbuild libNativePath.sln /p:Configuration=Release
-if %ERRORLEVEL% neq 0 GOTO :error_popd
-popd
-
-REM Windows Phone
-if not exist build\WindowsPhone\x86 mkdir build\WindowsPhone\x86
-pushd build\WindowsPhone\x86
-cmake ..\..\..\ -G "Visual Studio 14" -DCMAKE_SYSTEM_NAME=WindowsPhone -DCMAKE_SYSTEM_VERSION=8.1
-msbuild libNativePath.sln /p:Configuration=Release
-if %ERRORLEVEL% neq 0 GOTO :error_popd
-popd
-
-if not exist build\WindowsPhone\ARM mkdir build\WindowsPhone\ARM
-pushd build\WindowsPhone\ARM
-cmake ..\..\..\ -G "Visual Studio 14 ARM" -DCMAKE_SYSTEM_NAME=WindowsPhone -DCMAKE_SYSTEM_VERSION=8.1
-msbuild libNativePath.sln /p:Configuration=Release
-if %ERRORLEVEL% neq 0 GOTO :error_popd
-popd
-
-REM Windows Universal
-if not exist build\WindowsUniversal\x86 mkdir build\WindowsUniversal\x86
-pushd build\WindowsUniversal\x86
+REM Windows UWP
+if not exist build\UWP\x86 mkdir build\UWP\x86
+pushd build\UWP\x86
 cmake ..\..\..\ -G "Visual Studio 14" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=10.0
 msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
 popd
 
-if not exist build\WindowsUniversal\x64 mkdir build\WindowsUniversal\x64
-pushd build\WindowsUniversal\x64
+if not exist build\UWP\x64 mkdir build\UWP\x64
+pushd build\UWP\x64
 cmake ..\..\..\ -G "Visual Studio 14 Win64" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=10.0
 msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
 popd
 
-if not exist build\WindowsUniversal\ARM mkdir build\WindowsUniversal\ARM
-pushd build\WindowsUniversal\ARM
+if not exist build\UWP\ARM mkdir build\UWP\ARM
+pushd build\UWP\ARM
 cmake ..\..\..\ -G "Visual Studio 14 ARM" -DCMAKE_SYSTEM_NAME=WindowsStore -DCMAKE_SYSTEM_VERSION=10.0
 msbuild libNativePath.sln /p:Configuration=Release
 if %ERRORLEVEL% neq 0 GOTO :error_popd
 popd
 
+goto :exit
+
 :error_popd
 popd
 
+:exit 
 @echo on
