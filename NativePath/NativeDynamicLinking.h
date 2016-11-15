@@ -39,6 +39,15 @@ extern void* LoadDynamicLibrary(const char* libraryPath);
 extern void FreeDynamicLibrary(void* handle);
 extern void* GetSymbolAddress(void* handle, const char* symbolName);
 
+#define NP_IMPORT(__xx_return_type, _xx_func_name, ...)		typedef __xx_return_type (*_xx_func_name ## _ptr)(__VA_ARGS__); \
+															_xx_func_name ## _ptr _xx_func_name ## _func
+
+#define NP_LOAD(_xx_library, _xx_func_name) _xx_func_name ## _func = (_xx_func_name ## _ptr)GetSymbolAddress(_xx_library, "_xx_func_name")
+
+#define NP_CHECK(_xx_func_name) _xx_func_name ## _func != NULL
+
+#define NP_CALL(_xx_func_name, ...) _xx_func_name_func(__VA_ARGS__)
+
 #ifdef __cplusplus
 }
 #endif
