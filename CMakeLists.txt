@@ -7,6 +7,7 @@ FIND_PATH(NP_INCLUDE_DIR NAMES NativeMath.h
 )
 
 INCLUDE_DIRECTORIES(${NP_INCLUDE_DIR} ${NP_INCLUDE_DIR}/../source)
+INCLUDE_DIRECTORIES(${NP_INCLUDE_DIR} ${NP_INCLUDE_DIR}/../../boost_1_62_0)
 
 IF(${CMAKE_GENERATOR} MATCHES "Unix Makefiles")
 	SET(NP_LIB_DIR ${NP_INCLUDE_DIR}/..)
@@ -25,6 +26,7 @@ ADD_LIBRARY(${NP_LIB} STATIC
 	source/stdlib.c
 	source/stdio.c
 	source/NEONvsSSE.c
+	source/NativePool.cpp
 	source/NativeThreading.cpp
 	source/workarounds.c
 )
