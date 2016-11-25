@@ -21,10 +21,10 @@ THE SOFTWARE.
 */
 
 //
-//  NativeThreading.cpp
+//  NativePool.cpp
 //  NativePath
 //
-//  Created by Giovanni Petrantoni on 06/20/16.
+//  Created by Giovanni Petrantoni on 11/25/16.
 //  Copyright © 2016 Giovanni Petrantoni. All rights reserved.
 //
 

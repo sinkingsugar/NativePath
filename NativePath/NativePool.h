@@ -21,15 +21,15 @@ THE SOFTWARE.
 */
 
 //
-//  NativeThreading.h
+//  NativePool.h
 //  NativePath
 //
-//  Created by Giovanni Petrantoni on 06/20/16.
+//  Created by Giovanni Petrantoni on 11/25/16.
 //  Copyright © 2016 Giovanni Petrantoni. All rights reserved.
 //
 
-#ifndef NativeThreading_h
-#define NativeThreading_h
+#ifndef NativePool_h
+#define NativePool_h
 
 #ifdef __cplusplus
 extern "C" {
@@ -45,4 +45,4 @@ extern void npMemoryPoolFree(NpMemoryPool* pool, void* ptr, int numberOfChunks);
 }
 #endif
 
-#endif /* NativeThreading_h */
+#endif /* NativePool_h */
