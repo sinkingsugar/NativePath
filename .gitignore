@@ -248,3 +248,4 @@ tools/WindowsUWP/x64/libCelt.lib
 tools/WindowsUWP/x64/libCompilerRt.lib
 tools/WindowsUWP/x86/libCelt.lib
 tools/WindowsUWP/x86/libCompilerRt.lib
+tools/**/*.a
