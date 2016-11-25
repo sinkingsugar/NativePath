@@ -3,7 +3,7 @@ LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := NativePath
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../NativePath $(LOCAL_PATH)/../../source
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../NativePath $(LOCAL_PATH)/../../source $(LOCAL_PATH)/../../../boost_1_62_0
 
 LOCAL_CFLAGS := $(LOCAL_C_INCLUDES:%=-I%) -O3 -DANDROID_NDK -Wall -D__ANDROID__
 
@@ -49,6 +49,7 @@ LOCAL_SRC_FILES := \
    ../../source/stdlib.c \
    ../../source/NEONvsSSE.c \
    ../../source/workarounds.c \
-   ../../source/NativeThreading.cpp
+   ../../source/NativeThreading.cpp \
+   ../../source/NativePool.cpp
 
 include $(BUILD_STATIC_LIBRARY)
