@@ -23,7 +23,7 @@ extern void npQsort(void *base, size_t nitems, size_t size, int (*compar)(const 
 #undef rand
 #define rand npRand
 
-export int npRand();
+extern int npRand();
 
 #ifdef __cplusplus
 }
