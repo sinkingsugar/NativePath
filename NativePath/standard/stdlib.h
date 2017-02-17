@@ -20,6 +20,11 @@ extern void npExit(int code);
 
 extern void npQsort(void *base, size_t nitems, size_t size, int (*compar)(const void *, const void*));
 
+#undef rand
+#define rand npRand
+
+export int npRand();
+
 #ifdef __cplusplus
 }
 #endif

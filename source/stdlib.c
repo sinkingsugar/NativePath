@@ -9,3 +9,8 @@ void npQsort(void *base, size_t nitems, size_t size, int (*compar)(const void *,
 {
 	qsort(base, nitems, size, compar);
 }
+
+int npRand()
+{
+	return rand();
+}
