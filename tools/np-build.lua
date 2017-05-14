@@ -13,10 +13,11 @@ local release_ms_flags = "-O2"
 
 --Win dll for checking
 
-function BuildWindows32DLL(cfile)
+function BuildWindows32DLL(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -m32 -DNP_WIN32 -Wall -fno-ms-extensions -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	if isCpp then flags = flags.." -std=c++1z " end
+	local cmd = "clang -v -m32 -DNP_WIN32 -Wall -gcodeview -fno-ms-extensions -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -40,7 +41,7 @@ end
 function BuildWindows32(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -m32 -DNP_WIN32 -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -m32 -DNP_WIN32 -gcodeview -fno-ms-extensions -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -62,7 +63,7 @@ end
 function BuildWindows64(cfile)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	local cmd = "clang -m64 -DNP_WIN32 -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
+	local cmd = "clang -m64 -DNP_WIN32 -gcodeview -fno-ms-extensions -nostdlibinc -nobuiltininc -nostdinc++ -target i686-pc-windows-msvc "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -215,9 +216,10 @@ end
 
 --iOS
 
-function BuildIOSArm7(cfile)
+function BuildIOSArm7(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
+	if isCpp then flags = flags.." -std=c++1z " end
 	local cmd = "clang -DNP_IOS -nostdlibinc -nobuiltininc -nostdinc++ -mios-version-min=6.0 -target armv7-apple-ios "..common_flags.." "..flags.." -o "..cfile..".o ".." -c "..cfile;
 	if is_verbose == true then
 		print(cmd)
@@ -544,7 +546,10 @@ if platform == "windows" then
 
     print ("Building Windows x86 DLL...")
 	for i,f in ipairs(cfiles) do
-		BuildWindows32DLL(f)
+		BuildWindows32DLL(f, false)
+	end
+	for i,f in ipairs(cppfiles) do
+		BuildWindows32DLL(f, true)
 	end
 	LinkWindows32DLL()
 
@@ -644,7 +649,10 @@ elseif platform == "ios" then
 	objs = {}
     print ("Building iOS arm7...")
 	for i,f in ipairs(cfiles) do
-		BuildIOSArm7(f)
+		BuildIOSArm7(f, false)
+	end
+	for i,f in ipairs(cppfiles) do
+		BuildIOSArm7(f, true)
 	end
 	LinkIOSArm7()
 	
