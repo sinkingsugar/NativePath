@@ -3,6 +3,7 @@
 
 #include "../NativePath.h"
 #include "../NativeMemory.h"
+#include "stddef.h"
 
 #ifdef __cplusplus
 extern "C" {

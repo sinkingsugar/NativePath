@@ -56,13 +56,17 @@
 #ifndef SHADER_FAST_MATH_INC_FX
 #define SHADER_FAST_MATH_INC_FX
 
+#ifdef __cplusplus
+extern "C"
+#endif
+
 union _float_int
 {
 	int i;
 	float f;
 };
 
-#include <math.h>
+#include <NativePath.h>
 
 // Derived from batch testing
 // TODO : Should be improved
@@ -100,7 +104,7 @@ union _float_int
 //
 
 // Approximate guess using integer float arithmetics based on IEEE floating point standard
-float rcpSqrtIEEEIntApproximation(float inX, const int inRcpSqrtConst)
+static inline float rcpSqrtIEEEIntApproximation(float inX, const int inRcpSqrtConst)
 {
 	union _float_int x;
 	x.f = inX;
@@ -108,7 +112,7 @@ float rcpSqrtIEEEIntApproximation(float inX, const int inRcpSqrtConst)
 	return x.f;
 }
 
-float rcpSqrtNewtonRaphson(float inXHalf, float inRcpX)
+static inline float rcpSqrtNewtonRaphson(float inXHalf, float inRcpX)
 {
     return inRcpX * (-inXHalf * (inRcpX * inRcpX) + 1.5f);
 }
@@ -119,7 +123,7 @@ float rcpSqrtNewtonRaphson(float inXHalf, float inRcpX)
 // Precise format : ~small float
 // 2 ALU
 //
-float fastRcpSqrtNR0(float inX)
+static inline float fastRcpSqrtNR0(float inX)
 {
     float  xRcpSqrt = rcpSqrtIEEEIntApproximation(inX, IEEE_INT_RCP_SQRT_CONST_NR0);
     return xRcpSqrt;
@@ -131,7 +135,7 @@ float fastRcpSqrtNR0(float inX)
 // Precise format : ~half float
 // 6 ALU
 //
-float fastRcpSqrtNR1(float inX)
+static inline float fastRcpSqrtNR1(float inX)
 {
     float  xhalf = 0.5f * inX;
     float  xRcpSqrt = rcpSqrtIEEEIntApproximation(inX, IEEE_INT_RCP_SQRT_CONST_NR1);
@@ -145,7 +149,7 @@ float fastRcpSqrtNR1(float inX)
 // Precise format : ~full float
 // 9 ALU
 //
-float fastRcpSqrtNR2(float inX)
+static inline float fastRcpSqrtNR2(float inX)
 {
     float  xhalf = 0.5f * inX;
     float  xRcpSqrt = rcpSqrtIEEEIntApproximation(inX, IEEE_INT_RCP_SQRT_CONST_NR2);
@@ -158,7 +162,7 @@ float fastRcpSqrtNR2(float inX)
 //
 // SQRT
 //
-float sqrtIEEEIntApproximation(float inX, const int inSqrtConst)
+static inline float sqrtIEEEIntApproximation(float inX, const int inSqrtConst)
 {
 	union _float_int x;
 	x.f = inX;
@@ -172,7 +176,7 @@ float sqrtIEEEIntApproximation(float inX, const int inSqrtConst)
 // Precise format : ~small float
 // 1 ALU
 //
-float fastSqrtNR0(float inX)
+static inline float fastSqrtNR0(float inX)
 {
     float  xRcp = sqrtIEEEIntApproximation(inX, IEEE_INT_SQRT_CONST_NR0);
     return xRcp;
@@ -185,7 +189,7 @@ float fastSqrtNR0(float inX)
 // Precise format : ~half float
 // 6 ALU
 //
-float fastSqrtNR1(float inX)
+static inline float fastSqrtNR1(float inX)
 {
     // Inverse Rcp Sqrt
     return inX * fastRcpSqrtNR1(inX);
@@ -198,7 +202,7 @@ float fastSqrtNR1(float inX)
 // Precise format : ~full float
 // 9 ALU
 //
-float fastSqrtNR2(float inX)
+static inline float fastSqrtNR2(float inX)
 {
     // Inverse Rcp Sqrt
     return inX * fastRcpSqrtNR2(inX);
@@ -208,7 +212,7 @@ float fastSqrtNR2(float inX)
 // RCP
 //
 
-float rcpIEEEIntApproximation(float inX, const int inRcpConst)
+static inline float rcpIEEEIntApproximation(float inX, const int inRcpConst)
 {
 	union _float_int x;
 	x.f = inX;
@@ -216,7 +220,7 @@ float rcpIEEEIntApproximation(float inX, const int inRcpConst)
     return x.f;
 }
 
-float rcpNewtonRaphson(float inX, float inRcpX)
+static inline float rcpNewtonRaphson(float inX, float inRcpX)
 {
     return inRcpX * (-inRcpX * inX + 2.0f);
 }
@@ -227,7 +231,7 @@ float rcpNewtonRaphson(float inX, float inRcpX)
 // Precise format : ~small float
 // 1 ALU
 //
-float fastRcpNR0(float inX)
+static inline float fastRcpNR0(float inX)
 {
     float  xRcp = rcpIEEEIntApproximation(inX, IEEE_INT_RCP_CONST_NR0);
     return xRcp;
@@ -239,7 +243,7 @@ float fastRcpNR0(float inX)
 // Precise format : ~half float
 // 3 ALU
 //
-float fastRcpNR1(float inX)
+static inline float fastRcpNR1(float inX)
 {
     float  xRcp = rcpIEEEIntApproximation(inX, IEEE_INT_RCP_CONST_NR1);
     xRcp = rcpNewtonRaphson(inX, xRcp);
@@ -252,7 +256,7 @@ float fastRcpNR1(float inX)
 // Precise format : ~full float
 // 5 ALU
 //
-float fastRcpNR2(float inX)
+static inline float fastRcpNR2(float inX)
 {
     float  xRcp = rcpIEEEIntApproximation(inX, IEEE_INT_RCP_CONST_NR2);
     xRcp = rcpNewtonRaphson(inX, xRcp);
@@ -271,7 +275,7 @@ static const float fsl_HALF_PI = 0.5f * 3.1415926535897932384626433f;
 // 4 VGRP, 16 ALU Full Rate
 // 7 * 10^-5 radians precision
 // Reference : Handbook of Mathematical Functions (chapter : Elementary Transcendental Functions), M. Abramowitz and I.A. Stegun, Ed.
-float acosFast4(float inX)
+static inline float acosFast4(float inX)
 {
     float x1 = fabsf(inX);
     float x2 = x1 * x1;
@@ -291,7 +295,7 @@ float acosFast4(float inX)
 // 4th order polynomial approximation
 // 4 VGRP, 16 ALU Full Rate
 // 7 * 10^-5 radians precision
-float asinFast4(float inX)
+static inline float asinFast4(float inX)
 {
     float x = inX;
     
@@ -303,9 +307,13 @@ float asinFast4(float inX)
 // 4 VGRP, 12 ALU Full Rate
 // 7 * 10^-5 radians precision
 // Reference : Efficient approximations for the arctangent function, Rajan, S. Sichun Wang Inkol, R. Joyal, A., May 2006
-float atanFast4(float inX)
+static inline float atanFast4(float inX)
 {
     float  x = inX;
     return x*(-0.1784f * fabsf(x) - 0.0663f * x * x + 1.0301f);
 }
+
+#ifdef __cplusplus
+}
+#endif //cplusplus
 #endif //SHADER_FAST_MATH_INC_FX

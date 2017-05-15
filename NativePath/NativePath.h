@@ -1591,16 +1591,13 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 	#define sqrt __builtin_sqrt
 #endif
 
-/* #if !__has_builtin(__builtin_sqrtf)
+#if !__has_builtin(__builtin_sqrtf)
 	#error \"sqrtf clang built-in not available\"
 	// ff
 	extern float sqrtf(...);
 #else
 	#define sqrtf __builtin_sqrtf
-#endif */
-
-#undef sqrtf
-#define sqrtf sqrt
+#endif
 
 #if !__has_builtin(__builtin_sqrtl)
 	#error \"sqrtl clang built-in not available\"
