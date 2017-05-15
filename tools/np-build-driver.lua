@@ -44,6 +44,7 @@ common_flags = "-Wno-macro-redefined -I.."..SLASH.."NativePath -I.."..SLASH.."Na
 
 objs = {}
 cfiles = {}
+cppfiles = {}
 hfiles = {}
 debug = false
 is_verbose = false
@@ -88,12 +89,17 @@ end
 
 for filename, attr in dirtree(directory) do
     if table.contains(exclude_dirs, filename) ~= true and table.contains(exclude_files, filename) ~= true then
-        if (string.ends(filename, ".c") or string.ends(filename, ".cpp")) and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
+        if string.ends(filename, ".c") and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
             table.insert(cfiles, filename)
             if is_verbose == true then
                 print("Keeping:   "..filename)
             end
-        end
+        elseif string.ends(filename, ".cpp") and attr.mode == "file" and table.contains(exclude_files, filename) ~= true then
+			table.insert(cppfiles, filename)
+            if is_verbose == true then
+                print("Keeping:   "..filename)
+            end
+		end
     elseif is_verbose == true then
         print("Excluding: "..filename)
     end

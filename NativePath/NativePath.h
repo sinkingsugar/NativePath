@@ -31,9 +31,13 @@ THE SOFTWARE.
 #ifndef nativepath_h
 #define nativepath_h
 
-//avoid MS stuff
+//avoid PLATFORM stuff
 #ifdef _MSC_VER
 #undef _MSC_VER
+#endif
+
+#ifdef __APPLE__
+#undef __APPLE__
 #endif
 
 //from clang lib/Headers/stdint.h
@@ -54,7 +58,10 @@ typedef __PTRDIFF_TYPE__ ptrdiff_t;
 
 typedef __SIZE_TYPE__ size_t;
 
+typedef __WINT_TYPE__ wint_t;
+
 typedef char char8_t;
+typedef char byte;
 
 #define CHAR_BIT  __CHAR_BIT__
 #define INT_MAX   __INT_MAX__
@@ -129,14 +136,21 @@ static union
 } __types_safeguard;
 
 #ifndef NULL
+#ifdef __cplusplus
 #define NULL 0
+#else
+#define NULL ((void *)0)
 #endif
+#endif
+
+#ifdef __cplusplus
+namespace std {
+   typedef decltype(nullptr) nullptr_t;
+}
+#endif
+
 
 typedef int npBool;
-
-#ifndef nullptr
-#define nullptr NULL
-#endif
 
 //utility
 #define tolower(__x__) __x__ //TODO
