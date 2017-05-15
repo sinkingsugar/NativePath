@@ -35,6 +35,52 @@ function LinkWindows32DLL()
 	os.execute(cmd)
 end
 
+--LLVM bytecode
+
+function BuildLLVM32(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -m32 -nostdlibinc -nobuiltininc -nostdinc++ -fno-exceptions "..common_flags.." "..flags.." -o "..cfile..".ll ".." -S -c -emit-llvm -target i386-unknown "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+end
+
+function LinkLLVM32()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-link -o LLVM32\\"..outputName..".bc "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute(cmd)
+end
+
+function BuildLLVM64(cfile)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	local cmd = "clang -m64 -nostdlibinc -nobuiltininc -nostdinc++ -fno-exceptions "..common_flags.." "..flags.." -o "..cfile..".ll ".." -S -c -emit-llvm -target x86_64-unknown "..cfile;
+	if is_verbose == true then
+		print(cmd)
+	end
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+end
+
+function LinkLLVM64()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-link -o LLVM64\\"..outputName..".bc "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute(cmd)
+end
+
 --Win
 
 function BuildWindows32(cfile)
@@ -711,6 +757,25 @@ elseif platform == "macos" then
 	os.execute("lipo macOS\\"..outputName.."_i386.a macOS\\"..outputName.."_x86_64.a -create -output macOS\\"..outputName..".a")
 	os.remove("macOS\\"..outputName.."_i386.a")
 	os.remove("macOS\\"..outputName.."_x86_64.a")
+	
+elseif platform == "llvm" then
+	lfs.mkdir("LLVM32")
+	
+	objs = {}
+    print ("Building LLVM x86...")
+	for i,f in ipairs(cfiles) do
+		BuildLLVM32(f)
+	end
+	LinkLLVM32()
+	
+	lfs.mkdir("LLVM64")
+	
+	objs = {}
+    print ("Building LLVM x64...")
+	for i,f in ipairs(cfiles) do
+		BuildLLVM64(f)
+	end
+	LinkLLVM64()
 
 elseif platform == "linux" then
 	lfs.mkdir("Linux")

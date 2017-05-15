@@ -163,13 +163,15 @@ static void npMatrixIdentityF4(float4* outMatrix)
     outMatrix[3].w = 1.0f;
 }
 
+static inline float sqrtf(float x)
+{
+	return sqrt(x);
+}
+
 static float npLengthF4(float4 vec)
 {
     return sqrtf(vec.x * vec.x + vec.y * vec.y + vec.z * vec.z + vec.w * vec.w);
 }
-
-#undef sqrtf
-#define sqrtf sqrt
 
 #ifdef __cplusplus
 }

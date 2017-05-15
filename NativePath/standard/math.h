@@ -2,5 +2,6 @@
 #define math_h
 
 #include "../NativePath.h"
+#include "../NativeMath.h"
 
 #endif
