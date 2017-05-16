@@ -147,6 +147,11 @@ static union
 namespace std {
    typedef decltype(nullptr) nullptr_t;
 }
+
+static inline void _ZdlPv(void* ptr)
+{
+	__builtin_operator_delete(ptr);
+}
 #endif
 
 

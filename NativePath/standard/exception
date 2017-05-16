@@ -1,0 +1,14 @@
+#ifndef exception_h
+#define exception_h
+
+#include "../NativePath.h"
+
+namespace std 
+{
+	void terminate()
+    {
+        __builtin_abort();
+    }
+}
+
+#endif

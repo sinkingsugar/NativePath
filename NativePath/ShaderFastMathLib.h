@@ -57,7 +57,7 @@
 #define SHADER_FAST_MATH_INC_FX
 
 #ifdef __cplusplus
-extern "C"
+extern "C" {
 #endif
 
 union _float_int
@@ -316,4 +316,5 @@ static inline float atanFast4(float inX)
 #ifdef __cplusplus
 }
 #endif //cplusplus
+
 #endif //SHADER_FAST_MATH_INC_FX
