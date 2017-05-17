@@ -42,9 +42,9 @@ function BuildLLVM32(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
-	local cmd = "clang -DNP_LLVM_BC -m32 "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target i386-unknown "..cfile
-	local cmdLL = "clang -DNP_LLVM_BC -m32 "..common_flags.." "..flags.." -o "..cfile..".ll ".." -S -c -emit-llvm -target i386-unknown "..cfile
-	local cmdPP = "clang -DNP_LLVM_BC -m32 "..common_flags.." "..flags.." -E "..cfile.." > "..cfile..".pp"
+	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target i386-unknown-none "..cfile
+	local cmdLL = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".ll ".." -S -c -emit-llvm -target i386-unknown-none "..cfile
+	local cmdPP = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -E "..cfile.." > "..cfile..".pp"
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -69,7 +69,7 @@ function BuildLLVMarmv7(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
-	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7-unknown "..cfile
+	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -92,7 +92,7 @@ function BuildLLVMarmv7s(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
-	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7s-unknown "..cfile
+	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7s-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -115,7 +115,7 @@ function BuildLLVMAArch64(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
-	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target aarch64-unknown "..cfile
+	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target aarch64-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -138,7 +138,7 @@ function BuildLLVMarmv6(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
-	local cmd = "clang -DNP_LLVM_BC -mfloat-abi=hard -mfpu=vfp "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv6-unknown "..cfile
+	local cmd = "clang -DNP_LLVM_BC -mfloat-abi=hard -mfpu=vfp "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv6-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -161,7 +161,7 @@ function BuildLLVM64(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
-	local cmd = "clang -DNP_LLVM_BC -m64 "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target x86_64-unknown "..cfile
+	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target x86_64-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -174,6 +174,127 @@ function LinkLLVM64()
 		objs_str = objs_str..o.." "
 	end
 	local cmd = "llvm-link -o LLVM\\"..outputName.."-x86_64.bc "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute(cmd)
+end
+
+--apple llvm
+
+function BuildLLVMarmv7Appl(cfile, isCpp)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7-apple-macho "..cfile
+	if is_verbose == true then
+		print(cmd)
+	end
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+end
+
+function LinkLLVMarmv7Appl()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-link -o LLVM\\"..outputName.."-armv7-apple.bc "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute(cmd)
+end
+
+function BuildLLVMarmv7sAppl(cfile, isCpp)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7s-apple-macho "..cfile
+	if is_verbose == true then
+		print(cmd)
+	end
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+end
+
+function LinkLLVMarmv7sAppl()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-link -o LLVM\\"..outputName.."-armv7s-apple.bc "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute(cmd)
+end
+
+function BuildLLVMAArch64Appl(cfile, isCpp)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target arm64-apple-macho "..cfile
+	if is_verbose == true then
+		print(cmd)
+	end
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+end
+
+function LinkLLVMAArch64Appl()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-link -o LLVM\\"..outputName.."-aarch64-apple.bc "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute(cmd)
+end
+
+function BuildLLVM32Appl(cfile, isCpp)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target i386-apple-darwin "..cfile
+	local cmdLL = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile.."-apple.ll ".." -S -c -emit-llvm -target i386-apple-darwin "..cfile
+	local cmdPP = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -E "..cfile.." > "..cfile..".pp"
+	if is_verbose == true then
+		print(cmd)
+	end
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+	os.execute(cmdLL)
+	os.execute(cmdPP)
+end
+
+function LinkLLVM32Appl()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-link -o LLVM\\"..outputName.."-i386-apple.bc "..objs_str
+	if is_verbose == true then
+		print(cmd)
+	end
+	os.execute(cmd)
+end
+
+function BuildLLVM64Appl(cfile, isCpp)
+	local flags = ""
+	if debug then flags = debug_flags else flags = release_flags end
+	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target x86_64-apple-macho "..cfile
+	if is_verbose == true then
+		print(cmd)
+	end
+	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
+end
+
+function LinkLLVM64Appl()
+	local objs_str = ""
+	for i, o in ipairs(objs) do
+		objs_str = objs_str..o.." "
+	end
+	local cmd = "llvm-link -o LLVM\\"..outputName.."-x86_64-apple.bc "..objs_str
 	if is_verbose == true then
 		print(cmd)
 	end
@@ -908,16 +1029,6 @@ elseif platform == "llvm" then
 	LinkLLVMarmv7()
 	
 	objs = {}
-    print ("Building LLVM armv7s...")
-	for i,f in ipairs(cfiles) do
-		BuildLLVMarmv7s(f, false)
-	end
-	for i,f in ipairs(cppfiles) do
-		BuildLLVMarmv7s(f, true)
-	end
-	LinkLLVMarmv7s()
-	
-	objs = {}
     print ("Building LLVM AArch64...")
 	for i,f in ipairs(cfiles) do
 		BuildLLVMAArch64(f, false)
@@ -926,6 +1037,56 @@ elseif platform == "llvm" then
 		BuildLLVMAArch64(f, true)
 	end
 	LinkLLVMAArch64()
+
+	objs = {}
+    print ("Building LLVM x86 Apple...")
+	for i,f in ipairs(cfiles) do
+		BuildLLVM32Appl(f, false)
+	end
+	for i,f in ipairs(cppfiles) do
+		BuildLLVM32Appl(f, true)
+	end
+	LinkLLVM32Appl()
+	
+	objs = {}
+    print ("Building LLVM x64 Apple...")
+	for i,f in ipairs(cfiles) do
+		BuildLLVM64Appl(f, false)
+	end
+	for i,f in ipairs(cppfiles) do
+		BuildLLVM64Appl(f, true)
+	end
+	LinkLLVM64Appl()
+	
+	objs = {}
+    print ("Building LLVM armv7 Apple...")
+	for i,f in ipairs(cfiles) do
+		BuildLLVMarmv7Appl(f, false)
+	end
+	for i,f in ipairs(cppfiles) do
+		BuildLLVMarmv7Appl(f, true)
+	end
+	LinkLLVMarmv7Appl()
+	
+	objs = {}
+    print ("Building LLVM armv7s Apple...")
+	for i,f in ipairs(cfiles) do
+		BuildLLVMarmv7sAppl(f, false)
+	end
+	for i,f in ipairs(cppfiles) do
+		BuildLLVMarmv7sAppl(f, true)
+	end
+	LinkLLVMarmv7sAppl()
+	
+	objs = {}
+    print ("Building LLVM AArch64 Apple...")
+	for i,f in ipairs(cfiles) do
+		BuildLLVMAArch64Appl(f, false)
+	end
+	for i,f in ipairs(cppfiles) do
+		BuildLLVMAArch64Appl(f, true)
+	end
+	LinkLLVMAArch64Appl()
 
 elseif platform == "linux" then
 	lfs.mkdir("Linux")

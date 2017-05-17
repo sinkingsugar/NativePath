@@ -17,9 +17,7 @@ ELSE()
 ENDIF()
 
 ADD_LIBRARY(${NP_LIB} STATIC
-    source/NativeMath.c
     source/NativeMemory.c
-    source/lol_trig.cpp
 	source/NativeTime.cpp
 	source/NativeDynamicLinking.c
 	source/stdlib.c
