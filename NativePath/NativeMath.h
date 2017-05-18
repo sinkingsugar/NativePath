@@ -319,6 +319,15 @@ static inline void npLolSincos(double x, double *sinx, double *cosx)
 	double taylorc = subc2 * x2 + subc1;
 	*cosx = taylorc * cos_sign;
 }
+
+static inline void npLolSincosf(float x, float *sinx, float *cosx)
+{
+	double sinxd = *sinx;
+	double cosxd = *cosx;
+	npLolSincos((double)x, &sinxd, &cosxd);
+	*sinx = (float)sinxd;
+	*cosx = (float)cosxd;
+}
     
 static inline double npLolTan(double x)
 {

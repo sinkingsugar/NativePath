@@ -147,13 +147,7 @@ static union
 namespace std {
    typedef decltype(nullptr) nullptr_t;
 }
-
-static inline void _ZdlPv(void* ptr)
-{
-	__builtin_operator_delete(ptr);
-}
 #endif
-
 
 typedef int npBool;
 
@@ -218,7 +212,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 //CLANG usable builtins
 
 #if !__has_builtin(__builtin_atan2)
-	#error \"atan2 clang built-in not available\"
+	#error "atan2 clang built-in not available"
 	// ddd
 	extern double atan2(...);
 #else
@@ -226,7 +220,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_atan2f)
-	#error \"atan2f clang built-in not available\"
+	#error "atan2f clang built-in not available"
 	// fff
 	extern float atan2f(...);
 #else
@@ -234,7 +228,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_atan2l)
-	#error \"atan2l clang built-in not available\"
+	#error "atan2l clang built-in not available"
 	// LdLdLd
 	extern long double atan2l(...);
 #else
@@ -242,7 +236,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_abs)
-	#error \"abs clang built-in not available\"
+	#error "abs clang built-in not available"
 	// ii
 	extern int abs(...);
 #else
@@ -250,7 +244,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_copysign)
-	#error \"copysign clang built-in not available\"
+	#error "copysign clang built-in not available"
 	// ddd
 	extern double copysign(...);
 #else
@@ -258,7 +252,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_copysignf)
-	#error \"copysignf clang built-in not available\"
+	#error "copysignf clang built-in not available"
 	// fff
 	extern float copysignf(...);
 #else
@@ -266,7 +260,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_copysignl)
-	#error \"copysignl clang built-in not available\"
+	#error "copysignl clang built-in not available"
 	// LdLdLd
 	extern long double copysignl(...);
 #else
@@ -274,7 +268,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fabs)
-	#error \"fabs clang built-in not available\"
+	#error "fabs clang built-in not available"
 	// dd
 	extern double fabs(...);
 #else
@@ -282,7 +276,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fabsf)
-	#error \"fabsf clang built-in not available\"
+	#error "fabsf clang built-in not available"
 	// ff
 	extern float fabsf(...);
 #else
@@ -290,7 +284,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fabsl)
-	#error \"fabsl clang built-in not available\"
+	#error "fabsl clang built-in not available"
 	// LdLd
 	extern long double fabsl(...);
 #else
@@ -298,7 +292,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmod)
-	#error \"fmod clang built-in not available\"
+	#error "fmod clang built-in not available"
 	// ddd
 	extern double fmod(...);
 #else
@@ -306,7 +300,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmodf)
-	#error \"fmodf clang built-in not available\"
+	#error "fmodf clang built-in not available"
 	// fff
 	extern float fmodf(...);
 #else
@@ -314,7 +308,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmodl)
-	#error \"fmodl clang built-in not available\"
+	#error "fmodl clang built-in not available"
 	// LdLdLd
 	extern long double fmodl(...);
 #else
@@ -322,7 +316,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_frexp)
-	#error \"frexp clang built-in not available\"
+	#error "frexp clang built-in not available"
 	// ddi*
 	extern double frexp(...);
 #else
@@ -330,7 +324,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_frexpf)
-	#error \"frexpf clang built-in not available\"
+	#error "frexpf clang built-in not available"
 	// ffi*
 	extern float frexpf(...);
 #else
@@ -338,7 +332,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_frexpl)
-	#error \"frexpl clang built-in not available\"
+	#error "frexpl clang built-in not available"
 	// LdLdi*
 	extern long double frexpl(...);
 #else
@@ -346,7 +340,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_huge_val)
-	#error \"huge_val clang built-in not available\"
+	#error "huge_val clang built-in not available"
 	// d
 	extern double huge_val(...);
 #else
@@ -354,7 +348,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_huge_valf)
-	#error \"huge_valf clang built-in not available\"
+	#error "huge_valf clang built-in not available"
 	// f
 	extern float huge_valf(...);
 #else
@@ -362,7 +356,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_huge_vall)
-	#error \"huge_vall clang built-in not available\"
+	#error "huge_vall clang built-in not available"
 	// Ld
 	extern long double huge_vall(...);
 #else
@@ -370,7 +364,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_inf)
-	#error \"inf clang built-in not available\"
+	#error "inf clang built-in not available"
 	// d
 	extern double inf(...);
 #else
@@ -378,7 +372,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_inff)
-	#error \"inff clang built-in not available\"
+	#error "inff clang built-in not available"
 	// f
 	extern float inff(...);
 #else
@@ -386,7 +380,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_infl)
-	#error \"infl clang built-in not available\"
+	#error "infl clang built-in not available"
 	// Ld
 	extern long double infl(...);
 #else
@@ -394,7 +388,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_labs)
-	#error \"labs clang built-in not available\"
+	#error "labs clang built-in not available"
 	// LiLi
 	extern long int labs(...);
 #else
@@ -402,7 +396,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_llabs)
-	#error \"llabs clang built-in not available\"
+	#error "llabs clang built-in not available"
 	// LLiLLi
 	extern long long int llabs(...);
 #else
@@ -410,7 +404,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ldexp)
-	#error \"ldexp clang built-in not available\"
+	#error "ldexp clang built-in not available"
 	// ddi
 	extern double ldexp(...);
 #else
@@ -418,7 +412,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ldexpf)
-	#error \"ldexpf clang built-in not available\"
+	#error "ldexpf clang built-in not available"
 	// ffi
 	extern float ldexpf(...);
 #else
@@ -426,7 +420,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ldexpl)
-	#error \"ldexpl clang built-in not available\"
+	#error "ldexpl clang built-in not available"
 	// LdLdi
 	extern long double ldexpl(...);
 #else
@@ -434,7 +428,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_modf)
-	#error \"modf clang built-in not available\"
+	#error "modf clang built-in not available"
 	// ddd*
 	extern double modf(...);
 #else
@@ -442,7 +436,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_modff)
-	#error \"modff clang built-in not available\"
+	#error "modff clang built-in not available"
 	// fff*
 	extern float modff(...);
 #else
@@ -450,7 +444,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_modfl)
-	#error \"modfl clang built-in not available\"
+	#error "modfl clang built-in not available"
 	// LdLdLd*
 	extern long double modfl(...);
 #else
@@ -458,7 +452,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nan)
-	#error \"nan clang built-in not available\"
+	#error "nan clang built-in not available"
 	// dcC*
 	extern double nan(...);
 #else
@@ -466,7 +460,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nanf)
-	#error \"nanf clang built-in not available\"
+	#error "nanf clang built-in not available"
 	// fcC*
 	extern float nanf(...);
 #else
@@ -474,7 +468,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nanl)
-	#error \"nanl clang built-in not available\"
+	#error "nanl clang built-in not available"
 	// LdcC*
 	extern long double nanl(...);
 #else
@@ -482,7 +476,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nans)
-	#error \"nans clang built-in not available\"
+	#error "nans clang built-in not available"
 	// dcC*
 	extern double nans(...);
 #else
@@ -490,7 +484,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nansf)
-	#error \"nansf clang built-in not available\"
+	#error "nansf clang built-in not available"
 	// fcC*
 	extern float nansf(...);
 #else
@@ -498,7 +492,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nansl)
-	#error \"nansl clang built-in not available\"
+	#error "nansl clang built-in not available"
 	// LdcC*
 	extern long double nansl(...);
 #else
@@ -506,7 +500,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_powi)
-	#error \"powi clang built-in not available\"
+	#error "powi clang built-in not available"
 	// ddi
 	extern double powi(...);
 #else
@@ -514,7 +508,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_powif)
-	#error \"powif clang built-in not available\"
+	#error "powif clang built-in not available"
 	// ffi
 	extern float powif(...);
 #else
@@ -522,7 +516,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_powil)
-	#error \"powil clang built-in not available\"
+	#error "powil clang built-in not available"
 	// LdLdi
 	extern long double powil(...);
 #else
@@ -530,7 +524,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_pow)
-	#error \"pow clang built-in not available\"
+	#error "pow clang built-in not available"
 	// ddd
 	extern double pow(...);
 #else
@@ -538,7 +532,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_powf)
-	#error \"powf clang built-in not available\"
+	#error "powf clang built-in not available"
 	// fff
 	extern float powf(...);
 #else
@@ -546,7 +540,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_powl)
-	#error \"powl clang built-in not available\"
+	#error "powl clang built-in not available"
 	// LdLdLd
 	extern long double powl(...);
 #else
@@ -554,7 +548,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_acos)
-	#error \"acos clang built-in not available\"
+	#error "acos clang built-in not available"
 	// dd
 	extern double acos(...);
 #else
@@ -562,7 +556,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_acosf)
-	#error \"acosf clang built-in not available\"
+	#error "acosf clang built-in not available"
 	// ff
 	extern float acosf(...);
 #else
@@ -570,7 +564,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_acosl)
-	#error \"acosl clang built-in not available\"
+	#error "acosl clang built-in not available"
 	// LdLd
 	extern long double acosl(...);
 #else
@@ -578,7 +572,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_acosh)
-	#error \"acosh clang built-in not available\"
+	#error "acosh clang built-in not available"
 	// dd
 	extern double acosh(...);
 #else
@@ -586,7 +580,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_acoshf)
-	#error \"acoshf clang built-in not available\"
+	#error "acoshf clang built-in not available"
 	// ff
 	extern float acoshf(...);
 #else
@@ -594,7 +588,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_acoshl)
-	#error \"acoshl clang built-in not available\"
+	#error "acoshl clang built-in not available"
 	// LdLd
 	extern long double acoshl(...);
 #else
@@ -602,7 +596,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_asin)
-	#error \"asin clang built-in not available\"
+	#error "asin clang built-in not available"
 	// dd
 	extern double asin(...);
 #else
@@ -610,7 +604,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_asinf)
-	#error \"asinf clang built-in not available\"
+	#error "asinf clang built-in not available"
 	// ff
 	extern float asinf(...);
 #else
@@ -618,7 +612,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_asinl)
-	#error \"asinl clang built-in not available\"
+	#error "asinl clang built-in not available"
 	// LdLd
 	extern long double asinl(...);
 #else
@@ -626,7 +620,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_asinh)
-	#error \"asinh clang built-in not available\"
+	#error "asinh clang built-in not available"
 	// dd
 	extern double asinh(...);
 #else
@@ -634,7 +628,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_asinhf)
-	#error \"asinhf clang built-in not available\"
+	#error "asinhf clang built-in not available"
 	// ff
 	extern float asinhf(...);
 #else
@@ -642,7 +636,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_asinhl)
-	#error \"asinhl clang built-in not available\"
+	#error "asinhl clang built-in not available"
 	// LdLd
 	extern long double asinhl(...);
 #else
@@ -650,7 +644,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_atan)
-	#error \"atan clang built-in not available\"
+	#error "atan clang built-in not available"
 	// dd
 	extern double atan(...);
 #else
@@ -658,7 +652,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_atanf)
-	#error \"atanf clang built-in not available\"
+	#error "atanf clang built-in not available"
 	// ff
 	extern float atanf(...);
 #else
@@ -666,7 +660,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_atanl)
-	#error \"atanl clang built-in not available\"
+	#error "atanl clang built-in not available"
 	// LdLd
 	extern long double atanl(...);
 #else
@@ -674,7 +668,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_atanh)
-	#error \"atanh clang built-in not available\"
+	#error "atanh clang built-in not available"
 	// dd
 	extern double atanh(...);
 #else
@@ -682,7 +676,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_atanhf)
-	#error \"atanhf clang built-in not available\"
+	#error "atanhf clang built-in not available"
 	// ff
 	extern float atanhf(...);
 #else
@@ -690,7 +684,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_atanhl)
-	#error \"atanhl clang built-in not available\"
+	#error "atanhl clang built-in not available"
 	// LdLd
 	extern long double atanhl(...);
 #else
@@ -698,7 +692,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cbrt)
-	#error \"cbrt clang built-in not available\"
+	#error "cbrt clang built-in not available"
 	// dd
 	extern double cbrt(...);
 #else
@@ -706,7 +700,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cbrtf)
-	#error \"cbrtf clang built-in not available\"
+	#error "cbrtf clang built-in not available"
 	// ff
 	extern float cbrtf(...);
 #else
@@ -714,7 +708,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cbrtl)
-	#error \"cbrtl clang built-in not available\"
+	#error "cbrtl clang built-in not available"
 	// LdLd
 	extern long double cbrtl(...);
 #else
@@ -722,7 +716,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ceil)
-	#error \"ceil clang built-in not available\"
+	#error "ceil clang built-in not available"
 	// dd
 	extern double ceil(...);
 #else
@@ -730,7 +724,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ceilf)
-	#error \"ceilf clang built-in not available\"
+	#error "ceilf clang built-in not available"
 	// ff
 	extern float ceilf(...);
 #else
@@ -738,7 +732,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ceill)
-	#error \"ceill clang built-in not available\"
+	#error "ceill clang built-in not available"
 	// LdLd
 	extern long double ceill(...);
 #else
@@ -746,7 +740,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cos)
-	#error \"cos clang built-in not available\"
+	#error "cos clang built-in not available"
 	// dd
 	extern double cos(...);
 #else
@@ -754,7 +748,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cosf)
-	#error \"cosf clang built-in not available\"
+	#error "cosf clang built-in not available"
 	// ff
 	extern float cosf(...);
 #else
@@ -765,7 +759,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #define cosf cos
 
 #if !__has_builtin(__builtin_cosh)
-	#error \"cosh clang built-in not available\"
+	#error "cosh clang built-in not available"
 	// dd
 	extern double cosh(...);
 #else
@@ -773,7 +767,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_coshf)
-	#error \"coshf clang built-in not available\"
+	#error "coshf clang built-in not available"
 	// ff
 	extern float coshf(...);
 #else
@@ -781,7 +775,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_coshl)
-	#error \"coshl clang built-in not available\"
+	#error "coshl clang built-in not available"
 	// LdLd
 	extern long double coshl(...);
 #else
@@ -789,7 +783,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cosl)
-	#error \"cosl clang built-in not available\"
+	#error "cosl clang built-in not available"
 	// LdLd
 	extern long double cosl(...);
 #else
@@ -797,7 +791,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_erf)
-	#error \"erf clang built-in not available\"
+	#error "erf clang built-in not available"
 	// dd
 	extern double erf(...);
 #else
@@ -805,7 +799,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_erff)
-	#error \"erff clang built-in not available\"
+	#error "erff clang built-in not available"
 	// ff
 	extern float erff(...);
 #else
@@ -813,7 +807,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_erfl)
-	#error \"erfl clang built-in not available\"
+	#error "erfl clang built-in not available"
 	// LdLd
 	extern long double erfl(...);
 #else
@@ -821,7 +815,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_erfc)
-	#error \"erfc clang built-in not available\"
+	#error "erfc clang built-in not available"
 	// dd
 	extern double erfc(...);
 #else
@@ -829,7 +823,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_erfcf)
-	#error \"erfcf clang built-in not available\"
+	#error "erfcf clang built-in not available"
 	// ff
 	extern float erfcf(...);
 #else
@@ -837,7 +831,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_erfcl)
-	#error \"erfcl clang built-in not available\"
+	#error "erfcl clang built-in not available"
 	// LdLd
 	extern long double erfcl(...);
 #else
@@ -845,7 +839,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_exp)
-	#error \"exp clang built-in not available\"
+	#error "exp clang built-in not available"
 	// dd
 	extern double exp(...);
 #else
@@ -853,7 +847,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_expf)
-	#error \"expf clang built-in not available\"
+	#error "expf clang built-in not available"
 	// ff
 	extern float expf(...);
 #else
@@ -861,7 +855,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_expl)
-	#error \"expl clang built-in not available\"
+	#error "expl clang built-in not available"
 	// LdLd
 	extern long double expl(...);
 #else
@@ -869,7 +863,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_exp2)
-	#error \"exp2 clang built-in not available\"
+	#error "exp2 clang built-in not available"
 	// dd
 	extern double exp2(...);
 #else
@@ -877,7 +871,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_exp2f)
-	#error \"exp2f clang built-in not available\"
+	#error "exp2f clang built-in not available"
 	// ff
 	extern float exp2f(...);
 #else
@@ -885,7 +879,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_exp2l)
-	#error \"exp2l clang built-in not available\"
+	#error "exp2l clang built-in not available"
 	// LdLd
 	extern long double exp2l(...);
 #else
@@ -893,7 +887,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_expm1)
-	#error \"expm1 clang built-in not available\"
+	#error "expm1 clang built-in not available"
 	// dd
 	extern double expm1(...);
 #else
@@ -901,7 +895,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_expm1f)
-	#error \"expm1f clang built-in not available\"
+	#error "expm1f clang built-in not available"
 	// ff
 	extern float expm1f(...);
 #else
@@ -909,7 +903,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_expm1l)
-	#error \"expm1l clang built-in not available\"
+	#error "expm1l clang built-in not available"
 	// LdLd
 	extern long double expm1l(...);
 #else
@@ -917,7 +911,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fdim)
-	#error \"fdim clang built-in not available\"
+	#error "fdim clang built-in not available"
 	// ddd
 	extern double fdim(...);
 #else
@@ -925,7 +919,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fdimf)
-	#error \"fdimf clang built-in not available\"
+	#error "fdimf clang built-in not available"
 	// fff
 	extern float fdimf(...);
 #else
@@ -933,7 +927,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fdiml)
-	#error \"fdiml clang built-in not available\"
+	#error "fdiml clang built-in not available"
 	// LdLdLd
 	extern long double fdiml(...);
 #else
@@ -941,7 +935,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_floor)
-	#error \"floor clang built-in not available\"
+	#error "floor clang built-in not available"
 	// dd
 	extern double floor(...);
 #else
@@ -949,7 +943,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_floorf)
-	#error \"floorf clang built-in not available\"
+	#error "floorf clang built-in not available"
 	// ff
 	extern float floorf(...);
 #else
@@ -957,7 +951,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_floorl)
-	#error \"floorl clang built-in not available\"
+	#error "floorl clang built-in not available"
 	// LdLd
 	extern long double floorl(...);
 #else
@@ -965,7 +959,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fma)
-	#error \"fma clang built-in not available\"
+	#error "fma clang built-in not available"
 	// dddd
 	extern double fma(...);
 #else
@@ -973,7 +967,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmaf)
-	#error \"fmaf clang built-in not available\"
+	#error "fmaf clang built-in not available"
 	// ffff
 	extern float fmaf(...);
 #else
@@ -981,7 +975,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmal)
-	#error \"fmal clang built-in not available\"
+	#error "fmal clang built-in not available"
 	// LdLdLdLd
 	extern long double fmal(...);
 #else
@@ -989,7 +983,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmax)
-	#error \"fmax clang built-in not available\"
+	#error "fmax clang built-in not available"
 	// ddd
 	extern double fmax(...);
 #else
@@ -997,7 +991,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmaxf)
-	#error \"fmaxf clang built-in not available\"
+	#error "fmaxf clang built-in not available"
 	// fff
 	extern float fmaxf(...);
 #else
@@ -1005,7 +999,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmaxl)
-	#error \"fmaxl clang built-in not available\"
+	#error "fmaxl clang built-in not available"
 	// LdLdLd
 	extern long double fmaxl(...);
 #else
@@ -1013,7 +1007,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fmin)
-	#error \"fmin clang built-in not available\"
+	#error "fmin clang built-in not available"
 	// ddd
 	extern double fmin(...);
 #else
@@ -1021,7 +1015,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fminf)
-	#error \"fminf clang built-in not available\"
+	#error "fminf clang built-in not available"
 	// fff
 	extern float fminf(...);
 #else
@@ -1029,7 +1023,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fminl)
-	#error \"fminl clang built-in not available\"
+	#error "fminl clang built-in not available"
 	// LdLdLd
 	extern long double fminl(...);
 #else
@@ -1037,7 +1031,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_hypot)
-	#error \"hypot clang built-in not available\"
+	#error "hypot clang built-in not available"
 	// ddd
 	extern double hypot(...);
 #else
@@ -1045,7 +1039,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_hypotf)
-	#error \"hypotf clang built-in not available\"
+	#error "hypotf clang built-in not available"
 	// fff
 	extern float hypotf(...);
 #else
@@ -1053,7 +1047,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_hypotl)
-	#error \"hypotl clang built-in not available\"
+	#error "hypotl clang built-in not available"
 	// LdLdLd
 	extern long double hypotl(...);
 #else
@@ -1061,7 +1055,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ilogb)
-	#error \"ilogb clang built-in not available\"
+	#error "ilogb clang built-in not available"
 	// id
 	extern int ilogb(...);
 #else
@@ -1069,7 +1063,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ilogbf)
-	#error \"ilogbf clang built-in not available\"
+	#error "ilogbf clang built-in not available"
 	// if
 	extern int ilogbf(...);
 #else
@@ -1077,7 +1071,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ilogbl)
-	#error \"ilogbl clang built-in not available\"
+	#error "ilogbl clang built-in not available"
 	// iLd
 	extern int ilogbl(...);
 #else
@@ -1085,7 +1079,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lgamma)
-	#error \"lgamma clang built-in not available\"
+	#error "lgamma clang built-in not available"
 	// dd
 	extern double lgamma(...);
 #else
@@ -1093,7 +1087,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lgammaf)
-	#error \"lgammaf clang built-in not available\"
+	#error "lgammaf clang built-in not available"
 	// ff
 	extern float lgammaf(...);
 #else
@@ -1101,7 +1095,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lgammal)
-	#error \"lgammal clang built-in not available\"
+	#error "lgammal clang built-in not available"
 	// LdLd
 	extern long double lgammal(...);
 #else
@@ -1109,7 +1103,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_llrint)
-	#error \"llrint clang built-in not available\"
+	#error "llrint clang built-in not available"
 	// LLid
 	extern long long int llrint(...);
 #else
@@ -1117,7 +1111,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_llrintf)
-	#error \"llrintf clang built-in not available\"
+	#error "llrintf clang built-in not available"
 	// LLif
 	extern long long int llrintf(...);
 #else
@@ -1125,7 +1119,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_llrintl)
-	#error \"llrintl clang built-in not available\"
+	#error "llrintl clang built-in not available"
 	// LLiLd
 	extern long long int llrintl(...);
 #else
@@ -1133,7 +1127,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_llround)
-	#error \"llround clang built-in not available\"
+	#error "llround clang built-in not available"
 	// LLid
 	extern long long int llround(...);
 #else
@@ -1141,7 +1135,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_llroundf)
-	#error \"llroundf clang built-in not available\"
+	#error "llroundf clang built-in not available"
 	// LLif
 	extern long long int llroundf(...);
 #else
@@ -1149,7 +1143,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_llroundl)
-	#error \"llroundl clang built-in not available\"
+	#error "llroundl clang built-in not available"
 	// LLiLd
 	extern long long int llroundl(...);
 #else
@@ -1157,7 +1151,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log)
-	#error \"log clang built-in not available\"
+	#error "log clang built-in not available"
 	// dd
 	extern double log(...);
 #else
@@ -1165,7 +1159,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log10)
-	#error \"log10 clang built-in not available\"
+	#error "log10 clang built-in not available"
 	// dd
 	extern double log10(...);
 #else
@@ -1173,7 +1167,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log10f)
-	#error \"log10f clang built-in not available\"
+	#error "log10f clang built-in not available"
 	// ff
 	extern float log10f(...);
 #else
@@ -1181,7 +1175,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log10l)
-	#error \"log10l clang built-in not available\"
+	#error "log10l clang built-in not available"
 	// LdLd
 	extern long double log10l(...);
 #else
@@ -1189,7 +1183,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log1p)
-	#error \"log1p clang built-in not available\"
+	#error "log1p clang built-in not available"
 	// dd
 	extern double log1p(...);
 #else
@@ -1197,7 +1191,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log1pf)
-	#error \"log1pf clang built-in not available\"
+	#error "log1pf clang built-in not available"
 	// ff
 	extern float log1pf(...);
 #else
@@ -1205,7 +1199,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log1pl)
-	#error \"log1pl clang built-in not available\"
+	#error "log1pl clang built-in not available"
 	// LdLd
 	extern long double log1pl(...);
 #else
@@ -1213,7 +1207,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log2)
-	#error \"log2 clang built-in not available\"
+	#error "log2 clang built-in not available"
 	// dd
 	extern double log2(...);
 #else
@@ -1221,7 +1215,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log2f)
-	#error \"log2f clang built-in not available\"
+	#error "log2f clang built-in not available"
 	// ff
 	extern float log2f(...);
 #else
@@ -1229,7 +1223,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_log2l)
-	#error \"log2l clang built-in not available\"
+	#error "log2l clang built-in not available"
 	// LdLd
 	extern long double log2l(...);
 #else
@@ -1237,7 +1231,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_logb)
-	#error \"logb clang built-in not available\"
+	#error "logb clang built-in not available"
 	// dd
 	extern double logb(...);
 #else
@@ -1245,7 +1239,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_logbf)
-	#error \"logbf clang built-in not available\"
+	#error "logbf clang built-in not available"
 	// ff
 	extern float logbf(...);
 #else
@@ -1253,7 +1247,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_logbl)
-	#error \"logbl clang built-in not available\"
+	#error "logbl clang built-in not available"
 	// LdLd
 	extern long double logbl(...);
 #else
@@ -1261,7 +1255,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_logf)
-	#error \"logf clang built-in not available\"
+	#error "logf clang built-in not available"
 	// ff
 	extern float logf(...);
 #else
@@ -1269,7 +1263,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_logl)
-	#error \"logl clang built-in not available\"
+	#error "logl clang built-in not available"
 	// LdLd
 	extern long double logl(...);
 #else
@@ -1277,7 +1271,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lrint)
-	#error \"lrint clang built-in not available\"
+	#error "lrint clang built-in not available"
 	// Lid
 	extern long int lrint(...);
 #else
@@ -1285,7 +1279,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lrintf)
-	#error \"lrintf clang built-in not available\"
+	#error "lrintf clang built-in not available"
 	// Lif
 	extern long int lrintf(...);
 #else
@@ -1293,7 +1287,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lrintl)
-	#error \"lrintl clang built-in not available\"
+	#error "lrintl clang built-in not available"
 	// LiLd
 	extern long int lrintl(...);
 #else
@@ -1301,7 +1295,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lround)
-	#error \"lround clang built-in not available\"
+	#error "lround clang built-in not available"
 	// Lid
 	extern long int lround(...);
 #else
@@ -1309,7 +1303,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lroundf)
-	#error \"lroundf clang built-in not available\"
+	#error "lroundf clang built-in not available"
 	// Lif
 	extern long int lroundf(...);
 #else
@@ -1317,7 +1311,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_lroundl)
-	#error \"lroundl clang built-in not available\"
+	#error "lroundl clang built-in not available"
 	// LiLd
 	extern long int lroundl(...);
 #else
@@ -1325,7 +1319,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nearbyint)
-	#error \"nearbyint clang built-in not available\"
+	#error "nearbyint clang built-in not available"
 	// dd
 	extern double nearbyint(...);
 #else
@@ -1333,7 +1327,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nearbyintf)
-	#error \"nearbyintf clang built-in not available\"
+	#error "nearbyintf clang built-in not available"
 	// ff
 	extern float nearbyintf(...);
 #else
@@ -1341,7 +1335,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nearbyintl)
-	#error \"nearbyintl clang built-in not available\"
+	#error "nearbyintl clang built-in not available"
 	// LdLd
 	extern long double nearbyintl(...);
 #else
@@ -1349,7 +1343,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nextafter)
-	#error \"nextafter clang built-in not available\"
+	#error "nextafter clang built-in not available"
 	// ddd
 	extern double nextafter(...);
 #else
@@ -1357,7 +1351,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nextafterf)
-	#error \"nextafterf clang built-in not available\"
+	#error "nextafterf clang built-in not available"
 	// fff
 	extern float nextafterf(...);
 #else
@@ -1365,7 +1359,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nextafterl)
-	#error \"nextafterl clang built-in not available\"
+	#error "nextafterl clang built-in not available"
 	// LdLdLd
 	extern long double nextafterl(...);
 #else
@@ -1373,7 +1367,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nexttoward)
-	#error \"nexttoward clang built-in not available\"
+	#error "nexttoward clang built-in not available"
 	// ddLd
 	extern double nexttoward(...);
 #else
@@ -1381,7 +1375,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nexttowardf)
-	#error \"nexttowardf clang built-in not available\"
+	#error "nexttowardf clang built-in not available"
 	// ffLd
 	extern float nexttowardf(...);
 #else
@@ -1389,7 +1383,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_nexttowardl)
-	#error \"nexttowardl clang built-in not available\"
+	#error "nexttowardl clang built-in not available"
 	// LdLdLd
 	extern long double nexttowardl(...);
 #else
@@ -1397,7 +1391,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_remainder)
-	#error \"remainder clang built-in not available\"
+	#error "remainder clang built-in not available"
 	// ddd
 	extern double remainder(...);
 #else
@@ -1405,7 +1399,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_remainderf)
-	#error \"remainderf clang built-in not available\"
+	#error "remainderf clang built-in not available"
 	// fff
 	extern float remainderf(...);
 #else
@@ -1413,7 +1407,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_remainderl)
-	#error \"remainderl clang built-in not available\"
+	#error "remainderl clang built-in not available"
 	// LdLdLd
 	extern long double remainderl(...);
 #else
@@ -1421,7 +1415,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_remquo)
-	#error \"remquo clang built-in not available\"
+	#error "remquo clang built-in not available"
 	// dddi*
 	extern double remquo(...);
 #else
@@ -1429,7 +1423,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_remquof)
-	#error \"remquof clang built-in not available\"
+	#error "remquof clang built-in not available"
 	// fffi*
 	extern float remquof(...);
 #else
@@ -1437,7 +1431,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_remquol)
-	#error \"remquol clang built-in not available\"
+	#error "remquol clang built-in not available"
 	// LdLdLdi*
 	extern long double remquol(...);
 #else
@@ -1445,7 +1439,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_rint)
-	#error \"rint clang built-in not available\"
+	#error "rint clang built-in not available"
 	// dd
 	extern double rint(...);
 #else
@@ -1453,7 +1447,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_rintf)
-	#error \"rintf clang built-in not available\"
+	#error "rintf clang built-in not available"
 	// ff
 	extern float rintf(...);
 #else
@@ -1461,7 +1455,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_rintl)
-	#error \"rintl clang built-in not available\"
+	#error "rintl clang built-in not available"
 	// LdLd
 	extern long double rintl(...);
 #else
@@ -1469,7 +1463,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_round)
-	#error \"round clang built-in not available\"
+	#error "round clang built-in not available"
 	// dd
 	extern double round(...);
 #else
@@ -1477,7 +1471,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_roundf)
-	#error \"roundf clang built-in not available\"
+	#error "roundf clang built-in not available"
 	// ff
 	extern float roundf(...);
 #else
@@ -1485,7 +1479,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_roundl)
-	#error \"roundl clang built-in not available\"
+	#error "roundl clang built-in not available"
 	// LdLd
 	extern long double roundl(...);
 #else
@@ -1493,7 +1487,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_scalbln)
-	#error \"scalbln clang built-in not available\"
+	#error "scalbln clang built-in not available"
 	// ddLi
 	extern double scalbln(...);
 #else
@@ -1501,7 +1495,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_scalblnf)
-	#error \"scalblnf clang built-in not available\"
+	#error "scalblnf clang built-in not available"
 	// ffLi
 	extern float scalblnf(...);
 #else
@@ -1509,7 +1503,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_scalblnl)
-	#error \"scalblnl clang built-in not available\"
+	#error "scalblnl clang built-in not available"
 	// LdLdLi
 	extern long double scalblnl(...);
 #else
@@ -1517,7 +1511,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_scalbn)
-	#error \"scalbn clang built-in not available\"
+	#error "scalbn clang built-in not available"
 	// ddi
 	extern double scalbn(...);
 #else
@@ -1525,7 +1519,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_scalbnf)
-	#error \"scalbnf clang built-in not available\"
+	#error "scalbnf clang built-in not available"
 	// ffi
 	extern float scalbnf(...);
 #else
@@ -1533,7 +1527,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_scalbnl)
-	#error \"scalbnl clang built-in not available\"
+	#error "scalbnl clang built-in not available"
 	// LdLdi
 	extern long double scalbnl(...);
 #else
@@ -1541,7 +1535,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sin)
-	#error \"sin clang built-in not available\"
+	#error "sin clang built-in not available"
 	// dd
 	extern double sin(...);
 #else
@@ -1549,7 +1543,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sinf)
-	#error \"sinf clang built-in not available\"
+	#error "sinf clang built-in not available"
 	// ff
 	extern float sinf(...);
 #else
@@ -1557,7 +1551,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sinh)
-	#error \"sinh clang built-in not available\"
+	#error "sinh clang built-in not available"
 	// dd
 	extern double sinh(...);
 #else
@@ -1565,7 +1559,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sinhf)
-	#error \"sinhf clang built-in not available\"
+	#error "sinhf clang built-in not available"
 	// ff
 	extern float sinhf(...);
 #else
@@ -1573,7 +1567,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sinhl)
-	#error \"sinhl clang built-in not available\"
+	#error "sinhl clang built-in not available"
 	// LdLd
 	extern long double sinhl(...);
 #else
@@ -1581,7 +1575,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sinl)
-	#error \"sinl clang built-in not available\"
+	#error "sinl clang built-in not available"
 	// LdLd
 	extern long double sinl(...);
 #else
@@ -1589,7 +1583,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sqrt)
-	#error \"sqrt clang built-in not available\"
+	#error "sqrt clang built-in not available"
 	// dd
 	extern double sqrt(...);
 #else
@@ -1597,7 +1591,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sqrtf)
-	#error \"sqrtf clang built-in not available\"
+	#error "sqrtf clang built-in not available"
 	// ff
 	extern float sqrtf(...);
 #else
@@ -1605,7 +1599,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sqrtl)
-	#error \"sqrtl clang built-in not available\"
+	#error "sqrtl clang built-in not available"
 	// LdLd
 	extern long double sqrtl(...);
 #else
@@ -1613,7 +1607,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tan)
-	#error \"tan clang built-in not available\"
+	#error "tan clang built-in not available"
 	// dd
 	extern double tan(...);
 #else
@@ -1621,7 +1615,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tanf)
-	#error \"tanf clang built-in not available\"
+	#error "tanf clang built-in not available"
 	// ff
 	extern float tanf(...);
 #else
@@ -1629,7 +1623,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tanh)
-	#error \"tanh clang built-in not available\"
+	#error "tanh clang built-in not available"
 	// dd
 	extern double tanh(...);
 #else
@@ -1637,7 +1631,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tanhf)
-	#error \"tanhf clang built-in not available\"
+	#error "tanhf clang built-in not available"
 	// ff
 	extern float tanhf(...);
 #else
@@ -1645,7 +1639,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tanhl)
-	#error \"tanhl clang built-in not available\"
+	#error "tanhl clang built-in not available"
 	// LdLd
 	extern long double tanhl(...);
 #else
@@ -1653,7 +1647,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tanl)
-	#error \"tanl clang built-in not available\"
+	#error "tanl clang built-in not available"
 	// LdLd
 	extern long double tanl(...);
 #else
@@ -1661,7 +1655,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tgamma)
-	#error \"tgamma clang built-in not available\"
+	#error "tgamma clang built-in not available"
 	// dd
 	extern double tgamma(...);
 #else
@@ -1669,7 +1663,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tgammaf)
-	#error \"tgammaf clang built-in not available\"
+	#error "tgammaf clang built-in not available"
 	// ff
 	extern float tgammaf(...);
 #else
@@ -1677,7 +1671,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_tgammal)
-	#error \"tgammal clang built-in not available\"
+	#error "tgammal clang built-in not available"
 	// LdLd
 	extern long double tgammal(...);
 #else
@@ -1685,7 +1679,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_trunc)
-	#error \"trunc clang built-in not available\"
+	#error "trunc clang built-in not available"
 	// dd
 	extern double trunc(...);
 #else
@@ -1693,7 +1687,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_truncf)
-	#error \"truncf clang built-in not available\"
+	#error "truncf clang built-in not available"
 	// ff
 	extern float truncf(...);
 #else
@@ -1701,7 +1695,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_truncl)
-	#error \"truncl clang built-in not available\"
+	#error "truncl clang built-in not available"
 	// LdLd
 	extern long double truncl(...);
 #else
@@ -1709,7 +1703,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cabs)
-	#error \"cabs clang built-in not available\"
+	#error "cabs clang built-in not available"
 	// dXd
 	extern double cabs(...);
 #else
@@ -1717,7 +1711,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cabsf)
-	#error \"cabsf clang built-in not available\"
+	#error "cabsf clang built-in not available"
 	// fXf
 	extern float cabsf(...);
 #else
@@ -1725,7 +1719,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cabsl)
-	#error \"cabsl clang built-in not available\"
+	#error "cabsl clang built-in not available"
 	// LdXLd
 	extern long double cabsl(...);
 #else
@@ -1733,7 +1727,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cacos)
-	#error \"cacos clang built-in not available\"
+	#error "cacos clang built-in not available"
 	// XdXd
 	extern double cacos(...);
 #else
@@ -1741,7 +1735,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cacosf)
-	#error \"cacosf clang built-in not available\"
+	#error "cacosf clang built-in not available"
 	// XfXf
 	extern float cacosf(...);
 #else
@@ -1749,7 +1743,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cacosh)
-	#error \"cacosh clang built-in not available\"
+	#error "cacosh clang built-in not available"
 	// XdXd
 	extern double cacosh(...);
 #else
@@ -1757,7 +1751,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cacoshf)
-	#error \"cacoshf clang built-in not available\"
+	#error "cacoshf clang built-in not available"
 	// XfXf
 	extern float cacoshf(...);
 #else
@@ -1765,7 +1759,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cacoshl)
-	#error \"cacoshl clang built-in not available\"
+	#error "cacoshl clang built-in not available"
 	// XLdXLd
 	extern long double cacoshl(...);
 #else
@@ -1773,7 +1767,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cacosl)
-	#error \"cacosl clang built-in not available\"
+	#error "cacosl clang built-in not available"
 	// XLdXLd
 	extern long double cacosl(...);
 #else
@@ -1781,7 +1775,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_carg)
-	#error \"carg clang built-in not available\"
+	#error "carg clang built-in not available"
 	// dXd
 	extern double carg(...);
 #else
@@ -1789,7 +1783,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cargf)
-	#error \"cargf clang built-in not available\"
+	#error "cargf clang built-in not available"
 	// fXf
 	extern float cargf(...);
 #else
@@ -1797,7 +1791,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cargl)
-	#error \"cargl clang built-in not available\"
+	#error "cargl clang built-in not available"
 	// LdXLd
 	extern long double cargl(...);
 #else
@@ -1805,7 +1799,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_casin)
-	#error \"casin clang built-in not available\"
+	#error "casin clang built-in not available"
 	// XdXd
 	extern double casin(...);
 #else
@@ -1813,7 +1807,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_casinf)
-	#error \"casinf clang built-in not available\"
+	#error "casinf clang built-in not available"
 	// XfXf
 	extern float casinf(...);
 #else
@@ -1821,7 +1815,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_casinh)
-	#error \"casinh clang built-in not available\"
+	#error "casinh clang built-in not available"
 	// XdXd
 	extern double casinh(...);
 #else
@@ -1829,7 +1823,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_casinhf)
-	#error \"casinhf clang built-in not available\"
+	#error "casinhf clang built-in not available"
 	// XfXf
 	extern float casinhf(...);
 #else
@@ -1837,7 +1831,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_casinhl)
-	#error \"casinhl clang built-in not available\"
+	#error "casinhl clang built-in not available"
 	// XLdXLd
 	extern long double casinhl(...);
 #else
@@ -1845,7 +1839,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_casinl)
-	#error \"casinl clang built-in not available\"
+	#error "casinl clang built-in not available"
 	// XLdXLd
 	extern long double casinl(...);
 #else
@@ -1853,7 +1847,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_catan)
-	#error \"catan clang built-in not available\"
+	#error "catan clang built-in not available"
 	// XdXd
 	extern double catan(...);
 #else
@@ -1861,7 +1855,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_catanf)
-	#error \"catanf clang built-in not available\"
+	#error "catanf clang built-in not available"
 	// XfXf
 	extern float catanf(...);
 #else
@@ -1869,7 +1863,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_catanh)
-	#error \"catanh clang built-in not available\"
+	#error "catanh clang built-in not available"
 	// XdXd
 	extern double catanh(...);
 #else
@@ -1877,7 +1871,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_catanhf)
-	#error \"catanhf clang built-in not available\"
+	#error "catanhf clang built-in not available"
 	// XfXf
 	extern float catanhf(...);
 #else
@@ -1885,7 +1879,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_catanhl)
-	#error \"catanhl clang built-in not available\"
+	#error "catanhl clang built-in not available"
 	// XLdXLd
 	extern long double catanhl(...);
 #else
@@ -1893,7 +1887,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_catanl)
-	#error \"catanl clang built-in not available\"
+	#error "catanl clang built-in not available"
 	// XLdXLd
 	extern long double catanl(...);
 #else
@@ -1901,7 +1895,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ccos)
-	#error \"ccos clang built-in not available\"
+	#error "ccos clang built-in not available"
 	// XdXd
 	extern double ccos(...);
 #else
@@ -1909,7 +1903,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ccosf)
-	#error \"ccosf clang built-in not available\"
+	#error "ccosf clang built-in not available"
 	// XfXf
 	extern float ccosf(...);
 #else
@@ -1917,7 +1911,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ccosl)
-	#error \"ccosl clang built-in not available\"
+	#error "ccosl clang built-in not available"
 	// XLdXLd
 	extern long double ccosl(...);
 #else
@@ -1925,7 +1919,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ccosh)
-	#error \"ccosh clang built-in not available\"
+	#error "ccosh clang built-in not available"
 	// XdXd
 	extern double ccosh(...);
 #else
@@ -1933,7 +1927,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ccoshf)
-	#error \"ccoshf clang built-in not available\"
+	#error "ccoshf clang built-in not available"
 	// XfXf
 	extern float ccoshf(...);
 #else
@@ -1941,7 +1935,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ccoshl)
-	#error \"ccoshl clang built-in not available\"
+	#error "ccoshl clang built-in not available"
 	// XLdXLd
 	extern long double ccoshl(...);
 #else
@@ -1949,7 +1943,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cexp)
-	#error \"cexp clang built-in not available\"
+	#error "cexp clang built-in not available"
 	// XdXd
 	extern double cexp(...);
 #else
@@ -1957,7 +1951,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cexpf)
-	#error \"cexpf clang built-in not available\"
+	#error "cexpf clang built-in not available"
 	// XfXf
 	extern float cexpf(...);
 #else
@@ -1965,7 +1959,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cexpl)
-	#error \"cexpl clang built-in not available\"
+	#error "cexpl clang built-in not available"
 	// XLdXLd
 	extern long double cexpl(...);
 #else
@@ -1973,7 +1967,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cimag)
-	#error \"cimag clang built-in not available\"
+	#error "cimag clang built-in not available"
 	// dXd
 	extern double cimag(...);
 #else
@@ -1981,7 +1975,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cimagf)
-	#error \"cimagf clang built-in not available\"
+	#error "cimagf clang built-in not available"
 	// fXf
 	extern float cimagf(...);
 #else
@@ -1989,7 +1983,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cimagl)
-	#error \"cimagl clang built-in not available\"
+	#error "cimagl clang built-in not available"
 	// LdXLd
 	extern long double cimagl(...);
 #else
@@ -1997,7 +1991,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_conj)
-	#error \"conj clang built-in not available\"
+	#error "conj clang built-in not available"
 	// XdXd
 	extern double conj(...);
 #else
@@ -2005,7 +1999,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_conjf)
-	#error \"conjf clang built-in not available\"
+	#error "conjf clang built-in not available"
 	// XfXf
 	extern float conjf(...);
 #else
@@ -2013,7 +2007,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_conjl)
-	#error \"conjl clang built-in not available\"
+	#error "conjl clang built-in not available"
 	// XLdXLd
 	extern long double conjl(...);
 #else
@@ -2021,7 +2015,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_clog)
-	#error \"clog clang built-in not available\"
+	#error "clog clang built-in not available"
 	// XdXd
 	extern double clog(...);
 #else
@@ -2029,7 +2023,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_clogf)
-	#error \"clogf clang built-in not available\"
+	#error "clogf clang built-in not available"
 	// XfXf
 	extern float clogf(...);
 #else
@@ -2037,7 +2031,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_clogl)
-	#error \"clogl clang built-in not available\"
+	#error "clogl clang built-in not available"
 	// XLdXLd
 	extern long double clogl(...);
 #else
@@ -2045,7 +2039,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cproj)
-	#error \"cproj clang built-in not available\"
+	#error "cproj clang built-in not available"
 	// XdXd
 	extern double cproj(...);
 #else
@@ -2053,7 +2047,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cprojf)
-	#error \"cprojf clang built-in not available\"
+	#error "cprojf clang built-in not available"
 	// XfXf
 	extern float cprojf(...);
 #else
@@ -2061,7 +2055,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cprojl)
-	#error \"cprojl clang built-in not available\"
+	#error "cprojl clang built-in not available"
 	// XLdXLd
 	extern long double cprojl(...);
 #else
@@ -2069,7 +2063,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cpow)
-	#error \"cpow clang built-in not available\"
+	#error "cpow clang built-in not available"
 	// XdXdXd
 	extern double cpow(...);
 #else
@@ -2077,7 +2071,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cpowf)
-	#error \"cpowf clang built-in not available\"
+	#error "cpowf clang built-in not available"
 	// XfXfXf
 	extern float cpowf(...);
 #else
@@ -2085,7 +2079,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_cpowl)
-	#error \"cpowl clang built-in not available\"
+	#error "cpowl clang built-in not available"
 	// XLdXLdXLd
 	extern long double cpowl(...);
 #else
@@ -2093,7 +2087,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_creal)
-	#error \"creal clang built-in not available\"
+	#error "creal clang built-in not available"
 	// dXd
 	extern double creal(...);
 #else
@@ -2101,7 +2095,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_crealf)
-	#error \"crealf clang built-in not available\"
+	#error "crealf clang built-in not available"
 	// fXf
 	extern float crealf(...);
 #else
@@ -2109,7 +2103,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_creall)
-	#error \"creall clang built-in not available\"
+	#error "creall clang built-in not available"
 	// LdXLd
 	extern long double creall(...);
 #else
@@ -2117,7 +2111,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csin)
-	#error \"csin clang built-in not available\"
+	#error "csin clang built-in not available"
 	// XdXd
 	extern double csin(...);
 #else
@@ -2125,7 +2119,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csinf)
-	#error \"csinf clang built-in not available\"
+	#error "csinf clang built-in not available"
 	// XfXf
 	extern float csinf(...);
 #else
@@ -2133,7 +2127,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csinl)
-	#error \"csinl clang built-in not available\"
+	#error "csinl clang built-in not available"
 	// XLdXLd
 	extern long double csinl(...);
 #else
@@ -2141,7 +2135,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csinh)
-	#error \"csinh clang built-in not available\"
+	#error "csinh clang built-in not available"
 	// XdXd
 	extern double csinh(...);
 #else
@@ -2149,7 +2143,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csinhf)
-	#error \"csinhf clang built-in not available\"
+	#error "csinhf clang built-in not available"
 	// XfXf
 	extern float csinhf(...);
 #else
@@ -2157,7 +2151,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csinhl)
-	#error \"csinhl clang built-in not available\"
+	#error "csinhl clang built-in not available"
 	// XLdXLd
 	extern long double csinhl(...);
 #else
@@ -2165,7 +2159,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csqrt)
-	#error \"csqrt clang built-in not available\"
+	#error "csqrt clang built-in not available"
 	// XdXd
 	extern double csqrt(...);
 #else
@@ -2173,7 +2167,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csqrtf)
-	#error \"csqrtf clang built-in not available\"
+	#error "csqrtf clang built-in not available"
 	// XfXf
 	extern float csqrtf(...);
 #else
@@ -2181,7 +2175,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_csqrtl)
-	#error \"csqrtl clang built-in not available\"
+	#error "csqrtl clang built-in not available"
 	// XLdXLd
 	extern long double csqrtl(...);
 #else
@@ -2189,7 +2183,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctan)
-	#error \"ctan clang built-in not available\"
+	#error "ctan clang built-in not available"
 	// XdXd
 	extern double ctan(...);
 #else
@@ -2197,7 +2191,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctanf)
-	#error \"ctanf clang built-in not available\"
+	#error "ctanf clang built-in not available"
 	// XfXf
 	extern float ctanf(...);
 #else
@@ -2205,7 +2199,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctanl)
-	#error \"ctanl clang built-in not available\"
+	#error "ctanl clang built-in not available"
 	// XLdXLd
 	extern long double ctanl(...);
 #else
@@ -2213,7 +2207,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctanh)
-	#error \"ctanh clang built-in not available\"
+	#error "ctanh clang built-in not available"
 	// XdXd
 	extern double ctanh(...);
 #else
@@ -2221,7 +2215,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctanhf)
-	#error \"ctanhf clang built-in not available\"
+	#error "ctanhf clang built-in not available"
 	// XfXf
 	extern float ctanhf(...);
 #else
@@ -2229,7 +2223,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctanhl)
-	#error \"ctanhl clang built-in not available\"
+	#error "ctanhl clang built-in not available"
 	// XLdXLd
 	extern long double ctanhl(...);
 #else
@@ -2237,7 +2231,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isgreater)
-	#error \"isgreater clang built-in not available\"
+	#error "isgreater clang built-in not available"
 	// i.
 	extern int isgreater(...);
 #else
@@ -2245,7 +2239,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isgreaterequal)
-	#error \"isgreaterequal clang built-in not available\"
+	#error "isgreaterequal clang built-in not available"
 	// i.
 	extern int isgreaterequal(...);
 #else
@@ -2253,7 +2247,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isless)
-	#error \"isless clang built-in not available\"
+	#error "isless clang built-in not available"
 	// i.
 	extern int isless(...);
 #else
@@ -2261,7 +2255,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_islessequal)
-	#error \"islessequal clang built-in not available\"
+	#error "islessequal clang built-in not available"
 	// i.
 	extern int islessequal(...);
 #else
@@ -2269,7 +2263,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_islessgreater)
-	#error \"islessgreater clang built-in not available\"
+	#error "islessgreater clang built-in not available"
 	// i.
 	extern int islessgreater(...);
 #else
@@ -2277,7 +2271,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isunordered)
-	#error \"isunordered clang built-in not available\"
+	#error "isunordered clang built-in not available"
 	// i.
 	extern int isunordered(...);
 #else
@@ -2285,7 +2279,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fpclassify)
-	#error \"fpclassify clang built-in not available\"
+	#error "fpclassify clang built-in not available"
 	// iiiii.
 	extern int fpclassify(...);
 #else
@@ -2293,7 +2287,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isfinite)
-	#error \"isfinite clang built-in not available\"
+	#error "isfinite clang built-in not available"
 	// i.
 	extern int isfinite(...);
 #else
@@ -2301,7 +2295,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isinf)
-	#error \"isinf clang built-in not available\"
+	#error "isinf clang built-in not available"
 	// i.
 	extern int isinf(...);
 #else
@@ -2309,7 +2303,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isinf_sign)
-	#error \"isinf_sign clang built-in not available\"
+	#error "isinf_sign clang built-in not available"
 	// i.
 	extern int isinf_sign(...);
 #else
@@ -2317,7 +2311,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isnan)
-	#error \"isnan clang built-in not available\"
+	#error "isnan clang built-in not available"
 	// i.
 	extern int isnan(...);
 #else
@@ -2325,7 +2319,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_isnormal)
-	#error \"isnormal clang built-in not available\"
+	#error "isnormal clang built-in not available"
 	// i.
 	extern int isnormal(...);
 #else
@@ -2333,7 +2327,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_signbit)
-	#error \"signbit clang built-in not available\"
+	#error "signbit clang built-in not available"
 	// id
 	extern int signbit(...);
 #else
@@ -2341,7 +2335,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_signbitf)
-	#error \"signbitf clang built-in not available\"
+	#error "signbitf clang built-in not available"
 	// if
 	extern int signbitf(...);
 #else
@@ -2349,7 +2343,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_signbitl)
-	#error \"signbitl clang built-in not available\"
+	#error "signbitl clang built-in not available"
 	// iLd
 	extern int signbitl(...);
 #else
@@ -2357,7 +2351,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_clzs)
-	#error \"clzs clang built-in not available\"
+	#error "clzs clang built-in not available"
 	// iUs
 	extern int clzs(...);
 #else
@@ -2365,7 +2359,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_clz)
-	#error \"clz clang built-in not available\"
+	#error "clz clang built-in not available"
 	// iUi
 	extern int clz(...);
 #else
@@ -2373,7 +2367,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_clzl)
-	#error \"clzl clang built-in not available\"
+	#error "clzl clang built-in not available"
 	// iULi
 	extern int clzl(...);
 #else
@@ -2381,7 +2375,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_clzll)
-	#error \"clzll clang built-in not available\"
+	#error "clzll clang built-in not available"
 	// iULLi
 	extern int clzll(...);
 #else
@@ -2389,7 +2383,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctzs)
-	#error \"ctzs clang built-in not available\"
+	#error "ctzs clang built-in not available"
 	// iUs
 	extern int ctzs(...);
 #else
@@ -2397,7 +2391,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctz)
-	#error \"ctz clang built-in not available\"
+	#error "ctz clang built-in not available"
 	// iUi
 	extern int ctz(...);
 #else
@@ -2405,7 +2399,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctzl)
-	#error \"ctzl clang built-in not available\"
+	#error "ctzl clang built-in not available"
 	// iULi
 	extern int ctzl(...);
 #else
@@ -2413,7 +2407,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ctzll)
-	#error \"ctzll clang built-in not available\"
+	#error "ctzll clang built-in not available"
 	// iULLi
 	extern int ctzll(...);
 #else
@@ -2421,7 +2415,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ffs)
-	#error \"ffs clang built-in not available\"
+	#error "ffs clang built-in not available"
 	// ii
 	extern int ffs(...);
 #else
@@ -2429,7 +2423,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ffsl)
-	#error \"ffsl clang built-in not available\"
+	#error "ffsl clang built-in not available"
 	// iLi
 	extern int ffsl(...);
 #else
@@ -2437,7 +2431,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ffsll)
-	#error \"ffsll clang built-in not available\"
+	#error "ffsll clang built-in not available"
 	// iLLi
 	extern int ffsll(...);
 #else
@@ -2445,7 +2439,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_parity)
-	#error \"parity clang built-in not available\"
+	#error "parity clang built-in not available"
 	// iUi
 	extern int parity(...);
 #else
@@ -2453,7 +2447,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_parityl)
-	#error \"parityl clang built-in not available\"
+	#error "parityl clang built-in not available"
 	// iULi
 	extern int parityl(...);
 #else
@@ -2461,7 +2455,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_parityll)
-	#error \"parityll clang built-in not available\"
+	#error "parityll clang built-in not available"
 	// iULLi
 	extern int parityll(...);
 #else
@@ -2469,7 +2463,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_popcount)
-	#error \"popcount clang built-in not available\"
+	#error "popcount clang built-in not available"
 	// iUi
 	extern int popcount(...);
 #else
@@ -2477,7 +2471,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_popcountl)
-	#error \"popcountl clang built-in not available\"
+	#error "popcountl clang built-in not available"
 	// iULi
 	extern int popcountl(...);
 #else
@@ -2485,7 +2479,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_popcountll)
-	#error \"popcountll clang built-in not available\"
+	#error "popcountll clang built-in not available"
 	// iULLi
 	extern int popcountll(...);
 #else
@@ -2493,7 +2487,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_bswap16)
-	#error \"bswap16 clang built-in not available\"
+	#error "bswap16 clang built-in not available"
 	// UsUs
 	extern unsigned short bswap16(...);
 #else
@@ -2501,7 +2495,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_bswap32)
-	#error \"bswap32 clang built-in not available\"
+	#error "bswap32 clang built-in not available"
 	// UiUi
 	extern unsigned int bswap32(...);
 #else
@@ -2509,7 +2503,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_bswap64)
-	#error \"bswap64 clang built-in not available\"
+	#error "bswap64 clang built-in not available"
 	// ULLiULLi
 	extern unsigned long long int bswap64(...);
 #else
@@ -2517,7 +2511,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_constant_p)
-	#error \"constant_p clang built-in not available\"
+	#error "constant_p clang built-in not available"
 	// i.
 	extern int constant_p(...);
 #else
@@ -2525,7 +2519,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_classify_type)
-	#error \"classify_type clang built-in not available\"
+	#error "classify_type clang built-in not available"
 	// i.
 	extern int classify_type(...);
 #else
@@ -2533,7 +2527,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___CFStringMakeConstantString)
-	#error \"__CFStringMakeConstantString clang built-in not available\"
+	#error "__CFStringMakeConstantString clang built-in not available"
 	// FC*cC*
 	extern char * __CFStringMakeConstantString(...);
 #else
@@ -2541,7 +2535,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___NSStringMakeConstantString)
-	#error \"__NSStringMakeConstantString clang built-in not available\"
+	#error "__NSStringMakeConstantString clang built-in not available"
 	// FC*cC*
 	extern char * __NSStringMakeConstantString(...);
 #else
@@ -2549,7 +2543,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_va_start)
-	#error \"va_start clang built-in not available\"
+	#error "va_start clang built-in not available"
 	// vA.
 	extern void va_start(...);
 #else
@@ -2557,7 +2551,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_va_end)
-	#error \"va_end clang built-in not available\"
+	#error "va_end clang built-in not available"
 	// vA
 	extern void va_end(...);
 #else
@@ -2565,7 +2559,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_va_copy)
-	#error \"va_copy clang built-in not available\"
+	#error "va_copy clang built-in not available"
 	// vAA
 	extern void va_copy(...);
 #else
@@ -2573,7 +2567,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_stdarg_start)
-	#error \"stdarg_start clang built-in not available\"
+	#error "stdarg_start clang built-in not available"
 	// vA.
 	extern void stdarg_start(...);
 #else
@@ -2581,7 +2575,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_assume_aligned)
-	#error \"assume_aligned clang built-in not available\"
+	#error "assume_aligned clang built-in not available"
 	// v*vC*z.
 	extern void * assume_aligned(...);
 #else
@@ -2589,7 +2583,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_bcmp)
-	#error \"bcmp clang built-in not available\"
+	#error "bcmp clang built-in not available"
 	// iv*v*z
 	extern int bcmp(...);
 #else
@@ -2597,7 +2591,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_bcopy)
-	#error \"bcopy clang built-in not available\"
+	#error "bcopy clang built-in not available"
 	// vv*v*z
 	extern void bcopy(...);
 #else
@@ -2605,7 +2599,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_bzero)
-	#error \"bzero clang built-in not available\"
+	#error "bzero clang built-in not available"
 	// vv*z
 	extern void bzero(...);
 #else
@@ -2613,7 +2607,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_fprintf)
-	#error \"fprintf clang built-in not available\"
+	#error "fprintf clang built-in not available"
 	// iP*cC*.
 	extern int fprintf(...);
 #else
@@ -2621,7 +2615,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_memchr)
-	#error \"memchr clang built-in not available\"
+	#error "memchr clang built-in not available"
 	// v*vC*iz
 	extern void * memchr(...);
 #else
@@ -2629,7 +2623,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_memcmp)
-	#error \"memcmp clang built-in not available\"
+	#error "memcmp clang built-in not available"
 	// ivC*vC*z
 	extern int memcmp(...);
 #else
@@ -2637,7 +2631,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_memcpy)
-	#error \"memcpy clang built-in not available\"
+	#error "memcpy clang built-in not available"
 	// v*v*vC*z
 	extern void * memcpy(...);
 #else
@@ -2645,7 +2639,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_memmove)
-	#error \"memmove clang built-in not available\"
+	#error "memmove clang built-in not available"
 	// v*v*vC*z
 	extern void * memmove(...);
 #else
@@ -2653,7 +2647,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_mempcpy)
-	#error \"mempcpy clang built-in not available\"
+	#error "mempcpy clang built-in not available"
 	// v*v*vC*z
 	extern void * mempcpy(...);
 #else
@@ -2661,7 +2655,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_memset)
-	#error \"memset clang built-in not available\"
+	#error "memset clang built-in not available"
 	// v*v*iz
 	extern void * memset(...);
 #else
@@ -2669,7 +2663,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_printf)
-	#error \"printf clang built-in not available\"
+	#error "printf clang built-in not available"
 	// icC*.
 	extern int printf(...);
 #else
@@ -2677,7 +2671,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_stpcpy)
-	#error \"stpcpy clang built-in not available\"
+	#error "stpcpy clang built-in not available"
 	// c*c*cC*
 	extern char * stpcpy(...);
 #else
@@ -2685,7 +2679,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_stpncpy)
-	#error \"stpncpy clang built-in not available\"
+	#error "stpncpy clang built-in not available"
 	// c*c*cC*z
 	extern char * stpncpy(...);
 #else
@@ -2693,7 +2687,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strcasecmp)
-	#error \"strcasecmp clang built-in not available\"
+	#error "strcasecmp clang built-in not available"
 	// icC*cC*
 	extern int strcasecmp(...);
 #else
@@ -2701,7 +2695,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strcat)
-	#error \"strcat clang built-in not available\"
+	#error "strcat clang built-in not available"
 	// c*c*cC*
 	extern char * strcat(...);
 #else
@@ -2709,7 +2703,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strchr)
-	#error \"strchr clang built-in not available\"
+	#error "strchr clang built-in not available"
 	// c*cC*i
 	extern char * strchr(...);
 #else
@@ -2717,7 +2711,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strcmp)
-	#error \"strcmp clang built-in not available\"
+	#error "strcmp clang built-in not available"
 	// icC*cC*
 	extern int strcmp(...);
 #else
@@ -2725,7 +2719,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strcpy)
-	#error \"strcpy clang built-in not available\"
+	#error "strcpy clang built-in not available"
 	// c*c*cC*
 	extern char * strcpy(...);
 #else
@@ -2733,7 +2727,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strcspn)
-	#error \"strcspn clang built-in not available\"
+	#error "strcspn clang built-in not available"
 	// zcC*cC*
 	extern size_t strcspn(...);
 #else
@@ -2741,7 +2735,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strdup)
-	#error \"strdup clang built-in not available\"
+	#error "strdup clang built-in not available"
 	// c*cC*
 	extern char * strdup(...);
 #else
@@ -2749,7 +2743,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strlen)
-	#error \"strlen clang built-in not available\"
+	#error "strlen clang built-in not available"
 	// zcC*
 	extern size_t strlen(...);
 #else
@@ -2757,7 +2751,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strncasecmp)
-	#error \"strncasecmp clang built-in not available\"
+	#error "strncasecmp clang built-in not available"
 	// icC*cC*z
 	extern int strncasecmp(...);
 #else
@@ -2765,7 +2759,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strncat)
-	#error \"strncat clang built-in not available\"
+	#error "strncat clang built-in not available"
 	// c*c*cC*z
 	extern char * strncat(...);
 #else
@@ -2773,7 +2767,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strncmp)
-	#error \"strncmp clang built-in not available\"
+	#error "strncmp clang built-in not available"
 	// icC*cC*z
 	extern int strncmp(...);
 #else
@@ -2781,7 +2775,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strncpy)
-	#error \"strncpy clang built-in not available\"
+	#error "strncpy clang built-in not available"
 	// c*c*cC*z
 	extern char * strncpy(...);
 #else
@@ -2789,7 +2783,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strndup)
-	#error \"strndup clang built-in not available\"
+	#error "strndup clang built-in not available"
 	// c*cC*z
 	extern char * strndup(...);
 #else
@@ -2797,7 +2791,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strpbrk)
-	#error \"strpbrk clang built-in not available\"
+	#error "strpbrk clang built-in not available"
 	// c*cC*cC*
 	extern char * strpbrk(...);
 #else
@@ -2805,7 +2799,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strrchr)
-	#error \"strrchr clang built-in not available\"
+	#error "strrchr clang built-in not available"
 	// c*cC*i
 	extern char * strrchr(...);
 #else
@@ -2813,7 +2807,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strspn)
-	#error \"strspn clang built-in not available\"
+	#error "strspn clang built-in not available"
 	// zcC*cC*
 	extern size_t strspn(...);
 #else
@@ -2821,7 +2815,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_strstr)
-	#error \"strstr clang built-in not available\"
+	#error "strstr clang built-in not available"
 	// c*cC*cC*
 	extern char * strstr(...);
 #else
@@ -2829,7 +2823,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_return_address)
-	#error \"return_address clang built-in not available\"
+	#error "return_address clang built-in not available"
 	// v*IUi
 	extern void * return_address(...);
 #else
@@ -2837,7 +2831,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_extract_return_addr)
-	#error \"extract_return_addr clang built-in not available\"
+	#error "extract_return_addr clang built-in not available"
 	// v*v*
 	extern void * extract_return_addr(...);
 #else
@@ -2845,7 +2839,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_frame_address)
-	#error \"frame_address clang built-in not available\"
+	#error "frame_address clang built-in not available"
 	// v*IUi
 	extern void * frame_address(...);
 #else
@@ -2853,7 +2847,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___clear_cache)
-	#error \"__clear_cache clang built-in not available\"
+	#error "__clear_cache clang built-in not available"
 	// vc*c*
 	extern void __clear_cache(...);
 #else
@@ -2861,7 +2855,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_flt_rounds)
-	#error \"flt_rounds clang built-in not available\"
+	#error "flt_rounds clang built-in not available"
 	// i
 	extern int flt_rounds(...);
 #else
@@ -2869,7 +2863,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_setjmp)
-	#error \"setjmp clang built-in not available\"
+	#error "setjmp clang built-in not available"
 	// iv**
 	extern int setjmp(...);
 #else
@@ -2877,7 +2871,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_longjmp)
-	#error \"longjmp clang built-in not available\"
+	#error "longjmp clang built-in not available"
 	// vv**i
 	extern void longjmp(...);
 #else
@@ -2885,7 +2879,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_eh_return_data_regno)
-	#error \"eh_return_data_regno clang built-in not available\"
+	#error "eh_return_data_regno clang built-in not available"
 	// iIi
 	extern int eh_return_data_regno(...);
 #else
@@ -2893,7 +2887,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_snprintf)
-	#error \"snprintf clang built-in not available\"
+	#error "snprintf clang built-in not available"
 	// ic*zcC*.
 	extern int snprintf(...);
 #else
@@ -2901,7 +2895,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_vsprintf)
-	#error \"vsprintf clang built-in not available\"
+	#error "vsprintf clang built-in not available"
 	// ic*cC*a
 	extern int vsprintf(...);
 #else
@@ -2909,7 +2903,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_vsnprintf)
-	#error \"vsnprintf clang built-in not available\"
+	#error "vsnprintf clang built-in not available"
 	// ic*zcC*a
 	extern int vsnprintf(...);
 #else
@@ -2917,7 +2911,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_eh_return)
-	#error \"eh_return clang built-in not available\"
+	#error "eh_return clang built-in not available"
 	// vzv*
 	extern void eh_return(...);
 #else
@@ -2925,7 +2919,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_frob_return_addr)
-	#error \"frob_return_addr clang built-in not available\"
+	#error "frob_return_addr clang built-in not available"
 	// v*v*
 	extern void * frob_return_addr(...);
 #else
@@ -2933,7 +2927,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_dwarf_cfa)
-	#error \"dwarf_cfa clang built-in not available\"
+	#error "dwarf_cfa clang built-in not available"
 	// v*
 	extern void * dwarf_cfa(...);
 #else
@@ -2941,7 +2935,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_init_dwarf_reg_size_table)
-	#error \"init_dwarf_reg_size_table clang built-in not available\"
+	#error "init_dwarf_reg_size_table clang built-in not available"
 	// vv*
 	extern void init_dwarf_reg_size_table(...);
 #else
@@ -2949,7 +2943,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_dwarf_sp_column)
-	#error \"dwarf_sp_column clang built-in not available\"
+	#error "dwarf_sp_column clang built-in not available"
 	// Ui
 	extern unsigned int dwarf_sp_column(...);
 #else
@@ -2957,7 +2951,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_extend_pointer)
-	#error \"extend_pointer clang built-in not available\"
+	#error "extend_pointer clang built-in not available"
 	// ULLiv*
 	extern unsigned long long int extend_pointer(...);
 #else
@@ -2965,7 +2959,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_object_size)
-	#error \"object_size clang built-in not available\"
+	#error "object_size clang built-in not available"
 	// zvC*i
 	extern size_t object_size(...);
 #else
@@ -2973,7 +2967,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___memcpy_chk)
-	#error \"__memcpy_chk clang built-in not available\"
+	#error "__memcpy_chk clang built-in not available"
 	// v*v*vC*zz
 	extern void * __memcpy_chk(...);
 #else
@@ -2981,7 +2975,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___memccpy_chk)
-	#error \"__memccpy_chk clang built-in not available\"
+	#error "__memccpy_chk clang built-in not available"
 	// v*v*vC*izz
 	extern void * __memccpy_chk(...);
 #else
@@ -2989,7 +2983,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___memmove_chk)
-	#error \"__memmove_chk clang built-in not available\"
+	#error "__memmove_chk clang built-in not available"
 	// v*v*vC*zz
 	extern void * __memmove_chk(...);
 #else
@@ -2997,7 +2991,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___mempcpy_chk)
-	#error \"__mempcpy_chk clang built-in not available\"
+	#error "__mempcpy_chk clang built-in not available"
 	// v*v*vC*zz
 	extern void * __mempcpy_chk(...);
 #else
@@ -3005,7 +2999,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___memset_chk)
-	#error \"__memset_chk clang built-in not available\"
+	#error "__memset_chk clang built-in not available"
 	// v*v*izz
 	extern void * __memset_chk(...);
 #else
@@ -3013,7 +3007,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___stpcpy_chk)
-	#error \"__stpcpy_chk clang built-in not available\"
+	#error "__stpcpy_chk clang built-in not available"
 	// c*c*cC*z
 	extern char * __stpcpy_chk(...);
 #else
@@ -3021,7 +3015,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___strcat_chk)
-	#error \"__strcat_chk clang built-in not available\"
+	#error "__strcat_chk clang built-in not available"
 	// c*c*cC*z
 	extern char * __strcat_chk(...);
 #else
@@ -3029,7 +3023,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___strcpy_chk)
-	#error \"__strcpy_chk clang built-in not available\"
+	#error "__strcpy_chk clang built-in not available"
 	// c*c*cC*z
 	extern char * __strcpy_chk(...);
 #else
@@ -3037,7 +3031,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___strlcat_chk)
-	#error \"__strlcat_chk clang built-in not available\"
+	#error "__strlcat_chk clang built-in not available"
 	// zc*cC*zz
 	extern size_t __strlcat_chk(...);
 #else
@@ -3045,7 +3039,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___strlcpy_chk)
-	#error \"__strlcpy_chk clang built-in not available\"
+	#error "__strlcpy_chk clang built-in not available"
 	// zc*cC*zz
 	extern size_t __strlcpy_chk(...);
 #else
@@ -3053,7 +3047,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___strncat_chk)
-	#error \"__strncat_chk clang built-in not available\"
+	#error "__strncat_chk clang built-in not available"
 	// c*c*cC*zz
 	extern char * __strncat_chk(...);
 #else
@@ -3061,7 +3055,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___strncpy_chk)
-	#error \"__strncpy_chk clang built-in not available\"
+	#error "__strncpy_chk clang built-in not available"
 	// c*c*cC*zz
 	extern char * __strncpy_chk(...);
 #else
@@ -3069,7 +3063,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___stpncpy_chk)
-	#error \"__stpncpy_chk clang built-in not available\"
+	#error "__stpncpy_chk clang built-in not available"
 	// c*c*cC*zz
 	extern char * __stpncpy_chk(...);
 #else
@@ -3077,7 +3071,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___snprintf_chk)
-	#error \"__snprintf_chk clang built-in not available\"
+	#error "__snprintf_chk clang built-in not available"
 	// ic*zizcC*.
 	extern int __snprintf_chk(...);
 #else
@@ -3085,7 +3079,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___sprintf_chk)
-	#error \"__sprintf_chk clang built-in not available\"
+	#error "__sprintf_chk clang built-in not available"
 	// ic*izcC*.
 	extern int __sprintf_chk(...);
 #else
@@ -3093,7 +3087,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___vsnprintf_chk)
-	#error \"__vsnprintf_chk clang built-in not available\"
+	#error "__vsnprintf_chk clang built-in not available"
 	// ic*zizcC*a
 	extern int __vsnprintf_chk(...);
 #else
@@ -3101,7 +3095,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___vsprintf_chk)
-	#error \"__vsprintf_chk clang built-in not available\"
+	#error "__vsprintf_chk clang built-in not available"
 	// ic*izcC*a
 	extern int __vsprintf_chk(...);
 #else
@@ -3109,7 +3103,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___fprintf_chk)
-	#error \"__fprintf_chk clang built-in not available\"
+	#error "__fprintf_chk clang built-in not available"
 	// iP*icC*.
 	extern int __fprintf_chk(...);
 #else
@@ -3117,7 +3111,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___printf_chk)
-	#error \"__printf_chk clang built-in not available\"
+	#error "__printf_chk clang built-in not available"
 	// iicC*.
 	extern int __printf_chk(...);
 #else
@@ -3125,7 +3119,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___vfprintf_chk)
-	#error \"__vfprintf_chk clang built-in not available\"
+	#error "__vfprintf_chk clang built-in not available"
 	// iP*icC*a
 	extern int __vfprintf_chk(...);
 #else
@@ -3133,7 +3127,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___vprintf_chk)
-	#error \"__vprintf_chk clang built-in not available\"
+	#error "__vprintf_chk clang built-in not available"
 	// iicC*a
 	extern int __vprintf_chk(...);
 #else
@@ -3141,7 +3135,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_expect)
-	#error \"expect clang built-in not available\"
+	#error "expect clang built-in not available"
 	// LiLiLi
 	extern long int expect(...);
 #else
@@ -3149,7 +3143,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_prefetch)
-	#error \"prefetch clang built-in not available\"
+	#error "prefetch clang built-in not available"
 	// vvC*.
 	extern void prefetch(...);
 #else
@@ -3157,7 +3151,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_readcyclecounter)
-	#error \"readcyclecounter clang built-in not available\"
+	#error "readcyclecounter clang built-in not available"
 	// ULLi
 	extern unsigned long long int readcyclecounter(...);
 #else
@@ -3165,7 +3159,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_trap)
-	#error \"trap clang built-in not available\"
+	#error "trap clang built-in not available"
 	// v
 	extern void trap(...);
 #else
@@ -3173,7 +3167,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_debugtrap)
-	#error \"debugtrap clang built-in not available\"
+	#error "debugtrap clang built-in not available"
 	// v
 	extern void debugtrap(...);
 #else
@@ -3181,7 +3175,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_unreachable)
-	#error \"unreachable clang built-in not available\"
+	#error "unreachable clang built-in not available"
 	// v
 	extern void unreachable(...);
 #else
@@ -3189,7 +3183,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_shufflevector)
-	#error \"shufflevector clang built-in not available\"
+	#error "shufflevector clang built-in not available"
 	// v.
 	extern void shufflevector(...);
 #else
@@ -3197,7 +3191,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_convertvector)
-	#error \"convertvector clang built-in not available\"
+	#error "convertvector clang built-in not available"
 	// v.
 	extern void convertvector(...);
 #else
@@ -3205,7 +3199,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_alloca)
-	#error \"alloca clang built-in not available\"
+	#error "alloca clang built-in not available"
 	// v*z
 	extern void * alloca(...);
 #else
@@ -3213,7 +3207,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_call_with_static_chain)
-	#error \"call_with_static_chain clang built-in not available\"
+	#error "call_with_static_chain clang built-in not available"
 	// v.
 	extern void call_with_static_chain(...);
 #else
@@ -3221,649 +3215,649 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__sync_fetch_and_add)
-	#error \"__sync_fetch_and_add clang built-in not available\"
+	#error "__sync_fetch_and_add clang built-in not available"
 	// v.
 	extern void __sync_fetch_and_add(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_add_1)
-	#error \"__sync_fetch_and_add_1 clang built-in not available\"
+	#error "__sync_fetch_and_add_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_fetch_and_add_1(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_add_2)
-	#error \"__sync_fetch_and_add_2 clang built-in not available\"
+	#error "__sync_fetch_and_add_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_fetch_and_add_2(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_add_4)
-	#error \"__sync_fetch_and_add_4 clang built-in not available\"
+	#error "__sync_fetch_and_add_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_fetch_and_add_4(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_add_8)
-	#error \"__sync_fetch_and_add_8 clang built-in not available\"
+	#error "__sync_fetch_and_add_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_fetch_and_add_8(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_add_16)
-	#error \"__sync_fetch_and_add_16 clang built-in not available\"
+	#error "__sync_fetch_and_add_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_fetch_and_add_16(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_sub)
-	#error \"__sync_fetch_and_sub clang built-in not available\"
+	#error "__sync_fetch_and_sub clang built-in not available"
 	// v.
 	extern void __sync_fetch_and_sub(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_sub_1)
-	#error \"__sync_fetch_and_sub_1 clang built-in not available\"
+	#error "__sync_fetch_and_sub_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_fetch_and_sub_1(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_sub_2)
-	#error \"__sync_fetch_and_sub_2 clang built-in not available\"
+	#error "__sync_fetch_and_sub_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_fetch_and_sub_2(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_sub_4)
-	#error \"__sync_fetch_and_sub_4 clang built-in not available\"
+	#error "__sync_fetch_and_sub_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_fetch_and_sub_4(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_sub_8)
-	#error \"__sync_fetch_and_sub_8 clang built-in not available\"
+	#error "__sync_fetch_and_sub_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_fetch_and_sub_8(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_sub_16)
-	#error \"__sync_fetch_and_sub_16 clang built-in not available\"
+	#error "__sync_fetch_and_sub_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_fetch_and_sub_16(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_or)
-	#error \"__sync_fetch_and_or clang built-in not available\"
+	#error "__sync_fetch_and_or clang built-in not available"
 	// v.
 	extern void __sync_fetch_and_or(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_or_1)
-	#error \"__sync_fetch_and_or_1 clang built-in not available\"
+	#error "__sync_fetch_and_or_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_fetch_and_or_1(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_or_2)
-	#error \"__sync_fetch_and_or_2 clang built-in not available\"
+	#error "__sync_fetch_and_or_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_fetch_and_or_2(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_or_4)
-	#error \"__sync_fetch_and_or_4 clang built-in not available\"
+	#error "__sync_fetch_and_or_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_fetch_and_or_4(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_or_8)
-	#error \"__sync_fetch_and_or_8 clang built-in not available\"
+	#error "__sync_fetch_and_or_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_fetch_and_or_8(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_or_16)
-	#error \"__sync_fetch_and_or_16 clang built-in not available\"
+	#error "__sync_fetch_and_or_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_fetch_and_or_16(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_and)
-	#error \"__sync_fetch_and_and clang built-in not available\"
+	#error "__sync_fetch_and_and clang built-in not available"
 	// v.
 	extern void __sync_fetch_and_and(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_and_1)
-	#error \"__sync_fetch_and_and_1 clang built-in not available\"
+	#error "__sync_fetch_and_and_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_fetch_and_and_1(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_and_2)
-	#error \"__sync_fetch_and_and_2 clang built-in not available\"
+	#error "__sync_fetch_and_and_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_fetch_and_and_2(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_and_4)
-	#error \"__sync_fetch_and_and_4 clang built-in not available\"
+	#error "__sync_fetch_and_and_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_fetch_and_and_4(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_and_8)
-	#error \"__sync_fetch_and_and_8 clang built-in not available\"
+	#error "__sync_fetch_and_and_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_fetch_and_and_8(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_and_16)
-	#error \"__sync_fetch_and_and_16 clang built-in not available\"
+	#error "__sync_fetch_and_and_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_fetch_and_and_16(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_xor)
-	#error \"__sync_fetch_and_xor clang built-in not available\"
+	#error "__sync_fetch_and_xor clang built-in not available"
 	// v.
 	extern void __sync_fetch_and_xor(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_xor_1)
-	#error \"__sync_fetch_and_xor_1 clang built-in not available\"
+	#error "__sync_fetch_and_xor_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_fetch_and_xor_1(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_xor_2)
-	#error \"__sync_fetch_and_xor_2 clang built-in not available\"
+	#error "__sync_fetch_and_xor_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_fetch_and_xor_2(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_xor_4)
-	#error \"__sync_fetch_and_xor_4 clang built-in not available\"
+	#error "__sync_fetch_and_xor_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_fetch_and_xor_4(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_xor_8)
-	#error \"__sync_fetch_and_xor_8 clang built-in not available\"
+	#error "__sync_fetch_and_xor_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_fetch_and_xor_8(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_xor_16)
-	#error \"__sync_fetch_and_xor_16 clang built-in not available\"
+	#error "__sync_fetch_and_xor_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_fetch_and_xor_16(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_nand)
-	#error \"__sync_fetch_and_nand clang built-in not available\"
+	#error "__sync_fetch_and_nand clang built-in not available"
 	// v.
 	extern void __sync_fetch_and_nand(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_nand_1)
-	#error \"__sync_fetch_and_nand_1 clang built-in not available\"
+	#error "__sync_fetch_and_nand_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_fetch_and_nand_1(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_nand_2)
-	#error \"__sync_fetch_and_nand_2 clang built-in not available\"
+	#error "__sync_fetch_and_nand_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_fetch_and_nand_2(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_nand_4)
-	#error \"__sync_fetch_and_nand_4 clang built-in not available\"
+	#error "__sync_fetch_and_nand_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_fetch_and_nand_4(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_nand_8)
-	#error \"__sync_fetch_and_nand_8 clang built-in not available\"
+	#error "__sync_fetch_and_nand_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_fetch_and_nand_8(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_nand_16)
-	#error \"__sync_fetch_and_nand_16 clang built-in not available\"
+	#error "__sync_fetch_and_nand_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_fetch_and_nand_16(...);
 #endif
 
 #if !__has_builtin(__sync_add_and_fetch)
-	#error \"__sync_add_and_fetch clang built-in not available\"
+	#error "__sync_add_and_fetch clang built-in not available"
 	// v.
 	extern void __sync_add_and_fetch(...);
 #endif
 
 #if !__has_builtin(__sync_add_and_fetch_1)
-	#error \"__sync_add_and_fetch_1 clang built-in not available\"
+	#error "__sync_add_and_fetch_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_add_and_fetch_1(...);
 #endif
 
 #if !__has_builtin(__sync_add_and_fetch_2)
-	#error \"__sync_add_and_fetch_2 clang built-in not available\"
+	#error "__sync_add_and_fetch_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_add_and_fetch_2(...);
 #endif
 
 #if !__has_builtin(__sync_add_and_fetch_4)
-	#error \"__sync_add_and_fetch_4 clang built-in not available\"
+	#error "__sync_add_and_fetch_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_add_and_fetch_4(...);
 #endif
 
 #if !__has_builtin(__sync_add_and_fetch_8)
-	#error \"__sync_add_and_fetch_8 clang built-in not available\"
+	#error "__sync_add_and_fetch_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_add_and_fetch_8(...);
 #endif
 
 #if !__has_builtin(__sync_add_and_fetch_16)
-	#error \"__sync_add_and_fetch_16 clang built-in not available\"
+	#error "__sync_add_and_fetch_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_add_and_fetch_16(...);
 #endif
 
 #if !__has_builtin(__sync_sub_and_fetch)
-	#error \"__sync_sub_and_fetch clang built-in not available\"
+	#error "__sync_sub_and_fetch clang built-in not available"
 	// v.
 	extern void __sync_sub_and_fetch(...);
 #endif
 
 #if !__has_builtin(__sync_sub_and_fetch_1)
-	#error \"__sync_sub_and_fetch_1 clang built-in not available\"
+	#error "__sync_sub_and_fetch_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_sub_and_fetch_1(...);
 #endif
 
 #if !__has_builtin(__sync_sub_and_fetch_2)
-	#error \"__sync_sub_and_fetch_2 clang built-in not available\"
+	#error "__sync_sub_and_fetch_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_sub_and_fetch_2(...);
 #endif
 
 #if !__has_builtin(__sync_sub_and_fetch_4)
-	#error \"__sync_sub_and_fetch_4 clang built-in not available\"
+	#error "__sync_sub_and_fetch_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_sub_and_fetch_4(...);
 #endif
 
 #if !__has_builtin(__sync_sub_and_fetch_8)
-	#error \"__sync_sub_and_fetch_8 clang built-in not available\"
+	#error "__sync_sub_and_fetch_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_sub_and_fetch_8(...);
 #endif
 
 #if !__has_builtin(__sync_sub_and_fetch_16)
-	#error \"__sync_sub_and_fetch_16 clang built-in not available\"
+	#error "__sync_sub_and_fetch_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_sub_and_fetch_16(...);
 #endif
 
 #if !__has_builtin(__sync_or_and_fetch)
-	#error \"__sync_or_and_fetch clang built-in not available\"
+	#error "__sync_or_and_fetch clang built-in not available"
 	// v.
 	extern void __sync_or_and_fetch(...);
 #endif
 
 #if !__has_builtin(__sync_or_and_fetch_1)
-	#error \"__sync_or_and_fetch_1 clang built-in not available\"
+	#error "__sync_or_and_fetch_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_or_and_fetch_1(...);
 #endif
 
 #if !__has_builtin(__sync_or_and_fetch_2)
-	#error \"__sync_or_and_fetch_2 clang built-in not available\"
+	#error "__sync_or_and_fetch_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_or_and_fetch_2(...);
 #endif
 
 #if !__has_builtin(__sync_or_and_fetch_4)
-	#error \"__sync_or_and_fetch_4 clang built-in not available\"
+	#error "__sync_or_and_fetch_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_or_and_fetch_4(...);
 #endif
 
 #if !__has_builtin(__sync_or_and_fetch_8)
-	#error \"__sync_or_and_fetch_8 clang built-in not available\"
+	#error "__sync_or_and_fetch_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_or_and_fetch_8(...);
 #endif
 
 #if !__has_builtin(__sync_or_and_fetch_16)
-	#error \"__sync_or_and_fetch_16 clang built-in not available\"
+	#error "__sync_or_and_fetch_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_or_and_fetch_16(...);
 #endif
 
 #if !__has_builtin(__sync_and_and_fetch)
-	#error \"__sync_and_and_fetch clang built-in not available\"
+	#error "__sync_and_and_fetch clang built-in not available"
 	// v.
 	extern void __sync_and_and_fetch(...);
 #endif
 
 #if !__has_builtin(__sync_and_and_fetch_1)
-	#error \"__sync_and_and_fetch_1 clang built-in not available\"
+	#error "__sync_and_and_fetch_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_and_and_fetch_1(...);
 #endif
 
 #if !__has_builtin(__sync_and_and_fetch_2)
-	#error \"__sync_and_and_fetch_2 clang built-in not available\"
+	#error "__sync_and_and_fetch_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_and_and_fetch_2(...);
 #endif
 
 #if !__has_builtin(__sync_and_and_fetch_4)
-	#error \"__sync_and_and_fetch_4 clang built-in not available\"
+	#error "__sync_and_and_fetch_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_and_and_fetch_4(...);
 #endif
 
 #if !__has_builtin(__sync_and_and_fetch_8)
-	#error \"__sync_and_and_fetch_8 clang built-in not available\"
+	#error "__sync_and_and_fetch_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_and_and_fetch_8(...);
 #endif
 
 #if !__has_builtin(__sync_and_and_fetch_16)
-	#error \"__sync_and_and_fetch_16 clang built-in not available\"
+	#error "__sync_and_and_fetch_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_and_and_fetch_16(...);
 #endif
 
 #if !__has_builtin(__sync_xor_and_fetch)
-	#error \"__sync_xor_and_fetch clang built-in not available\"
+	#error "__sync_xor_and_fetch clang built-in not available"
 	// v.
 	extern void __sync_xor_and_fetch(...);
 #endif
 
 #if !__has_builtin(__sync_xor_and_fetch_1)
-	#error \"__sync_xor_and_fetch_1 clang built-in not available\"
+	#error "__sync_xor_and_fetch_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_xor_and_fetch_1(...);
 #endif
 
 #if !__has_builtin(__sync_xor_and_fetch_2)
-	#error \"__sync_xor_and_fetch_2 clang built-in not available\"
+	#error "__sync_xor_and_fetch_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_xor_and_fetch_2(...);
 #endif
 
 #if !__has_builtin(__sync_xor_and_fetch_4)
-	#error \"__sync_xor_and_fetch_4 clang built-in not available\"
+	#error "__sync_xor_and_fetch_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_xor_and_fetch_4(...);
 #endif
 
 #if !__has_builtin(__sync_xor_and_fetch_8)
-	#error \"__sync_xor_and_fetch_8 clang built-in not available\"
+	#error "__sync_xor_and_fetch_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_xor_and_fetch_8(...);
 #endif
 
 #if !__has_builtin(__sync_xor_and_fetch_16)
-	#error \"__sync_xor_and_fetch_16 clang built-in not available\"
+	#error "__sync_xor_and_fetch_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_xor_and_fetch_16(...);
 #endif
 
 #if !__has_builtin(__sync_nand_and_fetch)
-	#error \"__sync_nand_and_fetch clang built-in not available\"
+	#error "__sync_nand_and_fetch clang built-in not available"
 	// v.
 	extern void __sync_nand_and_fetch(...);
 #endif
 
 #if !__has_builtin(__sync_nand_and_fetch_1)
-	#error \"__sync_nand_and_fetch_1 clang built-in not available\"
+	#error "__sync_nand_and_fetch_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_nand_and_fetch_1(...);
 #endif
 
 #if !__has_builtin(__sync_nand_and_fetch_2)
-	#error \"__sync_nand_and_fetch_2 clang built-in not available\"
+	#error "__sync_nand_and_fetch_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_nand_and_fetch_2(...);
 #endif
 
 #if !__has_builtin(__sync_nand_and_fetch_4)
-	#error \"__sync_nand_and_fetch_4 clang built-in not available\"
+	#error "__sync_nand_and_fetch_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_nand_and_fetch_4(...);
 #endif
 
 #if !__has_builtin(__sync_nand_and_fetch_8)
-	#error \"__sync_nand_and_fetch_8 clang built-in not available\"
+	#error "__sync_nand_and_fetch_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_nand_and_fetch_8(...);
 #endif
 
 #if !__has_builtin(__sync_nand_and_fetch_16)
-	#error \"__sync_nand_and_fetch_16 clang built-in not available\"
+	#error "__sync_nand_and_fetch_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_nand_and_fetch_16(...);
 #endif
 
 #if !__has_builtin(__sync_bool_compare_and_swap)
-	#error \"__sync_bool_compare_and_swap clang built-in not available\"
+	#error "__sync_bool_compare_and_swap clang built-in not available"
 	// v.
 	extern void __sync_bool_compare_and_swap(...);
 #endif
 
 #if !__has_builtin(__sync_bool_compare_and_swap_1)
-	#error \"__sync_bool_compare_and_swap_1 clang built-in not available\"
+	#error "__sync_bool_compare_and_swap_1 clang built-in not available"
 	// bcD*cc.
 	extern int __sync_bool_compare_and_swap_1(...);
 #endif
 
 #if !__has_builtin(__sync_bool_compare_and_swap_2)
-	#error \"__sync_bool_compare_and_swap_2 clang built-in not available\"
+	#error "__sync_bool_compare_and_swap_2 clang built-in not available"
 	// bsD*ss.
 	extern int __sync_bool_compare_and_swap_2(...);
 #endif
 
 #if !__has_builtin(__sync_bool_compare_and_swap_4)
-	#error \"__sync_bool_compare_and_swap_4 clang built-in not available\"
+	#error "__sync_bool_compare_and_swap_4 clang built-in not available"
 	// biD*ii.
 	extern int __sync_bool_compare_and_swap_4(...);
 #endif
 
 #if !__has_builtin(__sync_bool_compare_and_swap_8)
-	#error \"__sync_bool_compare_and_swap_8 clang built-in not available\"
+	#error "__sync_bool_compare_and_swap_8 clang built-in not available"
 	// bLLiD*LLiLLi.
 	extern int __sync_bool_compare_and_swap_8(...);
 #endif
 
 #if !__has_builtin(__sync_bool_compare_and_swap_16)
-	#error \"__sync_bool_compare_and_swap_16 clang built-in not available\"
+	#error "__sync_bool_compare_and_swap_16 clang built-in not available"
 	// bLLLiD*LLLiLLLi.
 	extern int __sync_bool_compare_and_swap_16(...);
 #endif
 
 #if !__has_builtin(__sync_val_compare_and_swap)
-	#error \"__sync_val_compare_and_swap clang built-in not available\"
+	#error "__sync_val_compare_and_swap clang built-in not available"
 	// v.
 	extern void __sync_val_compare_and_swap(...);
 #endif
 
 #if !__has_builtin(__sync_val_compare_and_swap_1)
-	#error \"__sync_val_compare_and_swap_1 clang built-in not available\"
+	#error "__sync_val_compare_and_swap_1 clang built-in not available"
 	// ccD*cc.
 	extern char __sync_val_compare_and_swap_1(...);
 #endif
 
 #if !__has_builtin(__sync_val_compare_and_swap_2)
-	#error \"__sync_val_compare_and_swap_2 clang built-in not available\"
+	#error "__sync_val_compare_and_swap_2 clang built-in not available"
 	// ssD*ss.
 	extern short __sync_val_compare_and_swap_2(...);
 #endif
 
 #if !__has_builtin(__sync_val_compare_and_swap_4)
-	#error \"__sync_val_compare_and_swap_4 clang built-in not available\"
+	#error "__sync_val_compare_and_swap_4 clang built-in not available"
 	// iiD*ii.
 	extern int __sync_val_compare_and_swap_4(...);
 #endif
 
 #if !__has_builtin(__sync_val_compare_and_swap_8)
-	#error \"__sync_val_compare_and_swap_8 clang built-in not available\"
+	#error "__sync_val_compare_and_swap_8 clang built-in not available"
 	// LLiLLiD*LLiLLi.
 	extern long long int __sync_val_compare_and_swap_8(...);
 #endif
 
 #if !__has_builtin(__sync_val_compare_and_swap_16)
-	#error \"__sync_val_compare_and_swap_16 clang built-in not available\"
+	#error "__sync_val_compare_and_swap_16 clang built-in not available"
 	// LLLiLLLiD*LLLiLLLi.
 	extern long long long int __sync_val_compare_and_swap_16(...);
 #endif
 
 #if !__has_builtin(__sync_lock_test_and_set)
-	#error \"__sync_lock_test_and_set clang built-in not available\"
+	#error "__sync_lock_test_and_set clang built-in not available"
 	// v.
 	extern void __sync_lock_test_and_set(...);
 #endif
 
 #if !__has_builtin(__sync_lock_test_and_set_1)
-	#error \"__sync_lock_test_and_set_1 clang built-in not available\"
+	#error "__sync_lock_test_and_set_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_lock_test_and_set_1(...);
 #endif
 
 #if !__has_builtin(__sync_lock_test_and_set_2)
-	#error \"__sync_lock_test_and_set_2 clang built-in not available\"
+	#error "__sync_lock_test_and_set_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_lock_test_and_set_2(...);
 #endif
 
 #if !__has_builtin(__sync_lock_test_and_set_4)
-	#error \"__sync_lock_test_and_set_4 clang built-in not available\"
+	#error "__sync_lock_test_and_set_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_lock_test_and_set_4(...);
 #endif
 
 #if !__has_builtin(__sync_lock_test_and_set_8)
-	#error \"__sync_lock_test_and_set_8 clang built-in not available\"
+	#error "__sync_lock_test_and_set_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_lock_test_and_set_8(...);
 #endif
 
 #if !__has_builtin(__sync_lock_test_and_set_16)
-	#error \"__sync_lock_test_and_set_16 clang built-in not available\"
+	#error "__sync_lock_test_and_set_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_lock_test_and_set_16(...);
 #endif
 
 #if !__has_builtin(__sync_lock_release)
-	#error \"__sync_lock_release clang built-in not available\"
+	#error "__sync_lock_release clang built-in not available"
 	// v.
 	extern void __sync_lock_release(...);
 #endif
 
 #if !__has_builtin(__sync_lock_release_1)
-	#error \"__sync_lock_release_1 clang built-in not available\"
+	#error "__sync_lock_release_1 clang built-in not available"
 	// vcD*.
 	extern void __sync_lock_release_1(...);
 #endif
 
 #if !__has_builtin(__sync_lock_release_2)
-	#error \"__sync_lock_release_2 clang built-in not available\"
+	#error "__sync_lock_release_2 clang built-in not available"
 	// vsD*.
 	extern void __sync_lock_release_2(...);
 #endif
 
 #if !__has_builtin(__sync_lock_release_4)
-	#error \"__sync_lock_release_4 clang built-in not available\"
+	#error "__sync_lock_release_4 clang built-in not available"
 	// viD*.
 	extern void __sync_lock_release_4(...);
 #endif
 
 #if !__has_builtin(__sync_lock_release_8)
-	#error \"__sync_lock_release_8 clang built-in not available\"
+	#error "__sync_lock_release_8 clang built-in not available"
 	// vLLiD*.
 	extern void __sync_lock_release_8(...);
 #endif
 
 #if !__has_builtin(__sync_lock_release_16)
-	#error \"__sync_lock_release_16 clang built-in not available\"
+	#error "__sync_lock_release_16 clang built-in not available"
 	// vLLLiD*.
 	extern void __sync_lock_release_16(...);
 #endif
 
 #if !__has_builtin(__sync_swap)
-	#error \"__sync_swap clang built-in not available\"
+	#error "__sync_swap clang built-in not available"
 	// v.
 	extern void __sync_swap(...);
 #endif
 
 #if !__has_builtin(__sync_swap_1)
-	#error \"__sync_swap_1 clang built-in not available\"
+	#error "__sync_swap_1 clang built-in not available"
 	// ccD*c.
 	extern char __sync_swap_1(...);
 #endif
 
 #if !__has_builtin(__sync_swap_2)
-	#error \"__sync_swap_2 clang built-in not available\"
+	#error "__sync_swap_2 clang built-in not available"
 	// ssD*s.
 	extern short __sync_swap_2(...);
 #endif
 
 #if !__has_builtin(__sync_swap_4)
-	#error \"__sync_swap_4 clang built-in not available\"
+	#error "__sync_swap_4 clang built-in not available"
 	// iiD*i.
 	extern int __sync_swap_4(...);
 #endif
 
 #if !__has_builtin(__sync_swap_8)
-	#error \"__sync_swap_8 clang built-in not available\"
+	#error "__sync_swap_8 clang built-in not available"
 	// LLiLLiD*LLi.
 	extern long long int __sync_swap_8(...);
 #endif
 
 #if !__has_builtin(__sync_swap_16)
-	#error \"__sync_swap_16 clang built-in not available\"
+	#error "__sync_swap_16 clang built-in not available"
 	// LLLiLLLiD*LLLi.
 	extern long long long int __sync_swap_16(...);
 #endif
 
 #if !__has_builtin(__sync_synchronize)
-	#error \"__sync_synchronize clang built-in not available\"
+	#error "__sync_synchronize clang built-in not available"
 	// v.
 	extern void __sync_synchronize(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_min)
-	#error \"__sync_fetch_and_min clang built-in not available\"
+	#error "__sync_fetch_and_min clang built-in not available"
 	// iiD*i
 	extern int __sync_fetch_and_min(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_max)
-	#error \"__sync_fetch_and_max clang built-in not available\"
+	#error "__sync_fetch_and_max clang built-in not available"
 	// iiD*i
 	extern int __sync_fetch_and_max(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_umin)
-	#error \"__sync_fetch_and_umin clang built-in not available\"
+	#error "__sync_fetch_and_umin clang built-in not available"
 	// UiUiD*Ui
 	extern unsigned int __sync_fetch_and_umin(...);
 #endif
 
 #if !__has_builtin(__sync_fetch_and_umax)
-	#error \"__sync_fetch_and_umax clang built-in not available\"
+	#error "__sync_fetch_and_umax clang built-in not available"
 	// UiUiD*Ui
 	extern unsigned int __sync_fetch_and_umax(...);
 #endif
 
 #if !__has_builtin(__builtin_abort)
-	#error \"abort clang built-in not available\"
+	#error "abort clang built-in not available"
 	// v
 	extern void abort(...);
 #else
@@ -3871,7 +3865,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_index)
-	#error \"index clang built-in not available\"
+	#error "index clang built-in not available"
 	// c*cC*i
 	extern char * index(...);
 #else
@@ -3879,7 +3873,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_rindex)
-	#error \"rindex clang built-in not available\"
+	#error "rindex clang built-in not available"
 	// c*cC*i
 	extern char * rindex(...);
 #else
@@ -3887,7 +3881,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_objc_memmove_collectable)
-	#error \"objc_memmove_collectable clang built-in not available\"
+	#error "objc_memmove_collectable clang built-in not available"
 	// v*v*vC*z
 	extern void * objc_memmove_collectable(...);
 #else
@@ -3895,7 +3889,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_annotation)
-	#error \"annotation clang built-in not available\"
+	#error "annotation clang built-in not available"
 	// v.
 	extern void annotation(...);
 #else
@@ -3903,7 +3897,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_assume)
-	#error \"assume clang built-in not available\"
+	#error "assume clang built-in not available"
 	// vb
 	extern void assume(...);
 #else
@@ -3911,7 +3905,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_addcb)
-	#error \"addcb clang built-in not available\"
+	#error "addcb clang built-in not available"
 	// UcUcCUcCUcCUc*
 	extern unsigned char addcb(...);
 #else
@@ -3919,7 +3913,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_addcs)
-	#error \"addcs clang built-in not available\"
+	#error "addcs clang built-in not available"
 	// UsUsCUsCUsCUs*
 	extern unsigned short addcs(...);
 #else
@@ -3927,7 +3921,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_addc)
-	#error \"addc clang built-in not available\"
+	#error "addc clang built-in not available"
 	// UiUiCUiCUiCUi*
 	extern unsigned int addc(...);
 #else
@@ -3935,7 +3929,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_addcl)
-	#error \"addcl clang built-in not available\"
+	#error "addcl clang built-in not available"
 	// ULiULiCULiCULiCULi*
 	extern unsigned long int addcl(...);
 #else
@@ -3943,7 +3937,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_addcll)
-	#error \"addcll clang built-in not available\"
+	#error "addcll clang built-in not available"
 	// ULLiULLiCULLiCULLiCULLi*
 	extern unsigned long long int addcll(...);
 #else
@@ -3951,7 +3945,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_subcb)
-	#error \"subcb clang built-in not available\"
+	#error "subcb clang built-in not available"
 	// UcUcCUcCUcCUc*
 	extern unsigned char subcb(...);
 #else
@@ -3959,7 +3953,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_subcs)
-	#error \"subcs clang built-in not available\"
+	#error "subcs clang built-in not available"
 	// UsUsCUsCUsCUs*
 	extern unsigned short subcs(...);
 #else
@@ -3967,7 +3961,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_subc)
-	#error \"subc clang built-in not available\"
+	#error "subc clang built-in not available"
 	// UiUiCUiCUiCUi*
 	extern unsigned int subc(...);
 #else
@@ -3975,7 +3969,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_subcl)
-	#error \"subcl clang built-in not available\"
+	#error "subcl clang built-in not available"
 	// ULiULiCULiCULiCULi*
 	extern unsigned long int subcl(...);
 #else
@@ -3983,7 +3977,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_subcll)
-	#error \"subcll clang built-in not available\"
+	#error "subcll clang built-in not available"
 	// ULLiULLiCULLiCULLiCULLi*
 	extern unsigned long long int subcll(...);
 #else
@@ -3991,7 +3985,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_uadd_overflow)
-	#error \"uadd_overflow clang built-in not available\"
+	#error "uadd_overflow clang built-in not available"
 	// bUiCUiCUi*
 	extern int uadd_overflow(...);
 #else
@@ -3999,7 +3993,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_uaddl_overflow)
-	#error \"uaddl_overflow clang built-in not available\"
+	#error "uaddl_overflow clang built-in not available"
 	// bULiCULiCULi*
 	extern int uaddl_overflow(...);
 #else
@@ -4007,7 +4001,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_uaddll_overflow)
-	#error \"uaddll_overflow clang built-in not available\"
+	#error "uaddll_overflow clang built-in not available"
 	// bULLiCULLiCULLi*
 	extern int uaddll_overflow(...);
 #else
@@ -4015,7 +4009,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_usub_overflow)
-	#error \"usub_overflow clang built-in not available\"
+	#error "usub_overflow clang built-in not available"
 	// bUiCUiCUi*
 	extern int usub_overflow(...);
 #else
@@ -4023,7 +4017,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_usubl_overflow)
-	#error \"usubl_overflow clang built-in not available\"
+	#error "usubl_overflow clang built-in not available"
 	// bULiCULiCULi*
 	extern int usubl_overflow(...);
 #else
@@ -4031,7 +4025,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_usubll_overflow)
-	#error \"usubll_overflow clang built-in not available\"
+	#error "usubll_overflow clang built-in not available"
 	// bULLiCULLiCULLi*
 	extern int usubll_overflow(...);
 #else
@@ -4039,7 +4033,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_umul_overflow)
-	#error \"umul_overflow clang built-in not available\"
+	#error "umul_overflow clang built-in not available"
 	// bUiCUiCUi*
 	extern int umul_overflow(...);
 #else
@@ -4047,7 +4041,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_umull_overflow)
-	#error \"umull_overflow clang built-in not available\"
+	#error "umull_overflow clang built-in not available"
 	// bULiCULiCULi*
 	extern int umull_overflow(...);
 #else
@@ -4055,7 +4049,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_umulll_overflow)
-	#error \"umulll_overflow clang built-in not available\"
+	#error "umulll_overflow clang built-in not available"
 	// bULLiCULLiCULLi*
 	extern int umulll_overflow(...);
 #else
@@ -4063,7 +4057,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_sadd_overflow)
-	#error \"sadd_overflow clang built-in not available\"
+	#error "sadd_overflow clang built-in not available"
 	// bSiCSiCSi*
 	extern int sadd_overflow(...);
 #else
@@ -4071,7 +4065,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_saddl_overflow)
-	#error \"saddl_overflow clang built-in not available\"
+	#error "saddl_overflow clang built-in not available"
 	// bSLiCSLiCSLi*
 	extern int saddl_overflow(...);
 #else
@@ -4079,7 +4073,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_saddll_overflow)
-	#error \"saddll_overflow clang built-in not available\"
+	#error "saddll_overflow clang built-in not available"
 	// bSLLiCSLLiCSLLi*
 	extern int saddll_overflow(...);
 #else
@@ -4087,7 +4081,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ssub_overflow)
-	#error \"ssub_overflow clang built-in not available\"
+	#error "ssub_overflow clang built-in not available"
 	// bSiCSiCSi*
 	extern int ssub_overflow(...);
 #else
@@ -4095,7 +4089,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ssubl_overflow)
-	#error \"ssubl_overflow clang built-in not available\"
+	#error "ssubl_overflow clang built-in not available"
 	// bSLiCSLiCSLi*
 	extern int ssubl_overflow(...);
 #else
@@ -4103,7 +4097,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_ssubll_overflow)
-	#error \"ssubll_overflow clang built-in not available\"
+	#error "ssubll_overflow clang built-in not available"
 	// bSLLiCSLLiCSLLi*
 	extern int ssubll_overflow(...);
 #else
@@ -4111,7 +4105,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_smul_overflow)
-	#error \"smul_overflow clang built-in not available\"
+	#error "smul_overflow clang built-in not available"
 	// bSiCSiCSi*
 	extern int smul_overflow(...);
 #else
@@ -4119,7 +4113,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_smull_overflow)
-	#error \"smull_overflow clang built-in not available\"
+	#error "smull_overflow clang built-in not available"
 	// bSLiCSLiCSLi*
 	extern int smull_overflow(...);
 #else
@@ -4127,7 +4121,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_smulll_overflow)
-	#error \"smulll_overflow clang built-in not available\"
+	#error "smulll_overflow clang built-in not available"
 	// bSLLiCSLLiCSLLi*
 	extern int smulll_overflow(...);
 #else
@@ -4135,7 +4129,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_addressof)
-	#error \"addressof clang built-in not available\"
+	#error "addressof clang built-in not available"
 	// v*v&
 	extern void * addressof(...);
 #else
@@ -4143,7 +4137,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_operator_new)
-	#error \"operator_new clang built-in not available\"
+	#error "operator_new clang built-in not available"
 	// v*z
 	extern void * operator_new(...);
 #else
@@ -4151,7 +4145,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin_operator_delete)
-	#error \"operator_delete clang built-in not available\"
+	#error "operator_delete clang built-in not available"
 	// vv*
 	extern void operator_delete(...);
 #else
@@ -4159,7 +4153,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___get_unsafe_stack_start)
-	#error \"__get_unsafe_stack_start clang built-in not available\"
+	#error "__get_unsafe_stack_start clang built-in not available"
 	// v*
 	extern void * __get_unsafe_stack_start(...);
 #else
@@ -4167,7 +4161,7 @@ typedef uint32_t uint4 __attribute__((ext_vector_type(4)));
 #endif
 
 #if !__has_builtin(__builtin___get_unsafe_stack_ptr)
-	#error \"__get_unsafe_stack_ptr clang built-in not available\"
+	#error "__get_unsafe_stack_ptr clang built-in not available"
 	// v*
 	extern void * __get_unsafe_stack_ptr(...);
 #else
