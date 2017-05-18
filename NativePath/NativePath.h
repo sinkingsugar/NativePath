@@ -40,6 +40,14 @@ THE SOFTWARE.
 #undef __APPLE__
 #endif
 
+#ifdef _WIN32
+#undef _WIN32
+#endif
+
+#ifndef RAND_MAX
+#define RAND_MAX 2147483647
+#endif
+
 //from clang lib/Headers/stdint.h
 
 typedef __INT64_TYPE__ int64_t;
