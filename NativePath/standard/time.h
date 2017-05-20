@@ -3,6 +3,10 @@
 
 #include "../NativePath.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 struct tm
 {
   int tm_sec;			/* Seconds.	[0-60] (1 leap second) */
@@ -32,5 +36,9 @@ extern char* ctime(const time_t* timer);
 extern tm*    gmtime(const time_t* timer);
 extern tm* localtime(const time_t* timer);
 extern size_t strftime(char* s, size_t maxsize, const char* format, const tm* timeptr);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -157,11 +157,9 @@ namespace std {
 }
 #endif
 
-typedef int npBool;
+#define restrict
 
-//utility
-#define tolower(__x__) __x__ //TODO
-#define toupper(__x__) __x__ //TODO
+typedef int npBool;
 
 //Vectors
 

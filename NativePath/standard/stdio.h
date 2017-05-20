@@ -20,6 +20,7 @@ typedef void FILE;
 #define stdin npGetStdin()
 #undef stdout
 #define stdout npGetStdout()
+
 #define npEOF -1
 #undef EOF
 #define EOF npEOF
@@ -88,6 +89,7 @@ extern void clearerr(FILE* stream);
 extern int feof(FILE* stream);
 extern int ferror(FILE* stream);
 extern void perror(const char* s);
+extern int	vasprintf(char **, const char *, va_list);
 
 #ifdef __cplusplus
 }

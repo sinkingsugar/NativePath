@@ -40,7 +40,7 @@ local exclude_dirs = {}
 local exclude_files = {}
 local directory = ""
 
-common_flags = "-ffast-math -fno-threadsafe-statics -nostdlibinc -nobuiltininc -nostdinc++ -Wno-macro-redefined -I.."..SLASH.."NativePath -I.."..SLASH.."NativePath"..SLASH.."standard"
+common_flags = "-ffast-math -fno-threadsafe-statics -nostdlibinc -nobuiltininc -nostdinc++ -Wno-macro-redefined -isystem.."..SLASH.."NativePath -isystem.."..SLASH.."NativePath"..SLASH.."standard"
 
 objs = {}
 cfiles = {}

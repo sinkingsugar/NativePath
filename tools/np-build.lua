@@ -42,15 +42,15 @@ function BuildLLVM32(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
 	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
-	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target i386-unknown-none "..cfile
+	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -v -c -emit-llvm -target i386-unknown-none "..cfile
 	local cmdLL = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".ll ".." -S -c -emit-llvm -target i386-unknown-none "..cfile
 	local cmdPP = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -E "..cfile.." > "..cfile..".pp"
 	if is_verbose == true then
 		print(cmd)
 	end
 	if os.execute(cmd) == 0 then table.insert(objs, cfile..".bc") end
-	os.execute(cmdLL)
-	os.execute(cmdPP)
+	--os.execute(cmdLL)
+	--os.execute(cmdPP)
 end
 
 function LinkLLVM32()
