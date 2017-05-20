@@ -7,6 +7,8 @@
 extern "C" {
 #endif
 
+typedef long int time_t;
+
 struct tm
 {
   int tm_sec;			/* Seconds.	[0-60] (1 leap second) */
@@ -23,6 +25,11 @@ struct tm
   const char *tm_zone;		/* Timezone abbreviation.  */
 };
 
+struct timespec {
+  time_t	tv_sec;		/* seconds */
+  long	tv_nsec;	/* nanoseconds */
+};
+
 typedef long int time_t;
 typedef long int clock_t;
 
@@ -36,6 +43,13 @@ extern char* ctime(const time_t* timer);
 extern tm*    gmtime(const time_t* timer);
 extern tm* localtime(const time_t* timer);
 extern size_t strftime(char* s, size_t maxsize, const char* format, const tm* timeptr);
+
+typedef int clockid_t;
+
+#define CLOCK_REALTIME (clockid_t)1
+#define CLOCK_MONOTONIC (clockid_t)4
+
+extern int clock_gettime(clockid_t clock_id, struct timespec *tp);
 
 #ifdef __cplusplus
 }

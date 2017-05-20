@@ -75,6 +75,8 @@ extern void npQsort(void *base, size_t nitems, size_t size, int (*compar)(const 
 
 extern int npRand();
 
+extern int posix_memalign(void **memptr, size_t alignment, size_t size);
+
 #ifdef __cplusplus
 }
 #endif

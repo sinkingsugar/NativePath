@@ -1,6 +1,8 @@
 #ifndef _LOCALE_H_
 #define _LOCALE_H_
 
+#include "stdlib.h"
+
 typedef struct __locale_struct
 {
   /* Note: LC_ALL is not a valid index into this array.  */
@@ -84,9 +86,23 @@ extern "C" {
 #endif
 
 extern locale_t uselocale(locale_t newloc);
+extern char* setlocale(int category, const char *locale);
 extern int __locale_mb_cur_max();
 extern struct lconv* localeconv(void);
+
 #define MB_CUR_MAX __locale_mb_cur_max()
+
+extern long long int strtoll_l (const char * __nptr, char ** __endptr, int __base, __locale_t __loc);
+extern unsigned long long int strtoull_l (const char * __nptr, char ** __endptr,int __base, __locale_t __loc);
+extern unsigned long long int strtoull_l (const char * __nptr, char ** __endptr, int __base, __locale_t __loc);
+extern double strtod_l (const char * __nptr, char ** __endptr, __locale_t __loc);
+extern float strtof_l (const char * __nptr, char ** __endptr, __locale_t __loc);
+extern long double strtold_l (const char * __nptr, char ** __endptr, __locale_t __loc);
+
+extern int isxdigit(int __c);
+extern int isdigit(int __c);
+extern int isxdigit_l(int __c, __locale_t __loc);
+extern int isdigit_l(int __c, __locale_t __loc);
 
 #ifdef __cplusplus
 }

@@ -1,18 +1,16 @@
 #ifndef stdio_h
 #define stdio_h
 
+typedef void fpos_t;
+typedef void FILE;
+
 #include "../NativePath.h"
 #include "stdarg.h"
 #include "wchar.h"
 
-//TODO more stdio stuff
-
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-typedef void fpos_t;
-typedef void FILE;
 
 #undef stderr
 #define stderr npGetStderr()
@@ -31,6 +29,8 @@ typedef void FILE;
 #define printf npPrintf
 #undef sprintf
 #define sprintf npSprintf
+#undef snprintf
+#define snprintf npSnprintf
 #undef fprintf
 #define fprintf npFprintf
 #undef vsnprintf
@@ -44,6 +44,7 @@ extern int npGetEof();
 extern int npFflush(FILE* file);
 extern int npPrintf(const char* format, ...);
 extern int npSprintf(char* buffer, const char* format, ...);
+extern int npSnprintf(char* buffer, size_t n, const char* format, ...);
 extern int npFprintf(FILE *stream, const char *format, ...);
 extern int npVsnprintf(char * s, size_t n, const char * format, va_list arg);
 
