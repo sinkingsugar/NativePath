@@ -81,4 +81,24 @@ extern int posix_memalign(void **memptr, size_t alignment, size_t size);
 }
 #endif
 
+#ifdef __cplusplus
+#undef abs
+#undef labs
+#undef llabs
+static inline int abs(int x)
+{
+    return __builtin_abs(x);
+}
+
+static inline long labs(long x)
+{
+    return __builtin_labs(x);
+}
+
+static inline long long llabs(long long x)
+{
+    return __builtin_llabs(x);
+}
+#endif
+
 #endif
