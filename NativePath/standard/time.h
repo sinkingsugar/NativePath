@@ -9,7 +9,7 @@ extern "C" {
 
 typedef long int time_t;
 
-struct tm
+typedef struct tm
 {
   int tm_sec;			/* Seconds.	[0-60] (1 leap second) */
   int tm_min;			/* Minutes.	[0-59] */
@@ -23,7 +23,7 @@ struct tm
 
   long int tm_gmtoff;		/* Seconds east of UTC.  */
   const char *tm_zone;		/* Timezone abbreviation.  */
-};
+} tm;
 
 struct timespec {
   time_t	tv_sec;		/* seconds */
@@ -40,7 +40,7 @@ extern time_t mktime(tm* timeptr);
 extern time_t time(time_t* timer);
 extern char* asctime(const tm* timeptr);
 extern char* ctime(const time_t* timer);
-extern tm*    gmtime(const time_t* timer);
+extern tm* gmtime(const time_t* timer);
 extern tm* localtime(const time_t* timer);
 extern size_t strftime(char* s, size_t maxsize, const char* format, const tm* timeptr);
 

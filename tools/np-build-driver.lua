@@ -41,6 +41,8 @@ local exclude_files = {}
 local directory = ""
 
 common_flags = "-ffast-math -fno-threadsafe-statics -nostdlibinc -nobuiltininc -nostdinc++ -Wno-macro-redefined -isystem.."..SLASH.."NativePath -isystem.."..SLASH.."NativePath"..SLASH.."standard"
+cpp_common_flags = " -std=c++1z -fno-rtti -fno-exceptions -I.."..SLASH.."NativePath"..SLASH.."standardpp -D_LIBCPP_NO_RTTI -D_LIBCPP_NO_EXCEPTIONS -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -D_LIBCPP_HAS_NO_THREADS"
+--cpp_common_flags = " -std=c++1z -fno-rtti -fno-exceptions -D_LIBCPP_NO_RTTI -D_LIBCPP_NO_EXCEPTIONS -D_LIBCPP_DISABLE_VISIBILITY_ANNOTATIONS -D_LIBCPP_HAS_NO_THREADS -DD_LIBCPP_BUILDING_LIBRARY"
 
 objs = {}
 cfiles = {}

@@ -41,7 +41,7 @@ end
 function BuildLLVM32(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -v -c -emit-llvm -target i386-unknown-none "..cfile
 	local cmdLL = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".ll ".." -S -c -emit-llvm -target i386-unknown-none "..cfile
 	local cmdPP = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -E "..cfile.." > "..cfile..".pp"
@@ -68,7 +68,7 @@ end
 function BuildLLVMarmv7(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
@@ -91,7 +91,7 @@ end
 function BuildLLVMarmv7s(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7s-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
@@ -114,7 +114,7 @@ end
 function BuildLLVMAArch64(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target aarch64-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
@@ -137,7 +137,7 @@ end
 function BuildLLVMarmv6(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC -mfloat-abi=hard -mfpu=vfp "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv6-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
@@ -160,7 +160,7 @@ end
 function BuildLLVM64(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target x86_64-unknown-none "..cfile
 	if is_verbose == true then
 		print(cmd)
@@ -185,7 +185,7 @@ end
 function BuildLLVMarmv7Appl(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7-apple-macho "..cfile
 	if is_verbose == true then
 		print(cmd)
@@ -208,7 +208,7 @@ end
 function BuildLLVMarmv7sAppl(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC -mfpu=neon -mfloat-abi=hard "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target armv7s-apple-macho "..cfile
 	if is_verbose == true then
 		print(cmd)
@@ -231,7 +231,7 @@ end
 function BuildLLVMAArch64Appl(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target arm64-apple-macho "..cfile
 	if is_verbose == true then
 		print(cmd)
@@ -254,7 +254,7 @@ end
 function BuildLLVM32Appl(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target i386-apple-darwin "..cfile
 	local cmdLL = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile.."-apple.ll ".." -S -c -emit-llvm -target i386-apple-darwin "..cfile
 	local cmdPP = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -E "..cfile.." > "..cfile..".pp"
@@ -281,7 +281,7 @@ end
 function BuildLLVM64Appl(cfile, isCpp)
 	local flags = ""
 	if debug then flags = debug_flags else flags = release_flags end
-	if isCpp then flags = flags.." -std=c++1z -fno-rtti -fno-exceptions" end
+	if isCpp then flags = flags..cpp_common_flags end
 	local cmd = "clang -DNP_LLVM_BC "..common_flags.." "..flags.." -o "..cfile..".bc ".." -c -emit-llvm -target x86_64-apple-macho "..cfile
 	if is_verbose == true then
 		print(cmd)
